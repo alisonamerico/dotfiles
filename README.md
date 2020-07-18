@@ -40,4 +40,4 @@
 
 ## ![Terminals](.images/terminals.png)
 
-### ![Rofi](.images/rofi.jpg)
+### ![Rofi](.images/rofi.png)
