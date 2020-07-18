@@ -1,0 +1,3652 @@
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+[1220:1220:0718/121427.549555:ERROR:edid_parser.cc(102)] Too short EDID data: manufacturer id
+[1220:1220:0718/121427.559239:ERROR:edid_parser.cc(102)] Too short EDID data: manufacturer id
+[1278:1278:0718/121428.222732:ERROR:vaapi_wrapper.cc(480)] vaInitialize failed: unknown libva error
+[1278:1278:0718/121428.462364:ERROR:sandbox_linux.cc(374)] InitializeSandbox() called with multiple threads in process gpu-process.
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+[1220:1547:0718/121434.484609:ERROR:object_proxy.cc(632)] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[1220:1547:0718/121434.485293:ERROR:object_proxy.cc(632)] Failed to call method: org.freedesktop.UPower.GetDisplayDevice: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[1220:1547:0718/121434.485925:ERROR:object_proxy.cc(632)] Failed to call method: org.freedesktop.UPower.EnumerateDevices: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+[1220:1255:0718/121435.362056:ERROR:rewards_service_impl.cc(191)] Failed to read file: /home/alison/.config/BraveSoftware/Brave-Browser/Default/ledger_state
+[1341:1341:0718/121435.362479:ERROR:ledger_impl.cc(122)] Failed to initialize wallet
+Failed to parse JSON adblock resources: EOF while parsing a value at line 1 column 0
+error 3: BadWindow (invalid Window parameter) request 15 minor 0 serial 9437
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ThunarThumbnailer: got 0 handle (Queue)
+ThunarThumbnailer: got 0 handle (Error or Ready)
+ThunarThumbnailer: got 0 handle (Error or Ready)
+ThunarThumbnailer: got 0 handle (Finished)
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+error: : cannot open
+error: : cannot open
+error: : cannot open
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+Invalid return value 0 for stream protocol
+Invalid return value 0 for stream protocol
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+[1220:1220:0718/122557.394449:ERROR:CONSOLE(1)] "[Shields]: Can't request shields panel data. Error: No tab url specified", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/out/brave_extension_background.bundle.js (1)
+[1220:1220:0718/122557.405035:ERROR:CONSOLE(1)] "[Shields]: Can't request shields panel data. Error: No tab url specified", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/out/brave_extension_background.bundle.js (1)
+[1220:1220:0718/122557.454982:ERROR:CONSOLE(0)] "Unchecked runtime.lastError: Cannot access contents of url "chrome://newtab/". Extension manifest must request permission to access this host.", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/_generated_background_page.html (0)
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+error 140: BadRegion request 138 minor 14 serial 1231423
+error 140: BadRegion request 138 minor 14 serial 1231492
+error 140: BadRegion request 138 minor 14 serial 1231561
+error 140: BadRegion request 138 minor 14 serial 1231630
+error 140: BadRegion request 138 minor 14 serial 1231699
+error 140: BadRegion request 138 minor 14 serial 1231760
+error 140: BadRegion request 138 minor 14 serial 1231829
+error 140: BadRegion request 138 minor 14 serial 1231890
+error 140: BadRegion request 138 minor 14 serial 1231959
+error 140: BadRegion request 138 minor 14 serial 1232028
+error 140: BadRegion request 138 minor 14 serial 1232089
+error 140: BadRegion request 138 minor 14 serial 1232145
+error 140: BadRegion request 138 minor 14 serial 1232214
+error 140: BadRegion request 138 minor 14 serial 1232283
+error 140: BadRegion request 138 minor 14 serial 1232352
+error 140: BadRegion request 138 minor 14 serial 1232421
+error 140: BadRegion request 138 minor 14 serial 1232490
+error 140: BadRegion request 138 minor 14 serial 1232559
+error 140: BadRegion request 138 minor 14 serial 1232615
+error 140: BadRegion request 138 minor 14 serial 1232684
+error 140: BadRegion request 138 minor 14 serial 1232740
+error 140: BadRegion request 138 minor 14 serial 1232809
+error 140: BadRegion request 138 minor 14 serial 1232878
+error 140: BadRegion request 138 minor 14 serial 1232934
+error 140: BadRegion request 138 minor 14 serial 1233003
+error 140: BadRegion request 138 minor 14 serial 1233064
+error 140: BadRegion request 138 minor 14 serial 1233133
+error 140: BadRegion request 138 minor 14 serial 1233202
+error 140: BadRegion request 138 minor 14 serial 1233258
+error 140: BadRegion request 138 minor 14 serial 1233327
+error 140: BadRegion request 138 minor 14 serial 1233396
+error 140: BadRegion request 138 minor 14 serial 1233465
+error 140: BadRegion request 138 minor 14 serial 1233521
+error 140: BadRegion request 138 minor 14 serial 1233590
+error 140: BadRegion request 138 minor 14 serial 1233646
+error 140: BadRegion request 138 minor 14 serial 1233715
+error 140: BadRegion request 138 minor 14 serial 1233784
+error 140: BadRegion request 138 minor 14 serial 1233840
+error 140: BadRegion request 138 minor 14 serial 1233909
+error 140: BadRegion request 138 minor 14 serial 1233978
+error 140: BadRegion request 138 minor 14 serial 1234047
+error 140: BadRegion request 138 minor 14 serial 1234116
+error 140: BadRegion request 138 minor 14 serial 1234172
+error 140: BadRegion request 138 minor 14 serial 1234241
+error 140: BadRegion request 138 minor 14 serial 1234310
+error 140: BadRegion request 138 minor 14 serial 1234379
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+error 140: BadRegion request 138 minor 14 serial 1383561
+error 140: BadRegion request 138 minor 14 serial 1383623
+error 140: BadRegion request 138 minor 14 serial 1383712
+error 140: BadRegion request 138 minor 14 serial 1383774
+error 140: BadRegion request 138 minor 14 serial 1383822
+error 140: BadRegion request 138 minor 14 serial 1383884
+error 140: BadRegion request 138 minor 14 serial 1383946
+error 140: BadRegion request 138 minor 14 serial 1384008
+error 140: BadRegion request 138 minor 14 serial 1384070
+error 140: BadRegion request 138 minor 14 serial 1384132
+error 140: BadRegion request 138 minor 14 serial 1384194
+error 140: BadRegion request 138 minor 14 serial 1384256
+error 140: BadRegion request 138 minor 14 serial 1384318
+error 140: BadRegion request 138 minor 14 serial 1384380
+error 140: BadRegion request 138 minor 14 serial 1384442
+error 140: BadRegion request 138 minor 14 serial 1384504
+error 140: BadRegion request 138 minor 14 serial 1384552
+error 140: BadRegion request 138 minor 14 serial 1384614
+error 140: BadRegion request 138 minor 14 serial 1384676
+error 140: BadRegion request 138 minor 14 serial 1384724
+error 140: BadRegion request 138 minor 14 serial 1384786
+error 140: BadRegion request 138 minor 14 serial 1384848
+
+ERROR: NVIDIA driver is not loaded
+
+
+error 140: BadRegion request 138 minor 14 serial 1384910
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+error 140: BadRegion request 138 minor 14 serial 1384972
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+error 140: BadRegion request 138 minor 14 serial 1385060
+error 140: BadRegion request 138 minor 14 serial 1385122
+error 140: BadRegion request 138 minor 14 serial 1385170
+error 140: BadRegion request 138 minor 14 serial 1385223
+error 140: BadRegion request 138 minor 14 serial 1385271
+error 140: BadRegion request 138 minor 14 serial 1385333
+error 140: BadRegion request 138 minor 14 serial 1385395
+error 140: BadRegion request 138 minor 14 serial 1385457
+error 140: BadRegion request 138 minor 14 serial 1385505
+error 140: BadRegion request 138 minor 14 serial 1385567
+error 140: BadRegion request 138 minor 14 serial 1385629
+error 140: BadRegion request 138 minor 14 serial 1385691
+error 140: BadRegion request 138 minor 14 serial 1385739
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+error 140: BadRegion request 138 minor 14 serial 3032273
+error 140: BadRegion request 138 minor 14 serial 3032328
+error 140: BadRegion request 138 minor 14 serial 3032383
+error 140: BadRegion request 138 minor 14 serial 3032438
+error 140: BadRegion request 138 minor 14 serial 3032493
+error 140: BadRegion request 138 minor 14 serial 3032548
+error 140: BadRegion request 138 minor 14 serial 3032603
+error 140: BadRegion request 138 minor 14 serial 3032658
+error 140: BadRegion request 138 minor 14 serial 3032713
+error 140: BadRegion request 138 minor 14 serial 3032768
+error 140: BadRegion request 138 minor 14 serial 3032823
+error 140: BadRegion request 138 minor 14 serial 3032878
+error 140: BadRegion request 138 minor 14 serial 3032933
+error 140: BadRegion request 138 minor 14 serial 3032988
+error 140: BadRegion request 138 minor 14 serial 3033043
+error 140: BadRegion request 138 minor 14 serial 3033098
+error 140: BadRegion request 138 minor 14 serial 3033153
+error 140: BadRegion request 138 minor 14 serial 3033208
+error 140: BadRegion request 138 minor 14 serial 3033248
+error 140: BadRegion request 138 minor 14 serial 3033303
+error 140: BadRegion request 138 minor 14 serial 3033358
+error 140: BadRegion request 138 minor 14 serial 3033413
+error 140: BadRegion request 138 minor 14 serial 3033468
+error 140: BadRegion request 138 minor 14 serial 3033523
+error 140: BadRegion request 138 minor 14 serial 3033578
+error 140: BadRegion request 138 minor 14 serial 3033633
+error 140: BadRegion request 138 minor 14 serial 3033688
+error 140: BadRegion request 138 minor 14 serial 3033743
+error 140: BadRegion request 138 minor 14 serial 3033798
+error 140: BadRegion request 138 minor 14 serial 3033838
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ThunarThumbnailer: got 0 handle (Queue)
+ThunarThumbnailer: got 0 handle (Error or Ready)
+ThunarThumbnailer: got 0 handle (Finished)
+ERROR: Can't get value of subfeature temp4_input: Can't read
+error 9: BadDrawable (invalid Pixmap or Window parameter) request 143 minor 1 serial 3131664
+error 3: BadWindow (invalid Window parameter) request 129 minor 6 serial 3131665
+error 3: BadWindow (invalid Window parameter) request 20 minor 0 serial 3131666
+error 3: BadWindow (invalid Window parameter) request 15 minor 0 serial 3131667
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+error 140: BadRegion request 138 minor 14 serial 3143310
+error 140: BadRegion request 138 minor 14 serial 3143372
+error 140: BadRegion request 138 minor 14 serial 3143434
+error 140: BadRegion request 138 minor 14 serial 3143482
+error 140: BadRegion request 138 minor 14 serial 3143544
+error 140: BadRegion request 138 minor 14 serial 3143606
+error 140: BadRegion request 138 minor 14 serial 3143668
+error 140: BadRegion request 138 minor 14 serial 3143730
+error 140: BadRegion request 138 minor 14 serial 3143792
+error 140: BadRegion request 138 minor 14 serial 3143840
+error 140: BadRegion request 138 minor 14 serial 3143902
+error 140: BadRegion request 138 minor 14 serial 3143964
+error 140: BadRegion request 138 minor 14 serial 3144012
+error 140: BadRegion request 138 minor 14 serial 3144074
+error 140: BadRegion request 138 minor 14 serial 3144122
+error 140: BadRegion request 138 minor 14 serial 3144184
+error 140: BadRegion request 138 minor 14 serial 3144246
+error 140: BadRegion request 138 minor 14 serial 3144308
+error 140: BadRegion request 138 minor 14 serial 3144370
+error 140: BadRegion request 138 minor 14 serial 3144432
+error 140: BadRegion request 138 minor 14 serial 3144494
+error 140: BadRegion request 138 minor 14 serial 3144556
+error 140: BadRegion request 138 minor 14 serial 3144618
+error 140: BadRegion request 138 minor 14 serial 3144680
+error 140: BadRegion request 138 minor 14 serial 3144728
+error 140: BadRegion request 138 minor 14 serial 3144790
+error 140: BadRegion request 138 minor 14 serial 3144852
+error 140: BadRegion request 138 minor 14 serial 3144914
+error 140: BadRegion request 138 minor 14 serial 3144976
+error 140: BadRegion request 138 minor 14 serial 3145038
+error 140: BadRegion request 138 minor 14 serial 3145100
+error 140: BadRegion request 138 minor 14 serial 3145148
+error 140: BadRegion request 138 minor 14 serial 3145210
+error 140: BadRegion request 138 minor 14 serial 3145272
+error 140: BadRegion request 138 minor 14 serial 3145334
+error 140: BadRegion request 138 minor 14 serial 3145396
+error 140: BadRegion request 138 minor 14 serial 3145444
+error 140: BadRegion request 138 minor 14 serial 3145506
+error 140: BadRegion request 138 minor 14 serial 3145568
+error 140: BadRegion request 138 minor 14 serial 3145630
+error 140: BadRegion request 138 minor 14 serial 3145678
+error 140: BadRegion request 138 minor 14 serial 3145740
+error 140: BadRegion request 138 minor 14 serial 3145802
+error 140: BadRegion request 138 minor 14 serial 3145850
+error 140: BadRegion request 138 minor 14 serial 3145912
+error 140: BadRegion request 138 minor 14 serial 3145974
+error 140: BadRegion request 138 minor 14 serial 3146036
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+[1220:1220:0718/123849.300023:ERROR:CONSOLE(1)] "[Shields]: Can't request shields panel data. Error: No tab url specified", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/out/brave_extension_background.bundle.js (1)
+[1220:1220:0718/123849.305702:ERROR:CONSOLE(1)] "[Shields]: Can't request shields panel data. Error: No tab url specified", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/out/brave_extension_background.bundle.js (1)
+[1220:1220:0718/123849.370606:ERROR:CONSOLE(0)] "Unchecked runtime.lastError: Cannot access contents of url "chrome://newtab/". Extension manifest must request permission to access this host.", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/_generated_background_page.html (0)
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+error 140: BadRegion request 138 minor 14 serial 3254596
+error 140: BadRegion request 138 minor 14 serial 3254656
+error 140: BadRegion request 138 minor 14 serial 3254716
+error 140: BadRegion request 138 minor 14 serial 3254776
+error 140: BadRegion request 138 minor 14 serial 3254836
+error 140: BadRegion request 138 minor 14 serial 3254884
+error 140: BadRegion request 138 minor 14 serial 3254944
+error 140: BadRegion request 138 minor 14 serial 3255004
+error 140: BadRegion request 138 minor 14 serial 3255052
+error 140: BadRegion request 138 minor 14 serial 3255112
+error 140: BadRegion request 138 minor 14 serial 3255172
+error 140: BadRegion request 138 minor 14 serial 3255232
+error 140: BadRegion request 138 minor 14 serial 3255292
+error 140: BadRegion request 138 minor 14 serial 3255352
+error 140: BadRegion request 138 minor 14 serial 3255400
+error 140: BadRegion request 138 minor 14 serial 3255460
+error 140: BadRegion request 138 minor 14 serial 3255508
+error 140: BadRegion request 138 minor 14 serial 3255568
+error 140: BadRegion request 138 minor 14 serial 3255628
+error 140: BadRegion request 138 minor 14 serial 3255688
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+[1220:1220:0718/123931.767696:ERROR:CONSOLE(1)] "[Shields]: Can't request shields panel data. Error: No tab url specified", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/out/brave_extension_background.bundle.js (1)
+[1220:1220:0718/123931.773334:ERROR:CONSOLE(1)] "[Shields]: Can't request shields panel data. Error: No tab url specified", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/out/brave_extension_background.bundle.js (1)
+[1220:1220:0718/123931.873170:ERROR:CONSOLE(0)] "Unchecked runtime.lastError: Cannot access contents of url "chrome://newtab/". Extension manifest must request permission to access this host.", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/_generated_background_page.html (0)
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+error 140: BadRegion request 138 minor 14 serial 3416748
+error 140: BadRegion request 138 minor 14 serial 3416808
+error 140: BadRegion request 138 minor 14 serial 3416868
+error 140: BadRegion request 138 minor 14 serial 3416928
+error 140: BadRegion request 138 minor 14 serial 3416988
+error 140: BadRegion request 138 minor 14 serial 3417048
+error 140: BadRegion request 138 minor 14 serial 3417108
+error 140: BadRegion request 138 minor 14 serial 3417168
+error 140: BadRegion request 138 minor 14 serial 3417228
+error 140: BadRegion request 138 minor 14 serial 3417288
+error 140: BadRegion request 138 minor 14 serial 3417348
+error 140: BadRegion request 138 minor 14 serial 3417408
+error 140: BadRegion request 138 minor 14 serial 3417468
+error 140: BadRegion request 138 minor 14 serial 3417528
+error 140: BadRegion request 138 minor 14 serial 3417588
+error 140: BadRegion request 138 minor 14 serial 3417648
+error 140: BadRegion request 138 minor 14 serial 3417708
+error 140: BadRegion request 138 minor 14 serial 3417768
+error 140: BadRegion request 138 minor 14 serial 3417828
+error 140: BadRegion request 138 minor 14 serial 3417888
+error 140: BadRegion request 138 minor 14 serial 3417948
+error 140: BadRegion request 138 minor 14 serial 3418008
+error 140: BadRegion request 138 minor 14 serial 3418068
+error 140: BadRegion request 138 minor 14 serial 3418128
+error 140: BadRegion request 138 minor 14 serial 3418176
+error 140: BadRegion request 138 minor 14 serial 3418236
+error 140: BadRegion request 138 minor 14 serial 3418296
+error 140: BadRegion request 138 minor 14 serial 3418356
+error 140: BadRegion request 138 minor 14 serial 3418404
+error 140: BadRegion request 138 minor 14 serial 3418464
+error 140: BadRegion request 138 minor 14 serial 3418524
+error 140: BadRegion request 138 minor 14 serial 3418584
+error 140: BadRegion request 138 minor 14 serial 3418644
+error 140: BadRegion request 138 minor 14 serial 3418704
+error 140: BadRegion request 138 minor 14 serial 3418752
+error 140: BadRegion request 138 minor 14 serial 3418812
+error 140: BadRegion request 138 minor 14 serial 3418872
+error 140: BadRegion request 138 minor 14 serial 3418932
+error 140: BadRegion request 138 minor 14 serial 3418992
+error 140: BadRegion request 138 minor 14 serial 3419040
+error 140: BadRegion request 138 minor 14 serial 3419100
+error 140: BadRegion request 138 minor 14 serial 3419160
+error 140: BadRegion request 138 minor 14 serial 3419220
+error 140: BadRegion request 138 minor 14 serial 3419280
+error 140: BadRegion request 138 minor 14 serial 3419340
+error 140: BadRegion request 138 minor 14 serial 3419388
+error 140: BadRegion request 138 minor 14 serial 3419448
+error 140: BadRegion request 138 minor 14 serial 3419508
+error 140: BadRegion request 138 minor 14 serial 3419568
+error 140: BadRegion request 138 minor 14 serial 3419628
+error 140: BadRegion request 138 minor 14 serial 3419688
+error 140: BadRegion request 138 minor 14 serial 3419736
+error 140: BadRegion request 138 minor 14 serial 3419796
+error 140: BadRegion request 138 minor 14 serial 3419856
+error 140: BadRegion request 138 minor 14 serial 3419916
+error 140: BadRegion request 138 minor 14 serial 3419976
+error 140: BadRegion request 138 minor 14 serial 3420036
+error 140: BadRegion request 138 minor 14 serial 3420096
+error 140: BadRegion request 138 minor 14 serial 3420156
+error 140: BadRegion request 138 minor 14 serial 3420216
+error 140: BadRegion request 138 minor 14 serial 3420264
+error 140: BadRegion request 138 minor 14 serial 3420324
+error 140: BadRegion request 138 minor 14 serial 3420384
+error 140: BadRegion request 138 minor 14 serial 3420444
+error 140: BadRegion request 138 minor 14 serial 3420504
+error 140: BadRegion request 138 minor 14 serial 3420564
+error 140: BadRegion request 138 minor 14 serial 3420612
+error 140: BadRegion request 138 minor 14 serial 3420672
+error 140: BadRegion request 138 minor 14 serial 3420732
+ERROR: Can't get value of subfeature temp4_input: Can't read
+error 9: BadDrawable (invalid Pixmap or Window parameter) request 143 minor 1 serial 3423487
+error 3: BadWindow (invalid Window parameter) request 129 minor 6 serial 3423488
+error 3: BadWindow (invalid Window parameter) request 20 minor 0 serial 3423489
+error 3: BadWindow (invalid Window parameter) request 15 minor 0 serial 3423490
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+error 140: BadRegion request 138 minor 14 serial 3637991
+error 140: BadRegion request 138 minor 14 serial 3638142
+error 140: BadRegion request 138 minor 14 serial 3638205
+error 140: BadRegion request 138 minor 14 serial 3638286
+error 140: BadRegion request 138 minor 14 serial 3638296
+error 140: BadRegion request 138 minor 14 serial 3638378
+error 140: BadRegion request 138 minor 14 serial 3638388
+error 140: BadRegion request 138 minor 14 serial 3638470
+error 140: BadRegion request 138 minor 14 serial 3638480
+error 140: BadRegion request 138 minor 14 serial 3638537
+error 140: BadRegion request 138 minor 14 serial 3638543
+error 140: BadRegion request 138 minor 14 serial 3638625
+error 140: BadRegion request 138 minor 14 serial 3638635
+error 140: BadRegion request 138 minor 14 serial 3638717
+error 140: BadRegion request 138 minor 14 serial 3638727
+error 140: BadRegion request 138 minor 14 serial 3638809
+error 140: BadRegion request 138 minor 14 serial 3638819
+error 140: BadRegion request 138 minor 14 serial 3638901
+error 140: BadRegion request 138 minor 14 serial 3638911
+error 140: BadRegion request 138 minor 14 serial 3638993
+error 140: BadRegion request 138 minor 14 serial 3639003
+error 140: BadRegion request 138 minor 14 serial 3639085
+error 140: BadRegion request 138 minor 14 serial 3639095
+error 140: BadRegion request 138 minor 14 serial 3639177
+error 140: BadRegion request 138 minor 14 serial 3639187
+error 140: BadRegion request 138 minor 14 serial 3639269
+error 140: BadRegion request 138 minor 14 serial 3639279
+error 140: BadRegion request 138 minor 14 serial 3639361
+error 140: BadRegion request 138 minor 14 serial 3639371
+error 140: BadRegion request 138 minor 14 serial 3639453
+error 140: BadRegion request 138 minor 14 serial 3639463
+error 140: BadRegion request 138 minor 14 serial 3639525
+error 140: BadRegion request 138 minor 14 serial 3639531
+error 140: BadRegion request 138 minor 14 serial 3639613
+error 140: BadRegion request 138 minor 14 serial 3639623
+error 140: BadRegion request 138 minor 14 serial 3639705
+error 140: BadRegion request 138 minor 14 serial 3639715
+error 140: BadRegion request 138 minor 14 serial 3639797
+error 140: BadRegion request 138 minor 14 serial 3639807
+error 140: BadRegion request 138 minor 14 serial 3639889
+error 140: BadRegion request 138 minor 14 serial 3639899
+error 140: BadRegion request 138 minor 14 serial 3639981
+error 140: BadRegion request 138 minor 14 serial 3639991
+error 140: BadRegion request 138 minor 14 serial 3640073
+error 140: BadRegion request 138 minor 14 serial 3640083
+error 140: BadRegion request 138 minor 14 serial 3640165
+error 140: BadRegion request 138 minor 14 serial 3640175
+error 140: BadRegion request 138 minor 14 serial 3640257
+error 140: BadRegion request 138 minor 14 serial 3640267
+error 140: BadRegion request 138 minor 14 serial 3640324
+error 140: BadRegion request 138 minor 14 serial 3640330
+error 140: BadRegion request 138 minor 14 serial 3640412
+error 140: BadRegion request 138 minor 14 serial 3640422
+error 140: BadRegion request 138 minor 14 serial 3640504
+error 140: BadRegion request 138 minor 14 serial 3640514
+error 140: BadRegion request 138 minor 14 serial 3640596
+error 140: BadRegion request 138 minor 14 serial 3640606
+error 140: BadRegion request 138 minor 14 serial 3640688
+error 140: BadRegion request 138 minor 14 serial 3640698
+error 140: BadRegion request 138 minor 14 serial 3640760
+error 140: BadRegion request 138 minor 14 serial 3640766
+error 140: BadRegion request 138 minor 14 serial 3640848
+error 140: BadRegion request 138 minor 14 serial 3640858
+error 140: BadRegion request 138 minor 14 serial 3640940
+error 140: BadRegion request 138 minor 14 serial 3640950
+error 140: BadRegion request 138 minor 14 serial 3641007
+error 140: BadRegion request 138 minor 14 serial 3641013
+error 140: BadRegion request 138 minor 14 serial 3641095
+error 140: BadRegion request 138 minor 14 serial 3641105
+error 140: BadRegion request 138 minor 14 serial 3641187
+error 140: BadRegion request 138 minor 14 serial 3641197
+error 140: BadRegion request 138 minor 14 serial 3641279
+error 140: BadRegion request 138 minor 14 serial 3641289
+error 140: BadRegion request 138 minor 14 serial 3641346
+error 140: BadRegion request 138 minor 14 serial 3641352
+error 140: BadRegion request 138 minor 14 serial 3641434
+error 140: BadRegion request 138 minor 14 serial 3641444
+error 140: BadRegion request 138 minor 14 serial 3641526
+error 140: BadRegion request 138 minor 14 serial 3641536
+error 140: BadRegion request 138 minor 14 serial 3641618
+error 140: BadRegion request 138 minor 14 serial 3641628
+error 140: BadRegion request 138 minor 14 serial 3641710
+error 140: BadRegion request 138 minor 14 serial 3641720
+error 140: BadRegion request 138 minor 14 serial 3641802
+error 140: BadRegion request 138 minor 14 serial 3641812
+error 140: BadRegion request 138 minor 14 serial 3641894
+error 140: BadRegion request 138 minor 14 serial 3641904
+error 140: BadRegion request 138 minor 14 serial 3641961
+error 140: BadRegion request 138 minor 14 serial 3641967
+error 140: BadRegion request 138 minor 14 serial 3642049
+error 140: BadRegion request 138 minor 14 serial 3642059
+error 140: BadRegion request 138 minor 14 serial 3642141
+error 140: BadRegion request 138 minor 14 serial 3642151
+error 140: BadRegion request 138 minor 14 serial 3642233
+error 140: BadRegion request 138 minor 14 serial 3642243
+error 140: BadRegion request 138 minor 14 serial 3642325
+error 140: BadRegion request 138 minor 14 serial 3642335
+error 140: BadRegion request 138 minor 14 serial 3642417
+error 140: BadRegion request 138 minor 14 serial 3642427
+error 140: BadRegion request 138 minor 14 serial 3642509
+error 140: BadRegion request 138 minor 14 serial 3642519
+error 140: BadRegion request 138 minor 14 serial 3642601
+error 140: BadRegion request 138 minor 14 serial 3642611
+error 140: BadRegion request 138 minor 14 serial 3642668
+error 140: BadRegion request 138 minor 14 serial 3642674
+error 140: BadRegion request 138 minor 14 serial 3642756
+error 140: BadRegion request 138 minor 14 serial 3642766
+error 140: BadRegion request 138 minor 14 serial 3642848
+error 140: BadRegion request 138 minor 14 serial 3642858
+error 140: BadRegion request 138 minor 14 serial 3642940
+error 140: BadRegion request 138 minor 14 serial 3642950
+error 140: BadRegion request 138 minor 14 serial 3643032
+error 140: BadRegion request 138 minor 14 serial 3643042
+error 140: BadRegion request 138 minor 14 serial 3643124
+error 140: BadRegion request 138 minor 14 serial 3643134
+error 140: BadRegion request 138 minor 14 serial 3643216
+error 140: BadRegion request 138 minor 14 serial 3643226
+error 140: BadRegion request 138 minor 14 serial 3643308
+error 140: BadRegion request 138 minor 14 serial 3643318
+error 140: BadRegion request 138 minor 14 serial 3643375
+error 140: BadRegion request 138 minor 14 serial 3643381
+error 140: BadRegion request 138 minor 14 serial 3643463
+error 140: BadRegion request 138 minor 14 serial 3643473
+error 140: BadRegion request 138 minor 14 serial 3643555
+error 140: BadRegion request 138 minor 14 serial 3643565
+error 140: BadRegion request 138 minor 14 serial 3643647
+error 140: BadRegion request 138 minor 14 serial 3643657
+error 140: BadRegion request 138 minor 14 serial 3643739
+error 140: BadRegion request 138 minor 14 serial 3643749
+error 140: BadRegion request 138 minor 14 serial 3643831
+error 140: BadRegion request 138 minor 14 serial 3643841
+error 140: BadRegion request 138 minor 14 serial 3643923
+error 140: BadRegion request 138 minor 14 serial 3643933
+error 140: BadRegion request 138 minor 14 serial 3644015
+error 140: BadRegion request 138 minor 14 serial 3644025
+error 140: BadRegion request 138 minor 14 serial 3644082
+error 140: BadRegion request 138 minor 14 serial 3644088
+error 140: BadRegion request 138 minor 14 serial 3644170
+error 140: BadRegion request 138 minor 14 serial 3644180
+error 140: BadRegion request 138 minor 14 serial 3644262
+error 140: BadRegion request 138 minor 14 serial 3644272
+error 140: BadRegion request 138 minor 14 serial 3644354
+error 140: BadRegion request 138 minor 14 serial 3644364
+error 140: BadRegion request 138 minor 14 serial 3644446
+error 140: BadRegion request 138 minor 14 serial 3644456
+error 140: BadRegion request 138 minor 14 serial 3644538
+error 140: BadRegion request 138 minor 14 serial 3644548
+error 140: BadRegion request 138 minor 14 serial 3644630
+error 140: BadRegion request 138 minor 14 serial 3644640
+error 140: BadRegion request 138 minor 14 serial 3644722
+error 140: BadRegion request 138 minor 14 serial 3644732
+error 140: BadRegion request 138 minor 14 serial 3644789
+error 140: BadRegion request 138 minor 14 serial 3644795
+error 140: BadRegion request 138 minor 14 serial 3644877
+error 140: BadRegion request 138 minor 14 serial 3644887
+error 140: BadRegion request 138 minor 14 serial 3644969
+error 140: BadRegion request 138 minor 14 serial 3644979
+error 140: BadRegion request 138 minor 14 serial 3645061
+error 140: BadRegion request 138 minor 14 serial 3645071
+error 140: BadRegion request 138 minor 14 serial 3645153
+error 140: BadRegion request 138 minor 14 serial 3645163
+error 140: BadRegion request 138 minor 14 serial 3645245
+error 140: BadRegion request 138 minor 14 serial 3645255
+error 140: BadRegion request 138 minor 14 serial 3645337
+error 140: BadRegion request 138 minor 14 serial 3645347
+error 140: BadRegion request 138 minor 14 serial 3645429
+error 140: BadRegion request 138 minor 14 serial 3645439
+error 140: BadRegion request 138 minor 14 serial 3645521
+error 140: BadRegion request 138 minor 14 serial 3645531
+error 140: BadRegion request 138 minor 14 serial 3645613
+error 140: BadRegion request 138 minor 14 serial 3645623
+error 140: BadRegion request 138 minor 14 serial 3645680
+error 140: BadRegion request 138 minor 14 serial 3645686
+error 140: BadRegion request 138 minor 14 serial 3645768
+error 140: BadRegion request 138 minor 14 serial 3645778
+error 140: BadRegion request 138 minor 14 serial 3645860
+error 140: BadRegion request 138 minor 14 serial 3645870
+error 140: BadRegion request 138 minor 14 serial 3645952
+error 140: BadRegion request 138 minor 14 serial 3645962
+error 140: BadRegion request 138 minor 14 serial 3646044
+error 140: BadRegion request 138 minor 14 serial 3646054
+error 140: BadRegion request 138 minor 14 serial 3646172
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+/bin/sh: /disk: No such file or directory
+<3>[disk] Command '$SCRIPT_DIR/disk' not found or missing dependency
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1
+ERROR: Can't get value of subfeature temp4_input: Can't read
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+
+ERROR: NVIDIA driver is not loaded
+
+
+ERROR: Unable to load info from any available system
+
+Can't find GPU information at /home/alison/.config/i3blocks/blocks/gpu-load/gpu-load line 53.
+<3>[gpu-load] Command '~/.config/i3blocks/blocks/gpu-load/gpu-load' exited unexpectedly with code 1

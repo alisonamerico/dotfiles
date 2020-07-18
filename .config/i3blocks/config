@@ -1,0 +1,119 @@
+# For the benefit of emacs users: -*- shell-script -*-
+#
+#  _ _____ _     _            _
+# (_)___ /| |__ | | ___   ___| | _____
+# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
+# | |___) | |_) | | (_) | (__|   <\__ \
+# |_|____/|_.__/|_|\___/ \___|_|\_\___/
+
+align=center
+separator=false
+color=#ffffff
+separator_block_width=15
+markup=pango
+
+
+[keyindicator]
+KEY=CAPS
+#markup=pango
+interval=once
+#signal=11
+
+[keyindicator]
+KEY=NUM
+#markup=pango
+interval=once
+#signal=11
+
+#[mediaplayer]
+#command=~/.config/i3blocks/blocks/mediaplayer/mediaplayer
+#instance=mpd
+#interval=5
+#signal=10
+#label=<span color="#a9e185"> </span>
+
+[arch-update]
+command=checkupdates | wc -l
+interval=once
+label=<span color="#1793D1">🗘 </span>
+
+[wifi]
+command=~/.config/i3blocks/blocks/wifi/wifi
+INTERFACE=wlp2s0
+interval=60
+label=<span color="#ffb86c">🕸 </span>
+
+[home]
+command=df -h /home | awk 'FNR==2{print $4}'
+interval=3
+label=<span color="#a9e185">🏠︎ </span>
+
+[root]
+command=df -h / | awk 'FNR==2{print $4}'
+interval=3
+label=<span color="#ff79c6"># </span>
+
+#[gpu-load]
+#command=~/.config/i3blocks/blocks/gpu-load/gpu-load | awk 'FNR==1{ printf "%s %s\n", $1, $2 }'
+#label=<span color="#ffb86c"> </span>
+#interval=2
+
+[gpu-load]
+command=~/.config/i3blocks/blocks/gpu-load/gpu-load
+#label=<span color="#ffb86c"> </span>
+label=GPU
+interval=10
+min_width=GPU 100% 100% 100% 100%
+#T_WARN=70
+#T_CRIT=90
+
+
+[disk]
+command=$SCRIPT_DIR/disk
+LABEL=HOME 
+#DIR=$HOME
+#ALERT_LOW=10
+interval=30
+
+[temperature]
+command=~/.config/i3blocks/blocks/temperature/temperature
+label=<span color="#ffb86c"> </span>
+interval=10
+
+[cpu_usage]
+command=~/.config/i3blocks/blocks/cpu_usage/cpu_usage
+interval=2
+label=<span color="#8be9fd">⏲ </span>
+
+[memory]
+command=~/.config/i3blocks/blocks/memory/memory
+interval=2
+label=<span color="#a9e185"> </span>
+
+[volume]
+command=~/.config/i3blocks/blocks/volume/volume
+#LABEL=♪ 
+label=<span color="#ff79c6">🔈︎ </span> 
+interval=once
+signal=10
+#STEP=5%
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+#NATURAL_MAPPING=0
+
+[calendar]
+command=~/.config/i3blocks/blocks/calendar/calendar
+interval=1
+label=<span color="#8be9fd"> </span>
+#DATEFMT=+%H:%M:%S
+SHORTFMT=+%H:%M:%S
+HEIGHT=180
+#WIDTH=220
+
+[shutdown_menu]
+full_text=<span color="#a9e185">⏻ </span>
+command=~/.config/i3blocks/blocks/shutdown_menu/shutdown_menu
+#ROFI_OPTIONS=-no-config -location 3 -yoffset 20 -width 10 -xoffset 10 -bw 0 -border 0 -theme ~/.config/rofi/DarkBlue.rasi
+#ENABLE_CONFIRMATIONS=true
+
+

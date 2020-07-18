@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item id="DatabaseInstanceSelector">
+		<column name="Name" visible="true" order="0" width="91"/>
+		<column name="Description" visible="true" order="1" width="197"/>
+	</item>
+	<item id="NodeList/PostgreSchema">
+		<column name="Name" visible="true" order="0" width="158"/>
+		<column name="Comment" visible="true" order="1" width="1024"/>
+	</item>
+	<item id="NodeList/PostgreTable">
+		<column name="Table Name" visible="true" order="0" width="104"/>
+		<column name="Object ID" visible="true" order="1" width="100"/>
+		<column name="Owner" visible="true" order="2" width="100"/>
+		<column name="Tablespace" visible="true" order="3" width="100"/>
+		<column name="Row Count Estimate" visible="true" order="4" width="166"/>
+		<column name="Partitions" visible="true" order="5" width="100"/>
+		<column name="Partition by" visible="true" order="6" width="105"/>
+		<column name="Comment" visible="true" order="7" width="100"/>
+	</item>
+	<item id="NodeList/PostgreTableColumn">
+		<column name="Column Name" visible="true" order="0" width="120"/>
+		<column name="#" visible="true" order="1" width="32"/>
+		<column name="Data type" visible="true" order="2" width="90"/>
+		<column name="Length" visible="true" order="3" width="67"/>
+		<column name="Precision" visible="true" order="4" width="86"/>
+		<column name="Scale" visible="true" order="5" width="57"/>
+		<column name="Identity" visible="true" order="6" width="75"/>
+		<column name="Collation" visible="true" order="7" width="83"/>
+		<column name="Not Null" visible="true" order="8" width="77"/>
+		<column name="Default" visible="true" order="9" width="298"/>
+		<column name="Comment" visible="true" order="10" width="158"/>
+	</item>
+	<item id="NodeList/PostgreTableRegular">
+		<column name="Table Name" visible="true" order="0" width="211"/>
+		<column name="Object ID" visible="true" order="1" width="86"/>
+		<column name="Owner" visible="true" order="2" width="64"/>
+		<column name="Tablespace" visible="true" order="3" width="100"/>
+		<column name="Row Count Estimate" visible="true" order="4" width="166"/>
+		<column name="Partitions" visible="true" order="5" width="89"/>
+		<column name="Partition by" visible="true" order="6" width="105"/>
+		<column name="Comment" visible="true" order="7" width="87"/>
+	</item>
+	<item id="SchemaSelector">
+		<column name="Name" visible="true" order="0" width="157"/>
+		<column name="Comment" visible="true" order="1" width="132"/>
+	</item>
+	<item id="projectExplorer">
+		<column name="DataSource" visible="true" order="1" width="240"/>
+	</item>
+	<item id="scriptSelectorViewer">
+		<column name="Script" visible="true" order="0" width="114"/>
+		<column name="Time" visible="true" order="1" width="170"/>
+		<column name="Info" visible="true" order="2" width="1600"/>
+	</item>
+</items>

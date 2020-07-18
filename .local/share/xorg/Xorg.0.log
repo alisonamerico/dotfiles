@@ -1,0 +1,80 @@
+[  5737.086] (WW) Failed to open protocol names file lib/xorg/protocol.txt
+[  5737.089] 
+X.Org X Server 1.20.8
+X Protocol Version 11, Revision 0
+[  5737.097] Build Operating System: Linux Arch Linux
+[  5737.099] Current Operating System: Linux metanoia 5.7.6-arch1-1 #1 SMP PREEMPT Thu, 25 Jun 2020 00:14:47 +0000 x86_64
+[  5737.099] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-linux root=UUID=ad75554c-5550-41f1-96b7-8c59b82fc89f rw loglevel=3 quiet
+[  5737.105] Build Date: 05 May 2020  05:08:17AM
+[  5737.108]  
+[  5737.111] Current version of pixman: 0.40.0
+[  5737.117] 	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+[  5737.117] Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+[  5737.126] (==) Log file: "/home/alison/.local/share/xorg/Xorg.0.log", Time: Tue Jun 30 02:31:04 2020
+[  5737.158] (==) Using config file: "/etc/X11/xorg.conf"
+[  5737.161] (==) Using system config directory "/usr/share/X11/xorg.conf.d"
+[  5737.161] (==) ServerLayout "Layout0"
+[  5737.161] (**) |-->Screen "Screen0" (0)
+[  5737.161] (**) |   |-->Monitor "Monitor0"
+[  5737.162] (**) |   |-->Device "Device0"
+[  5737.162] (**) |-->Input Device "Keyboard0"
+[  5737.162] (**) |-->Input Device "Mouse0"
+[  5737.162] (==) Automatically adding devices
+[  5737.162] (==) Automatically enabling devices
+[  5737.162] (==) Automatically adding GPU devices
+[  5737.162] (==) Automatically binding GPU devices
+[  5737.162] (==) Max clients allowed: 256, resource mask: 0x1fffff
+[  5737.162] (WW) The directory "/usr/share/fonts/Type1" does not exist.
+[  5737.162] 	Entry deleted from font path.
+[  5737.162] (==) FontPath set to:
+	/usr/share/fonts/misc,
+	/usr/share/fonts/TTF,
+	/usr/share/fonts/OTF,
+	/usr/share/fonts/100dpi,
+	/usr/share/fonts/75dpi
+[  5737.162] (==) ModulePath set to "/usr/lib/xorg/modules"
+[  5737.162] (WW) Hotplugging is on, devices using drivers 'kbd', 'mouse' or 'vmmouse' will be disabled.
+[  5737.162] (WW) Disabling Keyboard0
+[  5737.162] (WW) Disabling Mouse0
+[  5737.162] (II) Module ABI versions:
+[  5737.162] 	X.Org ANSI C Emulation: 0.4
+[  5737.162] 	X.Org Video Driver: 24.1
+[  5737.162] 	X.Org XInput driver : 24.1
+[  5737.162] 	X.Org Server Extension : 10.0
+[  5737.163] (++) using VT number 1
+
+[  5737.167] (II) systemd-logind: took control of session /org/freedesktop/login1/session/_33
+[  5737.169] (II) xfree86: Adding drm device (/dev/dri/card1)
+[  5737.171] (II) systemd-logind: got fd for /dev/dri/card1 226:1 fd 10 paused 0
+[  5737.171] (II) xfree86: Adding drm device (/dev/dri/card0)
+[  5737.172] (II) systemd-logind: got fd for /dev/dri/card0 226:0 fd 11 paused 0
+[  5737.176] (--) PCI:*(0@0:2:0) 8086:0166:1028:055e rev 9, Mem @ 0xf1400000/4194304, 0xe0000000/268435456, I/O @ 0x00004000/64, BIOS @ 0x????????/131072
+[  5737.177] (--) PCI: (1@0:0:0) 10de:0de9:1028:055e rev 161, Mem @ 0xf0000000/16777216, 0xc0000000/268435456, 0xd0000000/33554432, I/O @ 0x00003000/128, BIOS @ 0x????????/524288
+[  5737.177] (WW) Open ACPI failed (/var/run/acpid.socket) (No such file or directory)
+[  5737.177] (II) LoadModule: "glx"
+[  5737.209] (II) Loading /usr/lib/xorg/modules/extensions/libglx.so
+[  5737.247] (II) Module glx: vendor="X.Org Foundation"
+[  5737.247] 	compiled for 1.20.8, module version = 1.0.0
+[  5737.247] 	ABI class: X.Org Server Extension, version 10.0
+[  5737.247] (II) LoadModule: "nvidia"
+[  5737.247] (II) Loading /usr/lib/xorg/modules/drivers/nvidia_drv.so
+[  5737.247] (II) Module nvidia: vendor="NVIDIA Corporation"
+[  5737.247] 	compiled for 4.0.2, module version = 1.0.0
+[  5737.248] 	Module class: X.Org Video Driver
+[  5737.248] (II) NVIDIA dlloader X Driver  340.108  Wed Dec 11 14:06:00 PST 2019
+[  5737.248] (II) NVIDIA Unified Driver for all Supported NVIDIA GPUs
+[  5737.248] xf86EnableIOPorts: failed to set IOPL for I/O (Operation not permitted)
+[  5737.248] (EE) No devices detected.
+[  5737.248] (EE) 
+Fatal server error:
+[  5737.248] (EE) no screens found(EE) 
+[  5737.248] (EE) 
+Please consult the The X.Org Foundation support 
+	 at http://wiki.x.org
+ for help. 
+[  5737.248] (EE) Please also check the log file at "/home/alison/.local/share/xorg/Xorg.0.log" for additional information.
+[  5737.248] (EE) 
+[  5737.255] (EE) Server terminated with error (1). Closing log file.

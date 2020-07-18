@@ -1,0 +1,6 @@
+[Default Applications]
+x-scheme-handler/mailto=brave-browser.desktop
+
+[Added Associations]
+inode/directory=visual-studio-code.desktop;
+text/html=leafpad.desktop;
