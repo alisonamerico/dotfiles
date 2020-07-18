@@ -16,7 +16,6 @@
 | [Termite](https://github.com/thestinger/termite)           | A keyboard-centric VTE-based terminal emulator                      |
 | [Zsh](https://github.com/zsh-users/zsh)                    | The most powerful shell out there!                                  |
 | [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)            | Community-driven framework for managing your zsh configuration      |
-| [Zsh](https://github.com/zsh-users/zsh)                    | The most powerful shell out there!                                  |
 | [Termite Style](https://github.com/adi1090x/termite-style) | A Simple Program To Change Colors And Fonts Of Termite In Real Time |
 | [Neofetch](https://github.com/dylanaraps/neofetch)         | A fast, highly customizable system info script                      |
 | [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)      | Fonts patched with lots of amazing icons (I use Source Code Pro)    |
