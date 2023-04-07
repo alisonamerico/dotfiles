@@ -1,5 +1,5 @@
--- IMPORTS
-require('config') -- Configs
-require('opts') -- Options
-require('keys') -- Keymaps
-require('plug') -- Plugins
+-- [[ Modules ]]
+
+require("a.config.options")
+require("a.config.keymaps")
+require("a.config.lazy")
