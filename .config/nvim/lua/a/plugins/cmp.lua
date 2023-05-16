@@ -3,99 +3,67 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      "onsails/lspkind-nvim",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lua",
-      "petertriho/cmp-git",
-      "saadparwaiz1/cmp_luasnip",
+      -- snippets
+      "L3MON4D3/LuaSnip", -- snippet engine
+      "saadparwaiz1/cmp_luasnip", -- for autocompletion
+      "rafamadriz/friendly-snippets", -- useful snippets
     },
-    opts = function()
-      -- nvim-cmp configs
-      local cmp = require("cmp")
-      local luasnip = require("luasnip")
-      local compare = require("cmp.config.compare")
-      local lspkind = require("lspkind")
+    config = function()
+      -- import nvim-cmp plugin safely
+      local cmp_status, cmp = pcall(require, "cmp")
+      if not cmp_status then
+        return
+      end
 
-      lspkind.init()
+      -- import luasnip plugin safely
+      local luasnip_status, luasnip = pcall(require, "luasnip")
+      if not luasnip_status then
+        return
+      end
 
-      return {
+      -- import lspkind plugin safely
+      local lspkind_status, lspkind = pcall(require, "lspkind")
+      if not lspkind_status then
+        return
+      end
+
+      -- load vs-code like snippets from plugins (e.g. friendly-snippets)
+      require("luasnip/loaders/from_vscode").lazy_load()
+
+      vim.opt.completeopt = "menu,menuone,noselect"
+
+      cmp.setup({
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
         },
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
-        },
-        sources = {
-          { name = "luasnip" },
-          { name = "nvim_lsp" },
-          { name = "nvim_lua" },
-          { name = "git" },
-          { name = "path" },
-          { name = "buffer",  keyword_length = 5 },
-        },
+        mapping = cmp.mapping.preset.insert({
+          ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+          ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+          ["<C-e>"] = cmp.mapping.abort(),  -- close completion window
+          ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        }),
+        -- sources for autocompletion
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" }, -- lsp
+          { name = "luasnip" }, -- snippets
+          { name = "buffer" }, -- text within current buffer
+          { name = "path" }, -- file system paths
+        }),
+        -- configure lspkind for vs-code like icons
         formatting = {
           format = lspkind.cmp_format({
-            mode = "symbol",
             maxwidth = 50,
-            menu = {
-              nvim_lua = "[lua-api]",
-              nvim_lsp = "[lsp]",
-              path = "[path]",
-              luasnip = "[snip]",
-              buffer = "[buf]",
-              gh_issues = "[issue]",
-            },
+            ellipsis_char = "...",
           }),
         },
-        mapping = cmp.mapping.preset.insert({
-          -- ["<tab>"] = cmp.config.disable,
-          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-e>"] = cmp.mapping.close(),
-          ["<C-y>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-          }, { "i", "c" }),
-          ["<C-n>"] = {
-            i = cmp.mapping.select_next_item(),
-          },
-          ["<C-p>"] = {
-            i = cmp.mapping.select_prev_item(),
-          },
-          ["<C-Space>"] = cmp.mapping({
-            i = cmp.mapping.complete(),
-            c = function(_)
-              if cmp.visible() then
-                if not cmp.confirm({ select = true }) then
-                  return
-                end
-              else
-                cmp.complete()
-              end
-            end,
-          }),
-        }),
-        sorting = {
-          comparators = {
-            compare.kind,
-            compare.offset,
-            compare.exact,
-            compare.score,
-            compare.sort_text,
-            compare.length,
-            compare.order,
-          },
-        },
-      }
-    end,
-    config = function(_, opts)
-      require("cmp").setup(opts)
-      require("cmp_git").setup()
+      })
     end,
   },
 }

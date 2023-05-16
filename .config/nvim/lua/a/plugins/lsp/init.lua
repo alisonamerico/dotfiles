@@ -17,6 +17,7 @@ return {
       "nvim-telescope/telescope.nvim",
       { "williamboman/mason-lspconfig.nvim" },
       "hrsh7th/cmp-nvim-lsp",
+      "onsails/lspkind.nvim",
     },
     config = function()
       -- installing tools

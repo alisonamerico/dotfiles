@@ -38,33 +38,39 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    opts = {
-      defaults = {
-        sorting_strategy = "ascending",
-        winblend = 0,
-      },
-    },
-    config = function(_, opts)
-      local t = require("telescope")
-      t.setup(opts)
-      t.load_extension("fzf")
-    end,
-    cmd = "Telescope",
     dependencies = {
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      "nvim-telescope/telescope-fzf-native.nvim", run = "make",
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- File icons
     },
-    keys = {
-      { "<leader>fg", telescope("live_grep") },
-      { "<leader>ff", telescope("files") },
-      { "<leader>fb", telescope("current_buffer_fuzzy_find"), desc = "Current Buffer" },
-      { "<leader>fc", telescope("command_history"),           desc = "Command History" },
-      { "<leader>fC", telescope("commands"),                  desc = "Commands" },
-      {
-        "<leader>H",
-        function()
-          require("telescope.builtin").help_tags()
-        end,
-      },
-    },
+    config = function()
+      -- import telescope plugin safely
+      local telescope_setup, telescope = pcall(require, "telescope")
+      if not telescope_setup then
+        return
+      end
+
+      -- import telescope actions safely
+      local actions_setup, actions = pcall(require, "telescope.actions")
+      if not actions_setup then
+        return
+      end
+
+      -- configure telescope
+      telescope.setup({
+        -- configure custom mappings
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-k>"] = actions.move_selection_previous,                 -- move to prev result
+              ["<C-j>"] = actions.move_selection_next,                     -- move to next result
+              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
+            },
+          },
+        },
+      })
+
+      telescope.load_extension("fzf")
+    end,
   },
 }

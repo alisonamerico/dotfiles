@@ -4,13 +4,24 @@
 
 return {
   -- nord theme
+  -- {
+  --   "shaunsingh/nord.nvim",
+  --   opts = {
+  --     colorscheme = "nord",
+  --   },
+  --   config = function()
+  --     require('nord').set()
+  --   end,
+  -- },
+  -- catppuccin
   {
-    "shaunsingh/nord.nvim",
-    opts = {
-      colorscheme = "nord",
-    },
+    "catppuccin/nvim",
+    name = "catppuccin",
     config = function()
-      require('nord').set()
+      require("catppuccin").setup({
+        flavour = "frappe"
+      })
+      vim.cmd.colorscheme "catppuccin"
     end,
   },
 }
