@@ -20,6 +20,7 @@ declare -a fonts=(
     SpaceMono
     Ubuntu
     UbuntuMono
+    NerdFontsSymbolsOnly
 )
 
 version='2.1.0'
