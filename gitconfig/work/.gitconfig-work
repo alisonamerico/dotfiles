@@ -1,11 +1,9 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Alison Americo
-	email = alisonlira@proton.me
+	email = alison.americo@znc.com.br
 
 [pull]
     rebase = true
 
-[includeIf "gitdir:~/work/"]
-    path = ~/work/.gitconfig-work
 
