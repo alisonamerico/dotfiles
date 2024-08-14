@@ -1,9 +1,0 @@
-"ui.background" = "white"
-"ui.text" = "black"
-
-[palette]
-white = "#ffffff"
-black = "#000000"
-
-key = { fg = "#ffffff", bg = "#000000", underline = { color = "#ff0000", style = "curl"}, modifiers = ["bold", "italic"] }
-
