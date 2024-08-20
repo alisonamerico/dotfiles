@@ -14,7 +14,7 @@ opt.cursorline = true                               -- set highlight the screen 
 opt.colorcolumn = "80"                              -- set columns to highlight
 opt.confirm = true                                  -- ask what to do about unsaved/read-only files
 opt.fileencoding = "utf-8"                          -- the encoding written to a file
-opt.clipboard = "unnamed,unnamedplus"                       -- allows neovim to access the system clipboard
+opt.clipboard = "unnamed,unnamedplus"               -- allows neovim to access the system clipboard
 opt.splitbelow = true                               -- force all horizontal splits to go below current window
 opt.splitright = true                               -- force all vertical splits to go to the right of current window
 opt.hidden = true                                   -- required to keep multiple buffers and open multiple buffers
@@ -32,6 +32,7 @@ opt.backup = false                                  -- creates a backup file
 opt.undofile = true                                 -- enable persistent undo
 opt.wrap = false                                    -- display lines as one long line
 opt.wildmode = { "longest", "full" }                -- enables the autofill menu when you press TAB
+opt.conceallevel=2                                  -- concealer for Neorg, Obsidian
 
 -- NETRW BROWSER SETTINGS
 vim.g.netrw_keepdir = 0

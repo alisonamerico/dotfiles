@@ -14,6 +14,8 @@ local term_opts = { silent = true }
 --   term_mode = "t",
 --   command_mode = "c",
 
+vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+
 -- opening a file explore
 vim.keymap.set("n", "<leader>e", ":Lex<CR>", opts)
 
@@ -74,5 +76,12 @@ vim.api.nvim_set_keymap("n", "tw", ":Twilight<enter>", { noremap = false })
 -- zen-mode
 vim.keymap.set("n", "zm", ":ZenMode<CR>", opts)
 
--- zen-mode
-vim.keymap.set("n", "mp", ":ZenMode<CR>", opts)
+-- Obsidian
+vim.keymap.set("n", "<leader>oc", "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>", { desc = "Obsidian Check Checkbox" })
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert Obsidian Template" })
+vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<CR>", { desc = "Open in Obsidian App" })
+vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Show ObsidianBacklinks" })
+vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLinks<CR>", { desc = "Show ObsidianLinks" })
+vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create New Note" })
+vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian" })
+vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
