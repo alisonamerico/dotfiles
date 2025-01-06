@@ -10,9 +10,15 @@ return {
   opts = {
     workspaces = {
       {
-        name = "Notes",
-        path = "/home/alison/obsidian-notes/Notes",
+        name = "notes",
+        path = "/home/alison/obsidian-notes/brain",
       },
     },
+    templates = {
+      folder = "templates",
+    },
+    follow_url_func = function(url)
+      vim.fn.jobstart({ "xdg-open", url }) -- linux
+    end,
   },
 }

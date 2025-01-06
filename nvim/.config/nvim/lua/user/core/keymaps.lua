@@ -17,17 +17,17 @@ local term_opts = { silent = true }
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 
 -- opening a file explore
-vim.keymap.set("n", "<leader>e", ":Lex<CR>", opts)
+-- vim.keymap.set("n", "<leader>e", ":Lex<CR>", opts)
 
 -- save, quit
 vim.keymap.set("n", "<leader>w", ":w<cr>")
 vim.keymap.set("n", "<leader>c", ":q<cr>")
 
 -- opening a terminal horizontal window (<C-D> close terminal)
-vim.keymap.set("n", "<c-t>", ":split | resize 15 | term<CR> i", opts)
+-- vim.keymap.set("n", "<c-t>", ":split | resize 15 | term<CR> i", opts)
 
 -- openind a terminl in vertical window
-vim.keymap.set("n", "<c-p>", ":vert term<CR> i", opts)
+-- vim.keymap.set("n", "<c-p>", ":vert term<CR> i", opts)
 
 -- Esc insert mode and make the terminal scrollable
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", term_opts)
@@ -55,11 +55,11 @@ vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- incr
 vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- buffers
-vim.api.nvim_set_keymap("n", "tk", ":blast<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "tj", ":bfirst<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "th", ":bprev<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "tl", ":bnext<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "td", ":bdelete<enter>", { noremap = false })
+-- vim.api.nvim_set_keymap("n", "tk", ":blast<enter>", { noremap = false })
+-- vim.api.nvim_set_keymap("n", "tj", ":bfirst<enter>", { noremap = false })
+-- vim.api.nvim_set_keymap("n", "th", ":bprev<enter>", { noremap = false })
+-- vim.api.nvim_set_keymap("n", "tl", ":bnext<enter>", { noremap = false })
+-- vim.api.nvim_set_keymap("n", "td", ":bdelete<enter>", { noremap = false })
 
 -- Resize with arrows
 -- vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
