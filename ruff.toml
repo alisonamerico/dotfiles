@@ -1,0 +1,13 @@
+line-length = 79
+extend-exclude = ['migrations']
+
+[format]
+quote-style = "double" # single
+docstring-code-format = true
+docstring-code-line-length = 72
+
+[lint]
+preview = true
+select = ["E", "F", "I", "W", "PL", "PT"]
+fixable = ["ALL"]
+
