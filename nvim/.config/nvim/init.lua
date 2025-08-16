@@ -22,7 +22,7 @@ vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
-	{ src = "https://github.com/echasnovski/mini.icons" },
+	{ src = "https://github.com/echasnovski/mini.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
@@ -42,7 +42,6 @@ vim.pack.add({
 -- Plugins Setup
 -- ========================================
 require("mason").setup()
-require("mini.icons").setup()
 require("oil").setup()
 require("slimline").setup({
 	style = "fg",
@@ -52,6 +51,16 @@ require("slimline").setup({
 		right = "",
 	},
 })
+
+-- Add/delete/replace surroundings (brackets, quotes, etc.)
+--
+-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+-- - sd'   - [S]urround [D]elete [']quotes
+-- - sr)'  - [S]urround [R]eplace [)] [']
+require("mini.surround").setup()
+require("mini.icons").setup()
+require("mini.pairs").setup()
+
 require("gitsigns").setup({ current_line_blame = true })
 
 require("nvim-treesitter.configs").setup({
