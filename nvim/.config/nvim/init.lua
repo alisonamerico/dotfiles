@@ -36,6 +36,7 @@ vim.pack.add({
 	{ src = "https://github.com/hrsh7th/nvim-cmp" },
 	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/ThePrimeagen/harpoon", name = "harpoon2" },
 	{ src = "https://github.com/alexghergh/nvim-tmux-navigation" },
@@ -141,45 +142,96 @@ require("conform").setup({
 -- ========================================
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require("lspconfig")
+
+-- Python
 lspconfig.ruff.setup({ capabilities = capabilities })
 lspconfig.pyright.setup({
 	capabilities = capabilities,
 	settings = {
-		python = { analysis = { autoImportCompletions = true, typeCheckingMode = "basic" } },
+		python = {
+			analysis = { autoImportCompletions = true, typeCheckingMode = "basic" },
+		},
 		pyright = { disableOrganizeImports = true },
 	},
 })
--- HTML
-lspconfig.html.setup({
+
+-- Lua
+lspconfig.lua_ls.setup({
 	capabilities = capabilities,
+	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 })
 
--- -- CSS
--- lspconfig.css_ls.setup({
--- 	capabilities = capabilities,
--- })
---
--- -- JavaScript/TypeScript
--- lspconfig.tsserver.setup({
--- 	capabilities = capabilities,
--- })
-lspconfig.lua_ls.setup({ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
-vim.lsp.enable({ "lua_ls", "pyright", "ruff", "html" })
+-- HTML
+lspconfig.html.setup({ capabilities = capabilities })
+
+-- CSS
+lspconfig.cssls.setup({ capabilities = capabilities })
+
+-- JavaScript / TypeScript
+lspconfig.ts_ls.setup({ capabilities = capabilities })
+
+-- JSON
+lspconfig.jsonls.setup({ capabilities = capabilities })
+
+-- Htmldjango (usa o html-lsp mas com filetype extra)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "htmldjango", "djangohtml" },
+	callback = function()
+		lspconfig.html.setup({ capabilities = capabilities })
+	end,
+})
+
+-- Ativa todos os servers listados acima
+vim.lsp.enable({ "lua_ls", "pyright", "ruff", "html", "cssls", "ts_ls", "jsonls" })
+
 -- ========================================
 -- Autocomplete Setup
 -- ========================================
+local luasnip = require("luasnip")
+
+-- Carregar todos os snippets do pacote "friendly-snippets"
+require("luasnip.loaders.from_vscode").lazy_load()
+
+-- Expansão de snippet no cmp
 local cmp = require("cmp")
 cmp.setup({
-	snippet = { expand = function(_) end },
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body) -- integração com LuaSnip
+		end,
+	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	}),
-	sources = {
-		{ name = "nvim_lsp" }, -- Sugestões do LSP (HTML, CSS, JS, Python)
-		{ name = "buffer" }, -- Sugestões do buffer atual
-		{ name = "path" }, -- Sugestões de caminhos de arquivos
+	window = {
+		completion = cmp.config.window.bordered({ border = "rounded" }),
+		documentation = cmp.config.window.bordered({ border = "rounded" }),
 	},
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" }, -- agora com snippets!
+		{ name = "buffer" },
+		{ name = "path" },
+	}),
 })
 
 -- ========================================
