@@ -102,25 +102,28 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 -- ========================================
 require("mason").setup()
 require("nui.input")
-require("oil").setup()
+require("oil").setup({
+  view_options = { show_hidden = true },
+})
 require("git-conflict").setup()
 require("slimline").setup({
   style = "fg",
-  hl = {
-    base = "Normal",
-    primary = "Normal",
-    secondary = "Comment",
-    SlimlineModeNormal = { fg = "#00ff00", bg = nil },
-    SlimlineModeInsert = { fg = "#ffff00", bg = nil },
-    SlimlineModeVisual = { fg = "#ff00ff", bg = nil },
-    SlimlineModeReplace = { fg = "#ff0000", bg = nil },
-    SlimlineModeCommand = { fg = "#00ffff", bg = nil },
-  },
+  -- hl = {
+  --   base = "Normal",
+  --   primary = "Normal",
+  --   secondary = "Comment",
+  --   SlimlineModeNormal = { fg = "#00ff00", bg = nil },
+  --   SlimlineModeInsert = { fg = "#ffff00", bg = nil },
+  --   SlimlineModeVisual = { fg = "#ff00ff", bg = nil },
+  --   SlimlineModeReplace = { fg = "#ff0000", bg = nil },
+  --   SlimlineModeCommand = { fg = "#00ffff", bg = nil },
+  -- },
   spaces = { components = "", left = " ", right = " " },
 })
 require("mini.surround").setup()
 require("mini.icons").setup()
 require("mini.pairs").setup()
+-- require("mini.statusline").setup()
 require("gitsigns").setup({ current_line_blame = true })
 require("ibl").setup()
 
