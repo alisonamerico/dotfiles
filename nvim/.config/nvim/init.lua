@@ -40,7 +40,7 @@ vim.pack.add({
   { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/ThePrimeagen/harpoon", name = "harpoon2" },
   { src = "https://github.com/alexghergh/nvim-tmux-navigation" },
-  { src = "https://github.com/sschleemilch/slimline.nvim" },
+  -- { src = "https://github.com/sschleemilch/slimline.nvim" },
   { src = "https://github.com/akinsho/git-conflict.nvim" },
   { src = "https://github.com/epwalsh/obsidian.nvim" },
   { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
@@ -51,6 +51,7 @@ vim.pack.add({
   { src = "https://github.com/HakonHarnes/img-clip.nvim" },
   -- { src = "https://github.com/edluffy/hologram.nvim" },
   { src = "https://github.com/3rd/image.nvim" },
+  { src = "https://github.com/Exafunction/windsurf.vim" },
 })
 
 -- ========================================
@@ -106,23 +107,24 @@ require("oil").setup({
   view_options = { show_hidden = true },
 })
 require("git-conflict").setup()
-require("slimline").setup({
-  style = "fg",
-  -- hl = {
-  --   base = "Normal",
-  --   primary = "Normal",
-  --   secondary = "Comment",
-  --   SlimlineModeNormal = { fg = "#00ff00", bg = nil },
-  --   SlimlineModeInsert = { fg = "#ffff00", bg = nil },
-  --   SlimlineModeVisual = { fg = "#ff00ff", bg = nil },
-  --   SlimlineModeReplace = { fg = "#ff0000", bg = nil },
-  --   SlimlineModeCommand = { fg = "#00ffff", bg = nil },
-  -- },
-  spaces = { components = "", left = " ", right = " " },
-})
+-- require("slimline").setup({
+-- style = "fg",
+-- hl = {
+--   base = "Normal",
+--   primary = "Normal",
+--   secondary = "Comment",
+--   SlimlineModeNormal = { fg = "#00ff00", bg = nil },
+--   SlimlineModeInsert = { fg = "#ffff00", bg = nil },
+--   SlimlineModeVisual = { fg = "#ff00ff", bg = nil },
+--   SlimlineModeReplace = { fg = "#ff0000", bg = nil },
+--   SlimlineModeCommand = { fg = "#00ffff", bg = nil },
+-- },
+-- spaces = { components = "", left = " ", right = " " },
+-- })
 require("mini.surround").setup()
 require("mini.icons").setup()
 require("mini.pairs").setup()
+require("mini.statusline").setup()
 -- require("mini.statusline").setup()
 require("gitsigns").setup({ current_line_blame = true })
 require("ibl").setup()
@@ -453,9 +455,6 @@ vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", { desc = "Neogit commit"
 vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>", { desc = "Neogit pull" })
 vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>", { desc = "Neogit push" })
 
--- Toggle blame
-vim.keymap.set("n", "<leader>gB", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git blame" })
-
 -- 🚀 Criar nova branch já com checkout
 vim.keymap.set("n", "<leader>gN", function()
   vim.ui.input({ prompt = "🌱 New branch name: " }, function(input)
@@ -468,6 +467,9 @@ vim.keymap.set("n", "<leader>gN", function()
   end)
 end, { desc = "Create new branch (from current)" })
 
+-- Toggle blame
+vim.keymap.set("n", "<leader>gB", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git blame" })
+
 -- Git Conflict
 vim.keymap.set("n", "<leader>cl", ":GitConflictListQf<CR>", { desc = "Choose ours" })
 vim.keymap.set("n", "<leader>co", ":GitConflictChooseOurs<CR>", { desc = "Choose ours" })
@@ -477,8 +479,38 @@ vim.keymap.set("n", "<leader>c0", ":GitConflictChooseNone<CR>", { desc = "Choose
 vim.keymap.set("n", "<leader>cn", ":GitConflictNextConflict<CR>", { desc = "Next conflict" })
 vim.keymap.set("n", "<leader>cp", ":GitConflictPrevConflict<CR>", { desc = "Prev conflict" })
 
+-- Gitsigns
+vim.keymap.set("n", "]c", require("gitsigns").next_hunk, { desc = "Next change" })
+vim.keymap.set("n", "[c", require("gitsigns").prev_hunk, { desc = "Previous change" })
+vim.keymap.set("n", "<leader>hd", require("gitsigns").preview_hunk, { desc = "Preview change (diff)" })
+vim.keymap.set("n", "<leader>hr", require("gitsigns").reset_hunk, { desc = "Revert change" })
+
 -- Telescope
+
+-- ~/.config/nvim/lua/plugins/telescope.lua
+local telescope = require("telescope")
+
+telescope.setup({
+  defaults = {
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--fixed-strings", -- treat pattern literally
+    },
+    -- prompt_prefix = "  ",
+    -- selection_caret = " ",
+    path_display = { "smart" },
+  },
+})
+
 local builtin = require("telescope.builtin")
+
+-- Keymaps
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
