@@ -155,20 +155,45 @@ require("conform").setup({
     python = { "ruff_fix", "ruff_format" },
     lua = { "stylua" },
     docker = { "docker" },
+
+    html = { "djlint" },
+    htmldjango = { "djlint" },
+    jinja = { "djlint" },
+
+    css = { "prettier" },
+    javascript = { "prettier" },
+    typescript = { "prettier" },
+    json = { "prettier" },
   },
+
   formatters = {
-    ruff_fix = {
-      command = "ruff",
-      args = { "check", "--fix", "--exit-zero", "--stdin-filename", "$FILENAME", "-" },
+    djlint = {
+      command = "djlint",
+      args = {
+        "--reformat",
+        "--profile=jinja",
+        -- "--indent=4",
+        "--preserve-blank-lines",
+        "--line-break-after-multiline-tag",
+        "--close-void-tags",
+        "--max-attribute-length=100",
+        "--quiet",
+        "-",
+      },
       stdin = true,
     },
-    ruff_format = {
-      command = "ruff",
-      args = { "format", "--stdin-filename", "$FILENAME", "-" },
+
+    prettier = {
+      command = "prettier",
+      args = { "--stdin-filepath", "$FILENAME" },
       stdin = true,
     },
   },
-  format_on_save = { timeout_ms = 5000, lsp_fallback = false },
+
+  format_on_save = {
+    timeout_ms = 5000,
+    lsp_fallback = false,
+  },
 })
 
 -- ========================================
