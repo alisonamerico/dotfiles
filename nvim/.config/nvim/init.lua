@@ -164,6 +164,7 @@ require("conform").setup({
     javascript = { "prettier" },
     typescript = { "prettier" },
     json = { "prettier" },
+    toml = { "pyproject-fmt" },
   },
 
   formatters = {
