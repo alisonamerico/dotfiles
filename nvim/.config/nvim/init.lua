@@ -19,11 +19,12 @@ vim.cmd("set completeopt+=noselect")
 -- Conceal settings for Obsidian
 vim.o.conceallevel = 2
 vim.o.concealcursor = "nc" -- Conceal em normal + command mode
+vim.o.laststatus = 3 -- statusline global (clean)
 -- ========================================
 -- Plugin Manager (vim.pack)
 -- ========================================
 vim.pack.add({
-  { src = "https://github.com/catppuccin/nvim" },
+  -- { src = "https://github.com/catppuccin/nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/echasnovski/mini.nvim" },
@@ -52,17 +53,22 @@ vim.pack.add({
   -- { src = "https://github.com/edluffy/hologram.nvim" },
   { src = "https://github.com/3rd/image.nvim" },
   { src = "https://github.com/Exafunction/windsurf.vim" },
+  { src = "https://github.com/vague-theme/vague.nvim" },
 })
 
 -- ========================================
 -- Catppuccin Setup
 -- ========================================
-require("catppuccin").setup({
-  transparent = true,
-  integrations = { treesitter = true, native_lsp = true, cmp = true },
-})
-vim.cmd("colorscheme catppuccin")
+-- require("catppuccin").setup({
+--   transparent = true,
+--   integrations = { treesitter = true, native_lsp = true, cmp = true },
+-- })
+-- vim.cmd("colorscheme catppuccin")
 
+require("vague").setup({
+  transparent = true, -- opcional
+})
+vim.cmd("colorscheme vague")
 -- ========================================
 -- Treesitter Setup (HTML + Jinja + other)
 -- ========================================
@@ -125,7 +131,6 @@ require("mini.surround").setup()
 require("mini.icons").setup()
 require("mini.pairs").setup()
 require("mini.statusline").setup()
--- require("mini.statusline").setup()
 require("gitsigns").setup({ current_line_blame = true })
 require("ibl").setup()
 
@@ -363,7 +368,7 @@ require("obsidian").setup({
   workspaces = {
     {
       name = "Notes",
-      path = "/home/alison/obsidian-notes/brain",
+      path = "$HOME/obsidian-notes/brain",
     },
   },
 
@@ -642,3 +647,4 @@ vim.keymap.set(
   ":RemovePlugin ",
   vim.tbl_extend("force", opts, { desc = "Remove plugin (enter name)" })
 )
+-- require("mini.statusline").setup()
