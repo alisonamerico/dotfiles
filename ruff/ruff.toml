@@ -2,7 +2,7 @@ line-length = 79
 extend-exclude = ['migrations']
 
 [format]
-quote-style = "double" # single
+quote-style = "single" # double
 docstring-code-format = true
 docstring-code-line-length = 72
 
