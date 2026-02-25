@@ -320,8 +320,33 @@ require("obsidian").setup({
   templates = { folder = "_templates" },
   attachments = { img_folder = "_extras" },
   completion = { nvim_cmp = true },
-  ui = { enable = true },
+  ui = {
+    enable = true,
+    floor_dir = "~/.cache/obsidian.nvim/floor",
+  },
   picker = { name = "telescope.nvim" },
+
+  daily_notes = {
+    folder = "Journal",
+    template = "Daily Note.md",
+    date_format = "%Y/%m/%Y-%m-%d %a",
+  },
+
+  wiki_link_func = function(opts)
+    return string.format("[[%s]]", opts.label)
+  end,
+
+  markdown_proc_func = function(ctx)
+    return require("obsidian").markdown_proc(ctx, function(s)
+      return s:gsub("{{date}}", function()
+        return os.date("%Y-%m-%d")
+      end)
+    end)
+  end,
+
+  follow_url_func = function(url)
+    vim.fn.jobstart({ "xdg-open", url })
+  end,
 })
 
 -- ========================================
@@ -340,6 +365,13 @@ require("img-clip").setup({
       return os.date("%Y-%m-%d-%H-%M-%S")
     end,
   },
+})
+
+-- ========================================
+-- Render Markdown Setup
+-- ========================================
+require("render-markdown").setup({
+  file_types = { "markdown", "obsidian" },
 })
 
 -- ========================================
@@ -506,6 +538,12 @@ vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<cr>", { desc = "Quic
 vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianFollowLink<cr>", { desc = "Follow Obsidian link" })
 vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<cr>", { desc = "Show backlinks" })
 vim.keymap.set("n", "<leader>oi", "<cmd>PasteImage<cr>", { desc = "Paste image from system clipboard" })
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianToday<cr>", { desc = "Open today's note" })
+vim.keymap.set("n", "<leader>oy", "<cmd>ObsidianYesterday<cr>", { desc = "Open yesterday's note" })
+vim.keymap.set("n", "<leader>od", "<cmd>ObsidianTomorrow<cr>", { desc = "Open tomorrow's note" })
+vim.keymap.set("n", "<leader>or", "<cmd>ObsidianRename<cr>", { desc = "Rename note" })
+vim.keymap.set("n", "<leader>ox", "<cmd>ObsidianLink<cr>", { desc = "Insert link" })
+vim.keymap.set("n", "<leader>oz", "<cmd>ObsidianLinkNew<cr>", { desc = "Create and link note" })
 
 -- Undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
