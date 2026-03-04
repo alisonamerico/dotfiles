@@ -210,20 +210,6 @@ require("git-conflict").setup()
 require("ibl").setup()
 require("image").setup()
 
--- =====================================================
--- Avante (Ollama)
--- =====================================================
-require("avante").setup({
-  provider = "ollama",
-  providers = {
-    ollama = {
-      model = "qwen2.5:3b",
-      endpoint = "http://127.0.0.1:11434",
-      stream = true,
-    },
-  },
-})
-
 -- ========================================
 -- Obsidian Setup
 -- ========================================
