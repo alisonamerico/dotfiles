@@ -279,7 +279,7 @@ require("obsidian").setup({
   workspaces = {
     {
       name = "Notes",
-      path = "$HOME/obsidian-notes/brain",
+      path = "$HOME/obsidian-notes/brain/Notes",
     },
   },
 
