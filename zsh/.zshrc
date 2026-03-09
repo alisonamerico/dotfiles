@@ -28,6 +28,12 @@ export VISUAL="nvim"
 # Shortcut to open Neovim
 alias v="nvim"
 
+# Clear terminal
+alias c="clear"
+
+# Brave without wallet
+alias brave="brave --disable-brave-wallet --disable-ethereum"
+
 # Show info better
 alias ll='eza -la --icons'
 

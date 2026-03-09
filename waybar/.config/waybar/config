@@ -1,0 +1,78 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 8,
+    "exclusive": true,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/bluetooth", "pulseaudio", "network", "battery"],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+
+    "clock": {
+        "timezone": "America/Sao_Paulo",
+        "format": "{:%a %d/%m %I:%M %p}",
+        "format-alt": "{:%a %d/%m}",
+        "tooltip-format": "<span color='#dddddd'>{calendar}</span>"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 0%",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋋",
+            "headset": "󰋋",
+            "phone": "󰏤",
+            "portable": "󰏤",
+            "car": "󰘚",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {signalStrength}%",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-alt": "{icon} {capacity}%",
+        "format-icons": ["󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "custom/bluetooth": {
+        "format": "{}",        
+        "exec": "~/.config/waybar/scripts/bluetooth.sh",
+        "interval": 5,
+        "return-type": "text",
+        "on-click": "blueman-manager"
+    }
+}

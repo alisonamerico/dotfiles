@@ -50,7 +50,7 @@ vim.pack.add({
   { src = "https://github.com/ThePrimeagen/harpoon", name = "harpoon2" },
   { src = "https://github.com/alexghergh/nvim-tmux-navigation" },
   { src = "https://github.com/akinsho/git-conflict.nvim" },
-  { src = "https://github.com/epwalsh/obsidian.nvim" },
+  { src = "https://github.com/obsidian-nvim/obsidian.nvim" },
   { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
   { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
   { src = "https://github.com/mbbill/undotree" },

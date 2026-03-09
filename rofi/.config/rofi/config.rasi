@@ -1,0 +1,98 @@
+/**
+ *
+ * Rofi Theme - Type 1 Style 3
+ *
+ */
+
+configuration {
+    modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               "Apps";
+    drun-display-format:       "{name}";
+    window-format:              "{w} · {c}";
+}
+
+* {
+    background:     #1E2127;
+    background-alt: #282B31;
+    foreground:     #ABB2BF;
+    selected:       #61AFEF;
+    active:         #98C379;
+    urgent:         #E06C75;
+}
+
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      400px;
+    border-radius:             8px;
+    background-color:           #1E2127;
+}
+
+mainbox {
+    spacing:                    10px;
+    padding:                    24px;
+    children:                   [ "inputbar", "listview" ];
+}
+
+inputbar {
+    spacing:                    8px;
+    children:                   [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color:           #61AFEF;
+    text-color:                 #1E2127;
+    padding:                    8px 12px;
+    border-radius:             4px;
+    font-weight:                bold;
+}
+
+entry {
+    background-color:           #282B31;
+    text-color:                 #ABB2BF;
+    padding:                    8px 12px;
+    border-radius:             4px;
+    placeholder:                "Search...";
+    placeholder-color:         #5C6370;
+}
+
+listview {
+    columns:                    1;
+    lines:                      6;
+    cycle:                      true;
+    scrollbar:                  false;
+    spacing:                    4px;
+}
+
+element {
+    padding:                    8px 12px;
+    border-radius:               4px;
+}
+
+element normal {
+    background-color:           transparent;
+    text-color:                 #ABB2BF;
+}
+
+element selected {
+    background-color:           #61AFEF;
+    text-color:                 #1E2127;
+    font-weight:                bold;
+}
+
+element alternate {
+    background-color:           #282B31;
+    text-color:                 #ABB2BF;
+}
+
+element-icon {
+    size:                       24px;
+    padding-right:              8px;
+}
+
+element-text {
+    vertical-align:             0.5;
+}

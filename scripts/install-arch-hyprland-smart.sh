@@ -2,15 +2,9 @@
 
 set -euo pipefail
 
-# ============================================
-# Smart Installer - Arch Linux + Hyprland
-# Idempotent and conflict-aware
-# ============================================
-
 LOG_FILE="$HOME/arch-hyprland-install.log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
-# Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -40,21 +34,26 @@ detect_cpu() {
     info "Detectando CPU..."
     vendor=$(grep -m1 "vendor_id" /proc/cpuinfo | awk '{print $3}')
 
-    if [[ "$vendor" == "GenuineIntel" ]]; then
-        CPU="intel"
-        UCODE="intel-ucode"
-    elif [[ "$vendor" == "AuthenticAMD" ]]; then
-        CPU="amd"
-        UCODE="amd-ucode"
-    else
-        CPU="unknown"
-        UCODE="intel-ucode"
-    fi
+    case "$vendor" in
+        GenuineIntel)
+            CPU="intel"
+            UCODE="intel-ucode"
+            ;;
+        AuthenticAMD)
+            CPU="amd"
+            UCODE="amd-ucode"
+            ;;
+        *)
+            CPU="unknown"
+            UCODE="intel-ucode"
+            ;;
+    esac
 
     success "CPU detectada: $CPU"
 }
 
 check_yay() {
+
     if command -v yay &>/dev/null; then
         success "yay já instalado"
         return
@@ -75,6 +74,7 @@ check_yay() {
 }
 
 install_pkg() {
+
     local pkg=$1
 
     if pacman -Q "$pkg" &>/dev/null; then
@@ -87,11 +87,12 @@ install_pkg() {
     if sudo pacman -S --needed --noconfirm "$pkg"; then
         success "$pkg instalado"
     else
-        warn "Falha ao instalar $pkg (ignorando)"
+        warn "Falha ao instalar $pkg"
     fi
 }
 
 install_aur_pkg() {
+
     local pkg=$1
 
     if pacman -Q "$pkg" &>/dev/null; then
@@ -108,25 +109,11 @@ install_aur_pkg() {
     fi
 }
 
-fix_audio_conflicts() {
-    info "Verificando conflitos de áudio..."
-
-    if pacman -Q jack2 &>/dev/null; then
-        warn "Removendo jack2 (conflito com pipewire-jack)"
-        sudo pacman -Rns --noconfirm jack2
-    fi
-
-    if pacman -Q jack2-dbus &>/dev/null; then
-        warn "Removendo jack2-dbus"
-        sudo pacman -Rns --noconfirm jack2-dbus
-    fi
-}
-
 choose_video_driver() {
 
     echo ""
     echo "Escolha o driver de vídeo:"
-    echo "  [1] Nvidia (open)"
+    echo "  [1] Nvidia open"
     echo "  [2] AMD"
     echo "  [3] Intel"
     echo "  [4] Nvidia proprietário"
@@ -158,19 +145,13 @@ install_packages() {
         hyprland
         hypridle
         hyprlock
-        hyprsunset
         xdg-desktop-portal-hyprland
 
         waybar
         dunst
         rofi
         sddm
-
-        pipewire
-        pipewire-alsa
-        pipewire-pulse
-        pipewire-jack
-        wireplumber
+        brightnessctl
         pavucontrol
 
         networkmanager
@@ -181,16 +162,12 @@ install_packages() {
         blueman
 
         git
-        neovim
         kitty
         tmux
         zsh
 
         firefox
         mpv
-
-        docker
-        docker-compose
 
         fastfetch
         tree
@@ -201,6 +178,17 @@ install_packages() {
         zoxide
         yazi
         stow
+        swww
+        grim
+        slurp
+        wl-clipboard
+        playerctl
+        noto-fonts-emoji
+        papirus-icon-theme
+        nodejs
+        npm
+        docker
+        docker-compose
     )
 
     case $VIDEO_DRIVER in
@@ -230,8 +218,14 @@ install_packages() {
 
 install_aur_packages() {
 
+    if pacman -Q neovim &>/dev/null; then
+        info "Removendo neovim estável..."
+        sudo pacman -R neovim --noconfirm
+    fi
+
     aur_packages=(
         brave-bin
+        neovim-nightly-bin
     )
 
     for pkg in "${aur_packages[@]}"; do
@@ -256,16 +250,12 @@ configure_services() {
     services=(
         NetworkManager
         bluetooth
-        docker
         sddm
     )
 
     for service in "${services[@]}"; do
         enable_service "$service"
     done
-
-    sudo usermod -aG docker "$USER"
-
 }
 
 clone_dotfiles() {
@@ -278,7 +268,6 @@ clone_dotfiles() {
     info "Clonando dotfiles"
 
     git clone https://github.com/alisonamerico/dotfiles "$HOME/dotfiles"
-
 }
 
 configure_zsh() {
@@ -291,10 +280,26 @@ configure_zsh() {
 
     fi
 
+    info "Instalando plugins do oh-my-zsh..."
+
+    local plugins_dir="$HOME/.oh-my-zsh/custom/plugins"
+
+    if [[ ! -d "$plugins_dir/zsh-autosuggestions" ]]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions "$plugins_dir/zsh-autosuggestions"
+    fi
+
+    if [[ ! -d "$plugins_dir/zsh-syntax-highlighting" ]]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting "$plugins_dir/zsh-syntax-highlighting"
+    fi
+
     if [[ -f "$HOME/dotfiles/zsh/.zshrc" ]]; then
         ln -sf "$HOME/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
     fi
 
+    info "Definindo zsh como shell padrão..."
+    chsh -s /usr/bin/zsh
+
+    success "Zsh configurado como shell padrão"
 }
 
 configure_stow() {
@@ -304,6 +309,7 @@ configure_stow() {
         return
     fi
 
+    info "Navegando para o diretório dos dotfiles..."
     cd "$HOME/dotfiles"
 
     mkdir -p "$HOME/.config"
@@ -317,17 +323,104 @@ configure_stow() {
     for pkg in $packages; do
 
         if [[ -d "$pkg" ]]; then
-
             stow -v -t "$HOME" "$pkg"
-
         else
-
             warn "$pkg não encontrado"
-
         fi
 
     done
 
+    info "Desabilitando KDE Wallet..."
+    mkdir -p "$HOME/.config/kwalletd"
+    echo -e "[Wallet]\nEnabled=false" > "$HOME/.config/kwalletrc"
+}
+
+install_nerd_fonts() {
+
+    local fonts_dir="$HOME/.local/share/fonts"
+
+    if [[ ! -d "$fonts_dir" ]]; then
+        mkdir -p "$fonts_dir"
+    fi
+
+    info "Instalando Nerd Fonts..."
+
+    declare -a fonts=(
+        JetBrainsMono
+        FiraCode
+        Hack
+        Ubuntu
+    )
+
+    local version="3.0.2"
+
+    for font in "${fonts[@]}"; do
+        local zip_file="${font}.zip"
+        local download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+
+        if [[ -f "$fonts_dir/${font}"*Nerd*Font*Complete* ]]; then
+            info "$font já instalado"
+            continue
+        fi
+
+        info "Baixando $font..."
+        if wget -q "$download_url" -O "$zip_file"; then
+            unzip -o "$zip_file" -d "$fonts_dir"
+            rm -f "$zip_file"
+            success "$font instalado"
+        else
+            warn "Falha ao baixar $font"
+        fi
+    done
+
+    find "$fonts_dir" -name '*Windows Compatible*' -delete 2>/dev/null
+
+    fc-cache -fv
+    success "Fontes instaladas"
+}
+
+install_rofi_themes() {
+
+    if [[ ! -d "$HOME/.config/rofi" ]]; then
+        mkdir -p "$HOME/.config/rofi"
+    fi
+
+    info "Baixando temas rofi..."
+
+    if [[ -d "/tmp/rofi" ]]; then
+        rm -rf /tmp/rofi
+    fi
+
+    if git clone --depth=1 https://github.com/adi1090x/rofi.git /tmp/rofi; then
+        cp /tmp/rofi/files/launchers/type-1/style-3.rasi "$HOME/.config/rofi/"
+        cp -r /tmp/rofi/files/launchers/type-1/shared "$HOME/.config/rofi/"
+        rm -rf /tmp/rofi
+        success "Temas rofi instalados"
+    else
+        warn "Falha ao baixar temas rofi"
+    fi
+}
+
+configure_icon_theme() {
+
+    info "Configurando tema de ícones..."
+
+    if command -v gsettings &>/dev/null; then
+        gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+        success "Tema de ícones configurado"
+    else
+        warn "gsettings não disponível"
+    fi
+}
+
+configure_kwallet() {
+
+    info "Desabilitando KDE Wallet..."
+
+    mkdir -p "$HOME/.config/kwalletd"
+    echo -e "[Wallet]\nEnabled=false" > "$HOME/.config/kwalletrc"
+
+    success "KDE Wallet desabilitado"
 }
 
 summary() {
@@ -365,9 +458,6 @@ pause
 check_yay
 pause
 
-fix_audio_conflicts
-pause
-
 choose_video_driver
 pause
 
@@ -383,10 +473,22 @@ pause
 clone_dotfiles
 pause
 
+configure_stow
+pause
+
+install_nerd_fonts
+pause
+
 configure_zsh
 pause
 
-configure_stow
+install_rofi_themes
+pause
+
+configure_icon_theme
+pause
+
+configure_kwallet
 pause
 
 summary

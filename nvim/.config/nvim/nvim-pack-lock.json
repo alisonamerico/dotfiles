@@ -86,7 +86,7 @@
     },
     "obsidian.nvim": {
       "rev": "14e0427bef6c55da0d63f9a313fd9941be3a2479",
-      "src": "https://github.com/epwalsh/obsidian.nvim"
+      "src": "https://github.com/obsidian-nvim/obsidian.nvim"
     },
     "oil.nvim": {
       "rev": "cbcb3f997f6f261c577b943ec94e4ef55108dd95",

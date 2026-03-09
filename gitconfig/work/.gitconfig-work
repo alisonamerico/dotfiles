@@ -1,9 +1,0 @@
-# This is Git's per-user configuration file.
-[user]
-	name = Alison Americo
-	email = alison.americo@znc.com.br
-
-[pull]
-    rebase = true
-
-

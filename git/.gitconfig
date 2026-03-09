@@ -1,0 +1,13 @@
+[user]
+    name = Alison Americo
+    email = alisonlira@proton.me
+
+[core]
+    editor = nvim
+
+[includeIf "gitdir:~/projects/work/"]
+    path = ~/.gitconfig-work
+
+[pull]
+    rebase = true
+
