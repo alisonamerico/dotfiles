@@ -46,5 +46,50 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+#compdef jiratui
+
+_jiratui_completion() {
+    local -a completions
+    local -a completions_with_descriptions
+    local -a response
+    (( ! $+commands )) && return 1
+
+    response=("${(@f)$(env COMP_WORDS="${words[*]}" COMP_CWORD=$((CURRENT-1))
+_JIRATUI_COMPLETE=zsh_complete jiratui)}")
+
+    for type key descr in ${response}; do
+        if [[ "$type" == "plain" ]]; then
+            if [[ "$descr" == "_" ]]; then
+                completions+=("$key")
+            else
+                completions_with_descriptions+=("$key":"$descr")
+            fi
+        elif [[ "$type" == "dir" ]]; then
+            _path_files -/
+        elif [[ "$type" == "file" ]]; then
+            _path_files -f
+        fi
+    done
+
+    if [ -n "$completions_with_descriptions" ]; then
+        _describe -V unsorted completions_with_descriptions -U
+    fi
+
+    if [ -n "$completions" ]; then
+        compadd -U -V unsorted -a completions
+    fi
+}
+
+if [[ $zsh_eval_context[-1] == loadautofunc ]]; then
+    # autoload from fpath, call function directly
+    _jiratui_completion "$@"
+else
+    # eval/source/. command, register function for later
+    compdef _jiratui_completion jiratui
+fi
+
 # Zoxide (A smarter cd command for your terminal)
 eval "$(zoxide init zsh)"
+
+# Created by `pipx` on 2026-03-10 16:03:53
+export PATH="$PATH:/home/alison/.local/bin"

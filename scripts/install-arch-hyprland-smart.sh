@@ -179,6 +179,7 @@ install_packages() {
         yazi
         stow
         swww
+        imagemagick
         grim
         slurp
         wl-clipboard
