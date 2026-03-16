@@ -181,6 +181,7 @@ install_packages() {
         swww
         imagemagick
         grim
+        satty
         slurp
         wl-clipboard
         playerctl
@@ -279,6 +280,18 @@ configure_zsh() {
 
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+    fi
+
+    info "Instalando tema minimal..."
+
+    local themes_dir="$HOME/.oh-my-zsh/custom/themes"
+    mkdir -p "$themes_dir"
+
+    if [[ -f "$HOME/dotfiles/zsh/minimal/minimal.zsh" ]]; then
+        ln -sf "$HOME/dotfiles/zsh/minimal/minimal.zsh" "$themes_dir/minimal.zsh"
+        success "Tema minimal instalado"
+    else
+        warn "Tema minimal não encontrado em dotfiles/zsh/minimal/"
     fi
 
     info "Instalando plugins do oh-my-zsh..."

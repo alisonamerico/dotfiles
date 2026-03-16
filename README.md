@@ -1,56 +1,56 @@
-# Arch Linux + Hyprland Setup
+# Hyprland Setup
 
-Script de instalação automática para Arch Linux com Hyprland.
+Automatic setup script for Hyprland on Arch Linux.
 
-## Pré-requisitos
+## Prerequisites
 
-1. Arch Linux instalado
-2. Acesso à internet
-3. Usuário com privilégios sudo
+1. Arch Linux installed
+2. Internet connection
+3. User with sudo privileges
 
-## Instalação
+## Installation
 
-### 1. Clone o repositório
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/seu-usuario/dotfiles.git ~/dotfiles
+git clone https://github.com/alisonamerico/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
-### 2. Dê permissão de execução ao script
+### 2. Give execute permission to the script
 
 ```bash
-chmod +x scripts/install-arch-hyprland-smart.sh
+chmod +x scripts/setup-hyprland.sh
 ```
 
-### 3. Execute o script
+### 3. Run the script
 
 ```bash
-./scripts/install-arch-hyprland-smart.sh
+./scripts/setup-hyprland.sh
 ```
 
-O scriptirá pedir para você escolher:
+The script will prompt you to choose:
 - CPU (Intel/AMD)
-- Driver de vídeo (Nvidia/AMD/Intel)
-- Quais pacotes instalar
-- Quais dotfiles aplicar com stow
+- Video driver (Nvidia/AMD/Intel)
+- Which packages to install
+- Which dotfiles to apply with stow
 
-## Pós-instalação
+## Post-installation
 
-### Aplicar configurações com Stow
+### Apply configurations with Stow
 
-Após a instalação, para aplicar as configurações:
+After installation, to apply the configurations:
 
 ```bash
 cd ~/dotfiles
 
-# Verificar pacotes disponíveis
+# Check available packages
 ls -d */
 
-# Aplicar todos de uma vez
-stow -t $HOME hypr waybar rofi zsh kitty nvim tmux gitconfig yazi ruff
+# Apply all at once
+stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff wallpaper
 
-# Ou aplicar individualmente
+# Or apply individually
 stow -t $HOME hypr
 stow -t $HOME waybar
 stow -t $HOME rofi
@@ -58,33 +58,34 @@ stow -t $HOME zsh
 stow -t $HOME kitty
 stow -t $HOME nvim
 stow -t $HOME tmux
-stow -t $HOME gitconfig
+stow -t $HOME git
 stow -t $HOME yazi
 stow -t $HOME ruff
+stow -t $HOME wallpaper
 ```
 
-### Recarregar configurações
+### Reload configurations
 
-- **Hyprland**: `Super + Ctrl + R` (recarrega Hyprland + Waybar)
+- **Hyprland**: `Super + Ctrl + R` (reloads Hyprland + Waybar)
 - **Waybar only**: `Super + Ctrl + Shift + R`
 
-## Atalhos do Hyprland
+## Hyprland Shortcuts
 
-| Atalho | Ação |
-|--------|------|
-| `Super + R` | Abrir menu (rofi) |
-| `Super + B` | Abrir Brave |
-| `Super + N` | Abrir Neovim |
-| `Super + Q` | Fechar janela |
-| `Super + J/K/H/L` | Mover foco |
-| `Super + Shift + J/K/H/L` | Mover janela |
+| Shortcut | Action |
+|----------|--------|
+| `Super + R` | Open menu (rofi) |
+| `Super + B` | Open Brave |
+| `Super + N` | Open Neovim |
+| `Super + Q` | Close window |
+| `Super + J/K/H/L` | Move focus |
+| `Super + Shift + J/K/H/L` | Move window |
 | `Super + 1-0` | Workspaces |
-| `Print` | Screenshot (seleção) |
+| `Print` | Screenshot (selection) |
 | `Super + =/-` | Volume +/- |
-| `Super + M` | Mutar |
-| `Super + ,/.` | Brilho +/- |
+| `Super + M` | Mute |
+| `Super + ,/.` | Brightness +/- |
 
-## Estrutura dos Dotfiles
+## Dotfiles Structure
 
 ```
 dotfiles/
@@ -95,53 +96,66 @@ dotfiles/
 ├── kitty/.config/kitty/   # Kitty terminal
 ├── nvim/.config/nvim/     # Neovim config
 ├── tmux/.tmux.conf       # Tmux config
-├── gitconfig/.gitconfig   # Git config
+├── git/.gitconfig         # Git config
 ├── yazi/                  # Yazi config
 ├── ruff/ruff.toml         # Ruff config
-└── scripts/              # Install scripts
+├── wallpaper/             # Wallpapers
+└── scripts/              # Setup scripts
 ```
 
-## Pacotes instalados
+## Installed Packages
 
-### Repositório oficial (pacman)
-- hyprland, hypridle, hyprlock
+### Official repository (pacman)
+- hyprland, hypridle, hyprlock, xdg-desktop-portal-hyprland
 - waybar, rofi, dunst, sddm
 - brightnessctl, pavucontrol
-- networkmanager, blueman
+- networkmanager, network-manager-applet
+- blueman, bluez, bluez-utils
 - git, kitty, tmux, zsh
 - firefox, mpv, fastfetch
 - eza, zoxide, yazi, stow
-- grim, slurp, wl-clipboard, playerctl
+- grim, slurp, wl-clipboard, playerctl, swww, satty
 - noto-fonts-emoji, papirus-icon-theme
+- tree, wget, unzip, fd
+- nodejs, npm, docker, docker-compose
+- Video drivers: nvidia/nvidia-open/amd/intel + mesa
 
 ### AUR (yay)
 - brave-bin
 - neovim-nightly-bin
 
-## Solução de problemas
+## Fonts
 
-### Waybar não aparece
+### Nerd Fonts
+- JetBrainsMono, FiraCode, Hack, Ubuntu
+
+### System Fonts
+- Noto (Sans, Serif, Mono)
+
+## Troubleshooting
+
+### Waybar doesn't appear
 ```bash
 killall waybar
 waybar &
 ```
 
-### Config não carrega
+### Config doesn't load
 ```bash
 hyprctl reload
 ```
 
-### Áudio não funciona
-Verificar se o PipeWire está rodando:
+### Audio doesn't work
+Check if PipeWire is running:
 ```bash
 systemctl --user status pipewire
 ```
 
-### Bluetooth não funciona
+### Bluetooth doesn't work
 ```bash
 blueman-manager
 ```
 
-## Autor
+## Author
 
 Alison
