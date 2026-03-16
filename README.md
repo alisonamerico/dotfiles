@@ -112,7 +112,7 @@ dotfiles/
 - networkmanager, network-manager-applet
 - blueman, bluez, bluez-utils
 - git, kitty, tmux, zsh
-- firefox, mpv, fastfetch
+- firefox, mpv, fastfetch, zathura-pdf-mupdf
 - eza, zoxide, yazi, stow
 - grim, slurp, wl-clipboard, playerctl, swww, satty
 - noto-fonts-emoji, papirus-icon-theme

@@ -73,9 +73,10 @@ tooltip .highlighted {
 #pulseaudio,
 #network,
 #battery,
+#backlight,
 #custom-bluetooth {
     color: #cdcdcd;
-    padding: 0 6px;
+    padding: 0 4px;
 }
 
 #pulseaudio {

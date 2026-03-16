@@ -2,12 +2,12 @@
     "layer": "top",
     "position": "top",
     "height": 30,
-    "spacing": 8,
+    "spacing": 4,
     "exclusive": true,
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/bluetooth", "pulseaudio", "network", "battery"],
+    "modules-right": ["custom/bluetooth", "pulseaudio", "backlight", "network", "battery"],
 
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -54,10 +54,20 @@
         "on-click": "pavucontrol"
     },
 
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-click": "brightnessctl set 10%+",
+        "on-click-right": "brightnessctl set 10%-"
+    },
+
     "network": {
         "format-wifi": "󰤨 {signalStrength}%",
         "format-ethernet": "󰈀",
-        "format-disconnected": "󰤭"
+        "format-disconnected": "󰤭",
+        "tooltip-format": "<tt>{ssid}</tt>",
+        "on-click": "kitty -e nmcli dev wifi list"
     },
 
     "battery": {

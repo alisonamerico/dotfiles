@@ -182,6 +182,7 @@ install_packages() {
         imagemagick
         grim
         satty
+        zathura-pdf-mupdf
         slurp
         wl-clipboard
         playerctl
