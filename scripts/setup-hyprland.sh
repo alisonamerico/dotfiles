@@ -329,16 +329,35 @@ configure_stow() {
 
     mkdir -p "$HOME/.config"
 
+    if [[ -d "$HOME/.config/hypr" ]] && [[ ! -L "$HOME/.config/hypr" ]]; then
+        warn "Removendo configurações padrão do Hyprland..."
+        rm -rf "$HOME/.config/hypr"
+    fi
+
+    mkdir -p "$HOME/.config/hypr/scripts"
+
     info "Pacotes disponíveis:"
     ls -d */ | sed 's#/##'
 
     echo ""
     read -rp "Quais pacotes aplicar com stow? " packages
 
+    if [[ -z "$packages" ]]; then
+        info "Nenhum pacote selecionado, pulando..."
+        return
+    fi
+
+    local stow_opts="-v"
+
     for pkg in $packages; do
 
         if [[ -d "$pkg" ]]; then
-            stow -v -t "$HOME" "$pkg"
+            if stow -n $stow_opts -t "$HOME" "$pkg" 2>&1 | grep -q "would cause conflicts"; then
+                info "Conflitos detectados para $pkg, usando --adopt..."
+                stow $stow_opts --adopt -t "$HOME" "$pkg"
+            else
+                stow $stow_opts -t "$HOME" "$pkg"
+            fi
         else
             warn "$pkg não encontrado"
         fi
