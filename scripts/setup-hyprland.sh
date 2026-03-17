@@ -289,9 +289,10 @@ configure_zsh() {
     mkdir -p "$themes_dir"
 
     rm -rf "$themes_dir/minimal.zsh" "$themes_dir/minimal" 2>/dev/null
+    rm -f "$HOME/.oh-my-zsh/themes/minimal.zsh-theme" 2>/dev/null
 
     if [[ -f "$HOME/dotfiles/zsh/minimal/minimal.zsh" ]]; then
-        ln -sf "$HOME/dotfiles/zsh/minimal/minimal.zsh" "$themes_dir/minimal.zsh"
+        ln -sf "$HOME/dotfiles/zsh/minimal/minimal.zsh" "$themes_dir/minimal.zsh-theme"
         success "Tema minimal instalado"
     else
         warn "Tema minimal não encontrado em dotfiles/zsh/minimal/"
