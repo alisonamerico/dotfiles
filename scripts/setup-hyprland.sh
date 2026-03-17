@@ -288,6 +288,8 @@ configure_zsh() {
     local themes_dir="$HOME/.oh-my-zsh/custom/themes"
     mkdir -p "$themes_dir"
 
+    rm -rf "$themes_dir/minimal.zsh" "$themes_dir/minimal" 2>/dev/null
+
     if [[ -f "$HOME/dotfiles/zsh/minimal/minimal.zsh" ]]; then
         ln -sf "$HOME/dotfiles/zsh/minimal/minimal.zsh" "$themes_dir/minimal.zsh"
         success "Tema minimal instalado"
@@ -367,6 +369,12 @@ configure_stow() {
     info "Desabilitando KDE Wallet..."
     mkdir -p "$HOME/.config/kwalletd"
     echo -e "[Wallet]\nEnabled=false" > "$HOME/.config/kwalletrc"
+
+    if command -v waybar &>/dev/null; then
+        info "Reiniciando waybar..."
+        killall waybar 2>/dev/null || true
+        waybar &
+    fi
 }
 
 install_nerd_fonts() {
