@@ -221,9 +221,9 @@ install_packages() {
 
 install_aur_packages() {
 
-    if pacman -Q neovim &>/dev/null; then
+    if pacman -Qq neovim &>/dev/null; then
         info "Removendo neovim estável..."
-        sudo pacman -R neovim --noconfirm
+        sudo pacman -R neovim --noconfirm 2>/dev/null || true
     fi
 
     aur_packages=(
