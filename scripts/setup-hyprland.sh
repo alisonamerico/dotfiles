@@ -261,6 +261,25 @@ configure_services() {
     done
 }
 
+configure_sddm() {
+
+    if [[ -d "$HOME/dotfiles/sddm" ]]; then
+
+        info "Configurando SDDM..."
+
+        if [[ -d "$HOME/dotfiles/sddm/.local/share/sddm/themes/minimal" ]]; then
+            sudo cp -r "$HOME/dotfiles/sddm/.local/share/sddm/themes/minimal" /usr/share/sddm/themes/
+            success "Tema minimal do SDDM instalado"
+        fi
+
+        if [[ -f "$HOME/dotfiles/sddm/sddm.conf" ]]; then
+            sudo cp "$HOME/dotfiles/sddm/sddm.conf" /etc/sddm.conf
+            success "SDDM configurado"
+        fi
+
+    fi
+}
+
 clone_dotfiles() {
 
     if [[ -d "$HOME/dotfiles" ]]; then
@@ -511,6 +530,9 @@ install_aur_packages
 pause
 
 configure_services
+pause
+
+configure_sddm
 pause
 
 clone_dotfiles
