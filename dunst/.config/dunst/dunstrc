@@ -1,0 +1,74 @@
+[global]
+    monitor = 0
+    follow = mouse
+    width = 320
+    height = 120
+    offset = 16
+    origin = top-right
+    scale = 1
+    transparency = 15
+    notification_limit = 10
+    progress_bar = true
+    progress_bar_height = 8
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 120
+    progress_bar_max_width = 300
+    indicate_hidden = yes
+    shrink = no
+    sort = yes
+    tablet_mode = auto
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    line_height = 0
+    separator_height = 2
+    padding = 12
+    horizontal_padding = 12
+    frame_width = 1
+    frame_color = "#3a3a3c"
+    separator_color = frame
+    startup_notification = true
+    force_xinerama = false
+    force_xwayland = false
+    layout = custom
+    g_volume = 100
+    g_volume_max = 135
+    title = Dunst
+    class = Dunst
+    corner_radius = 10
+    ignore_dbuslock = false
+    always_run_script = true
+    startup_history_ignore = false
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = context, close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#1e1e20"
+    foreground = "#cdcdcd"
+    frame_color = "#2c2c2e"
+    timeout = 5
+
+[urgency_normal]
+    background = "#1e1e20"
+    foreground = "#cdcdcd"
+    frame_color = "#3a3a3c"
+    timeout = 8
+
+[urgency_critical]
+    background = "#1e1e20"
+    foreground = "#c48282"
+    frame_color = "#c48282"
+    timeout = 0
+
+[shortcut]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+c
+
+[script]
+    volume = notify-send -u low -i audio-volume-high "Volume: $((`pulsemixer --get-volume | cut -d' ' -f1`))%"
