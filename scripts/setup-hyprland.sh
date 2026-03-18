@@ -267,15 +267,18 @@ configure_sddm() {
 
         info "Configurando SDDM..."
 
-        if [[ -d "$HOME/dotfiles/sddm/.local/share/sddm/themes/minimal" ]]; then
-            sudo cp -r "$HOME/dotfiles/sddm/.local/share/sddm/themes/minimal" /usr/share/sddm/themes/
-            success "Tema minimal do SDDM instalado"
-        fi
+        info "Configurando SDDM..."
 
-        if [[ -f "$HOME/dotfiles/sddm/sddm.conf" ]]; then
-            sudo cp "$HOME/dotfiles/sddm/sddm.conf" /etc/sddm.conf
-            success "SDDM configurado"
+        sudo rm -rf /usr/share/sddm/themes/where_is_my_sddm_theme
+        sudo cp -r "$HOME/dotfiles/sddm/usr/share/sddm/themes/where_is_my_sddm_theme" /usr/share/sddm/themes/
+        success "Tema where_is_my_sddm_theme instalado"
+
+        if grep -q "^Current=.*" /etc/sddm.conf 2>/dev/null; then
+            sudo sed -i 's/Current=.*/Current=where_is_my_sddm_theme/' /etc/sddm.conf
+        else
+            echo -e "\n[Theme]\nCurrent=where_is_my_sddm_theme" | sudo tee -a /etc/sddm.conf > /dev/null
         fi
+        success "SDDM configurado"
 
     fi
 }

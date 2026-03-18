@@ -48,7 +48,7 @@ cd ~/dotfiles
 ls -d */
 
 # Apply all at once
-stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff wallpaper sddm dunst
+stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff wallpaper dunst
 
 # Or apply individually
 stow -t $HOME hypr
@@ -62,22 +62,7 @@ stow -t $HOME git
 stow -t $HOME yazi
 stow -t $HOME ruff
 stow -t $HOME wallpaper
-stow -t $HOME sddm
 stow -t $HOME dunst
-```
-
-### SDDM Theme
-
-After applying stow for sddm, create the symlink:
-
-```bash
-sudo ln -sf ~/.local/share/sddm/themes/where_is_my_sddm_theme /usr/share/sddm/themes/
-```
-
-And configure the theme in sddm.conf:
-
-```bash
-sudo sed -i 's/Current=.*/Current=where_is_my_sddm_theme/' /etc/sddm.conf
 ```
 
 ### Reload configurations
