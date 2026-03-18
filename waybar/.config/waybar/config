@@ -68,7 +68,7 @@
         "format-ethernet": "󰈀",
         "format-disconnected": "󰤭",
         "tooltip-format": "<tt>{ssid}</tt>",
-        "on-click": "kitty -e nmcli dev wifi list"
+        "on-click": "kitty -e nmtui"
     },
 
     "battery": {

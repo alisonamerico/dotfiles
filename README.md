@@ -48,7 +48,7 @@ cd ~/dotfiles
 ls -d */
 
 # Apply all at once
-stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff wallpaper
+stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff wallpaper sddm
 
 # Or apply individually
 stow -t $HOME hypr
@@ -62,6 +62,21 @@ stow -t $HOME git
 stow -t $HOME yazi
 stow -t $HOME ruff
 stow -t $HOME wallpaper
+stow -t $HOME sddm
+```
+
+### SDDM Theme
+
+After applying stow for sddm, create the symlink:
+
+```bash
+sudo ln -sf ~/.local/share/sddm/themes/where_is_my_sddm_theme /usr/share/sddm/themes/
+```
+
+And configure the theme in sddm.conf:
+
+```bash
+sudo sed -i 's/Current=.*/Current=where_is_my_sddm_theme/' /etc/sddm.conf
 ```
 
 ### Reload configurations
@@ -92,15 +107,16 @@ dotfiles/
 ├── hypr/.config/hypr/      # Hyprland config
 ├── waybar/.config/waybar/  # Waybar config
 ├── rofi/.config/rofi/      # Rofi themes
-├── zsh/.zshrc             # Zsh config
-├── kitty/.config/kitty/   # Kitty terminal
-├── nvim/.config/nvim/     # Neovim config
-├── tmux/.tmux.conf       # Tmux config
-├── git/.gitconfig         # Git config
-├── yazi/                  # Yazi config
-├── ruff/ruff.toml         # Ruff config
-├── wallpaper/             # Wallpapers
-└── scripts/              # Setup scripts
+├── zsh/.zshrc              # Zsh config
+├── kitty/.config/kitty/    # Kitty terminal
+├── nvim/.config/nvim/      # Neovim config
+├── tmux/.tmux.conf         # Tmux config
+├── git/.gitconfig          # Git config
+├── yazi/                   # Yazi config
+├── ruff/ruff.toml          # Ruff config
+├── wallpaper/              # Wallpapers
+├── sddm/                   # SDDM theme
+└── scripts/                # Setup scripts
 ```
 
 ## Installed Packages
@@ -156,6 +172,3 @@ systemctl --user status pipewire
 blueman-manager
 ```
 
-## Author
-
-Alison
