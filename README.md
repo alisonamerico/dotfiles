@@ -48,7 +48,7 @@ cd ~/dotfiles
 ls -d */
 
 # Apply all at once
-stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff wallpaper sddm
+stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff wallpaper sddm dunst
 
 # Or apply individually
 stow -t $HOME hypr
@@ -63,6 +63,7 @@ stow -t $HOME yazi
 stow -t $HOME ruff
 stow -t $HOME wallpaper
 stow -t $HOME sddm
+stow -t $HOME dunst
 ```
 
 ### SDDM Theme
@@ -116,6 +117,7 @@ dotfiles/
 ├── ruff/ruff.toml          # Ruff config
 ├── wallpaper/              # Wallpapers
 ├── sddm/                   # SDDM theme
+├── dunst/.config/dunst/    # Dunst notifications
 └── scripts/                # Setup scripts
 ```
 
@@ -170,5 +172,11 @@ systemctl --user status pipewire
 ### Bluetooth doesn't work
 ```bash
 blueman-manager
+```
+
+### Dunst doesn't show notifications
+```bash
+killall dunst
+dunst &
 ```
 
