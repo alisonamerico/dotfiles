@@ -295,51 +295,22 @@ clone_dotfiles() {
     git clone https://github.com/alisonamerico/dotfiles "$HOME/dotfiles"
 }
 
-configure_zsh() {
-
-    if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-
-        info "Instalando oh-my-zsh"
-
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-    fi
-
-    info "Instalando tema minimal..."
-
-    local themes_dir="$HOME/.oh-my-zsh/custom/themes"
-    mkdir -p "$themes_dir"
-
-    rm -rf "$themes_dir/minimal.zsh" "$themes_dir/minimal" 2>/dev/null
-    rm -f "$HOME/.oh-my-zsh/themes/minimal.zsh-theme" 2>/dev/null
-
-    if [[ -f "$HOME/dotfiles/zsh/minimal/minimal.zsh" ]]; then
-        ln -sf "$HOME/dotfiles/zsh/minimal/minimal.zsh" "$themes_dir/minimal.zsh-theme"
-        success "Tema minimal instalado"
+install_uv() {
+    info "Instalando uv..."
+    if command -v uv &>/dev/null; then
+        success "uv já instalado: $(uv --version)"
     else
-        warn "Tema minimal não encontrado em dotfiles/zsh/minimal/"
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        source "$HOME/.local/bin/env" 2>/dev/null || true
+        success "uv instalado"
     fi
-
-    info "Instalando plugins do oh-my-zsh..."
-
-    local plugins_dir="$HOME/.oh-my-zsh/custom/plugins"
-
-    if [[ ! -d "$plugins_dir/zsh-autosuggestions" ]]; then
-        git clone https://github.com/zsh-users/zsh-autosuggestions "$plugins_dir/zsh-autosuggestions"
-    fi
-
-    if [[ ! -d "$plugins_dir/zsh-syntax-highlighting" ]]; then
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting "$plugins_dir/zsh-syntax-highlighting"
-    fi
-
-    if [[ -f "$HOME/dotfiles/zsh/.zshrc" ]]; then
-        ln -sf "$HOME/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
-    fi
-
-    info "Definindo zsh como shell padrão..."
-    chsh -s /usr/bin/zsh
-
-    success "Zsh configurado como shell padrão"
+    
+    info "Instalando ferramentas uv globais..."
+    uv tool install ruff
+    uv tool install taplo
+    uv tool install djlint
+    uv tool install mdformat
+    success "Ferramentas instaladas"
 }
 
 configure_stow() {
@@ -349,8 +320,10 @@ configure_stow() {
         return
     fi
 
-    info "Navegando para o diretório dos dotfiles..."
-    cd "$HOME/dotfiles"
+    local dotfiles_dir="$HOME/dotfiles"
+    local current_dir="$PWD"
+
+    cd "$dotfiles_dir"
 
     mkdir -p "$HOME/.config"
 
@@ -369,6 +342,7 @@ configure_stow() {
 
     if [[ -z "$packages" ]]; then
         info "Nenhum pacote selecionado, pulando..."
+        cd "$current_dir"
         return
     fi
 
@@ -389,15 +363,13 @@ configure_stow() {
 
     done
 
-    info "Desabilitando KDE Wallet..."
-    mkdir -p "$HOME/.config/kwalletd"
-    echo -e "[Wallet]\nEnabled=false" > "$HOME/.config/kwalletrc"
-
     if command -v waybar &>/dev/null; then
         info "Reiniciando waybar..."
         killall waybar 2>/dev/null || true
         waybar &
     fi
+
+    cd "$current_dir"
 }
 
 install_nerd_fonts() {
@@ -539,6 +511,9 @@ configure_sddm
 pause
 
 clone_dotfiles
+pause
+
+install_uv
 pause
 
 configure_stow

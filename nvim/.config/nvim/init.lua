@@ -95,7 +95,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
     "pyright",
-    "ruff",
+    "taplo",
     "html",
     "cssls",
     "ts_ls",
@@ -139,11 +139,12 @@ vim.lsp.config.html = {
 vim.lsp.config.cssls = { capabilities = capabilities }
 vim.lsp.config.ts_ls = { capabilities = capabilities }
 vim.lsp.config.jsonls = { capabilities = capabilities }
+vim.lsp.config.taplo = { capabilities = capabilities }
 
 vim.lsp.enable({
   "lua_ls",
   "pyright",
-  "ruff",
+  "taplo",
   "html",
   "cssls",
   "ts_ls",
@@ -164,7 +165,8 @@ require("conform").setup({
     javascript = { "prettier" },
     typescript = { "prettier" },
     json = { "prettier" },
-    toml = { "pyproject-fmt" },
+    toml = { "taplo" },
+    markdown = { "mdformat" },
   },
   format_on_save = { timeout_ms = 5000 },
 })
@@ -278,10 +280,13 @@ end
 require("obsidian").setup({
   workspaces = {
     {
-      name = "Notes",
-      path = "$HOME/obsidian-notes/brain/Notes",
+      name = "brain",
+      path = "$HOME/obsidian-notes/brain",
     },
   },
+
+  use_titles = true,
+  new_notes_location = "Notes",
 
   note_id_func = function(title)
     local id = os.date("%Y%m%d%H%M")
@@ -369,6 +374,16 @@ vim.keymap.set("n", "<leader>q", ":quit<cr>", { desc = "Quit" })
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { desc = "Clear highlights" })
 vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Next quickfix" })
 vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>", { desc = "Previous quickfix" })
+
+-- Obsidian: Follow wikilink
+vim.keymap.set("n", "gf", "<cmd>lua require('obsidian').util.gf_passthrough()<CR>", { desc = "Follow link (gf)" })
+vim.keymap.set("n", "<CR>", "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>", { desc = "Toggle checkbox" })
+vim.keymap.set("n", "gx", "<cmd>lua require('obsidian').util.open_in_browser()<CR>", { desc = "Open link in browser" })
+vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<CR>", { desc = "Open in Obsidian app" })
+vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "New Obsidian note" })
+vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian" })
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianToday<CR>", { desc = "Open today's note" })
+vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Show backlinks" })
 
 -- Clipboard
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y', { desc = "Copy to clipboard" })
