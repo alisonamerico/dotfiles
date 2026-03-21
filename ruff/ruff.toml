@@ -2,7 +2,7 @@ line-length = 79
 extend-exclude = ['migrations']
 
 [format]
-quote-style = "single" # double
+quote-style = "single"          # double
 docstring-code-format = true
 docstring-code-line-length = 72
 
@@ -10,4 +10,3 @@ docstring-code-line-length = 72
 preview = true
 select = ["E", "F", "I", "W", "PL", "PT"]
 fixable = ["ALL"]
-

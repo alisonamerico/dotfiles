@@ -91,5 +91,6 @@ fi
 # Zoxide (A smarter cd command for your terminal)
 eval "$(zoxide init zsh)"
 
-# Created by `pipx` on 2026-03-10 16:03:53
-export PATH="$PATH:/home/alison/.local/bin"
+# Added by uv
+# curl -LsSf https://astral.sh/uv/install.sh | sh# Added by uv
+. "$HOME/.local/share/../bin/env"
