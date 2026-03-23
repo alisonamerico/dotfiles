@@ -36,6 +36,7 @@ alias brave="brave --disable-brave-wallet --disable-ethereum"
 
 # Show info better
 alias ll='eza -la --icons'
+alias ls='eza --icons --grid --group-directories-first'
 
 # Yazi file manager (shortcut "y")
 function y() {

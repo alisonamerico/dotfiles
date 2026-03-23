@@ -174,6 +174,8 @@ install_packages() {
         wget
         unzip
         fd
+        fzf
+        glow
         eza
         zoxide
         yazi
