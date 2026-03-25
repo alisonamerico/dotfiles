@@ -180,7 +180,7 @@ install_packages() {
         zoxide
         yazi
         stow
-        swww
+        awww
         imagemagick
         grim
         satty
