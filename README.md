@@ -39,30 +39,17 @@ The script will prompt you to choose:
 
 ### Apply configurations with Stow
 
-After installation, to apply the configurations:
-
 ```bash
 cd ~/dotfiles
 
 # Check available packages
 ls -d */
 
-# Apply all at once
-stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff wallpaper dunst
+# Apply packages (excluding sddm which needs sudo)
+stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff dunst images scripts
 
-# Or apply individually
-stow -t $HOME hypr
-stow -t $HOME waybar
-stow -t $HOME rofi
-stow -t $HOME zsh
-stow -t $HOME kitty
-stow -t $HOME nvim
-stow -t $HOME tmux
-stow -t $HOME git
-stow -t $HOME yazi
-stow -t $HOME ruff
-stow -t $HOME wallpaper
-stow -t $HOME dunst
+# SDDM theme (requires sudo)
+sudo ./sddm/install-sddm-theme.sh
 ```
 
 ### Reload configurations
@@ -74,6 +61,7 @@ stow -t $HOME dunst
 
 | Shortcut | Action |
 |----------|--------|
+| `Super + Return` | Open terminal (kitty) |
 | `Super + R` | Open menu (rofi) |
 | `Super + B` | Open Brave |
 | `Super + N` | Open Neovim |
@@ -82,58 +70,103 @@ stow -t $HOME dunst
 | `Super + Shift + J/K/H/L` | Move window |
 | `Super + 1-0` | Workspaces |
 | `Print` | Screenshot (selection) |
+| `Shift + Print` | Screenshot (fullscreen) |
+| `Super + O` | Screenshot with satty (selection) |
+| `Super + Shift + O` | Screenshot with satty (fullscreen) |
 | `Super + =/-` | Volume +/- |
 | `Super + M` | Mute |
-| `Super + ,/.` | Brightness +/- |
+| `Super + .` | Brightness + |
+| `Super + ,` | Brightness - |
+| `Super + P` | Suspend |
+| `Super + X` | Power menu |
+| `Super + L` | Lock screen |
 
 ## Dotfiles Structure
 
 ```
 dotfiles/
-├── hypr/.config/hypr/      # Hyprland config
-├── waybar/.config/waybar/  # Waybar config
-├── rofi/.config/rofi/      # Rofi themes
-├── zsh/.zshrc              # Zsh config
-├── kitty/.config/kitty/    # Kitty terminal
-├── nvim/.config/nvim/      # Neovim config
-├── tmux/.tmux.conf         # Tmux config
-├── git/.gitconfig          # Git config
-├── yazi/                   # Yazi config
-├── ruff/ruff.toml          # Ruff config
-├── wallpaper/              # Wallpapers
-├── sddm/                   # SDDM theme
-├── dunst/.config/dunst/    # Dunst notifications
-└── scripts/                # Setup scripts
+├── hypr/.config/hypr/           # Hyprland config
+│   └── scripts/                   # Hypr scripts (monitor, wallpaper)
+├── waybar/.config/waybar/       # Waybar config
+│   └── scripts/                   # Waybar scripts (bluetooth)
+├── rofi/.config/rofi/           # Rofi themes
+├── zsh/.zshrc                   # Zsh config
+├── kitty/.config/kitty/         # Kitty terminal
+│   └── themes/                    # Kitty themes
+├── nvim/.config/nvim/            # Neovim config
+├── tmux/.tmux.conf               # Tmux config
+├── git/.gitconfig                # Git config
+├── yazi/                         # Yazi config
+├── ruff/ruff.toml                # Ruff config
+├── dunst/.config/dunst/          # Dunst notifications
+├── images/                       # Images source
+│   ├── screenshots/                # → ~/screenshots (symlink)
+│   └── wallpapers/                 # → ~/wallpapers (symlink)
+├── scripts/                      # Utility scripts
+│   ├── setup-hyprland.sh         # Main installer
+│   ├── install-nerdfonts.sh     # Install Nerd Fonts
+│   ├── slugify.sh               # Slugify filenames
+│   ├── conventional_commits.sh   # Generate conventional commits
+│   └── pocket_plan_score.sh     # Score calculator
+├── sddm/install-sddm-theme.sh    # SDDM theme installer (sudo)
+│   └── usr/share/sddm/themes/    # SDDM theme files
+└── .tmux/                        # Tmux plugin config
 ```
 
 ## Installed Packages
 
 ### Official repository (pacman)
+
+**Desktop:**
 - hyprland, hypridle, hyprlock, xdg-desktop-portal-hyprland
 - waybar, rofi, dunst, sddm
 - brightnessctl, pavucontrol
 - networkmanager, network-manager-applet
 - blueman, bluez, bluez-utils
+
+**Tools:**
 - git, kitty, tmux, zsh
 - firefox, mpv, fastfetch, zathura-pdf-mupdf
 - eza, zoxide, yazi, stow
-- grim, slurp, wl-clipboard, playerctl, swww, satty
+- grim, slurp, wl-clipboard, playerctl, awww, satty
 - noto-fonts-emoji, papirus-icon-theme
-- tree, wget, unzip, fd
+- tree, wget, unzip, fd, fzf, glow
 - nodejs, npm, docker, docker-compose
-- Video drivers: nvidia/nvidia-open/amd/intel + mesa
+
+**Video drivers:**
+- nvidia/nvidia-open/amd/intel + mesa
 
 ### AUR (yay)
+
 - brave-bin
 - neovim-nightly-bin
 
-## Fonts
+## Utility Scripts
 
-### Nerd Fonts
-- JetBrainsMono, FiraCode, Hack, Ubuntu
+### `scripts/slugify.sh`
+Rename files to slug format:
+```bash
+./scripts/slugify.sh filename\ with\ spaces.txt
+# → filename-with-spaces.txt
+```
 
-### System Fonts
-- Noto (Sans, Serif, Mono)
+### `scripts/conventional_commits.sh`
+Generate conventional commit messages:
+```bash
+./scripts/conventional_commits.sh
+```
+
+### `scripts/pocket_plan_score.sh`
+Calculate Pocket Plan scores:
+```bash
+./scripts/pocket_plan_score.sh
+```
+
+### `scripts/install-nerdfonts.sh`
+Install Nerd Fonts:
+```bash
+./scripts/install-nerdfonts.sh
+```
 
 ## Troubleshooting
 
@@ -165,3 +198,23 @@ killall dunst
 dunst &
 ```
 
+### Wallpaper doesn't load after reboot
+```bash
+pkill awww-daemon
+nohup awww-daemon &
+sleep 1
+awww img ~/wallpapers/default.jpg
+```
+
+### Monitor not detected correctly
+```bash
+hyprctl monitors all
+hyprctl keyword monitor HDMI-A-2,preferred,0x0,1
+```
+
+## Tips
+
+1. **Dotfiles organization**: All user-specific files are symlinked via GNU Stow
+2. **Wallpapers**: Store in `~/wallpapers/`
+3. **Screenshots**: Saved to `~/screenshots/`
+4. **Scripts**: Available in `~/scripts/` (symlinked to `~/.local/bin` via PATH)
