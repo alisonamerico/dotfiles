@@ -311,8 +311,11 @@ install_uv() {
     uv tool install ruff
     uv tool install taplo
     uv tool install djlint
-    uv tool install mdformat
     success "Ferramentas instaladas"
+
+    info "Instalando mdformat com plugin frontmatter..."
+    uv tool install mdformat --with mdformat-front-matters
+    success "mdformat instalado com plugin"
 }
 
 configure_stow() {

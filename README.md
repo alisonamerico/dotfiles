@@ -136,6 +136,13 @@ dotfiles/
 - brave-bin
 - neovim-nightly-bin
 
+### uv tools (Python/Rust CLI tools)
+
+- ruff (Python linter/formatter)
+- taplo (TOML linter)
+- djlint (Jinja/HTML linter)
+- mdformat + mdformat-front-matters (Markdown formatter)
+
 ## Utility Scripts
 
 ### `scripts/slugify.sh`
