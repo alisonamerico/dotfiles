@@ -45,11 +45,8 @@ cd ~/dotfiles
 # Check available packages
 ls -d */
 
-# Apply packages (excluding sddm which needs sudo)
+# Apply packages
 stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff dunst images scripts
-
-# SDDM theme (requires sudo)
-sudo ./sddm/install-sddm-theme.sh
 ```
 
 ### Reload configurations
@@ -108,8 +105,6 @@ dotfiles/
 │   ├── slugify.sh               # Slugify filenames
 │   ├── conventional_commits.sh   # Generate conventional commits
 │   └── pocket_plan_score.sh     # Score calculator
-├── sddm/install-sddm-theme.sh    # SDDM theme installer (sudo)
-│   └── usr/share/sddm/themes/    # SDDM theme files
 └── .tmux/                        # Tmux plugin config
 ```
 
