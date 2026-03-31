@@ -173,6 +173,7 @@ install_packages() {
         tree
         wget
         unzip
+        7zip
         fd
         fzf
         glow
