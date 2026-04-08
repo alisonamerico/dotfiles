@@ -34,9 +34,35 @@ alias c="clear"
 # Brave without wallet
 alias brave="brave --disable-brave-wallet --disable-ethereum"
 
-# Show info better
+# Eza - Show info better
 alias ll='eza -la --icons'
-alias ls='eza --icons --grid --group-directories-first'
+alias ls='eza --icons --grid --group-directories-first --git -a'
+alias lt="eza --tree --level=2 --long --icons --git"
+alias ltree="eza --tree --level=2  --icons --git"
+
+# Git
+alias gc="git commit -m"
+alias gca="git commit -a -m"
+alias gp="git push origin HEAD"
+alias gpu="git pull origin"
+alias gst="git status"
+alias glog="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit"
+alias gdiff="git diff"
+alias gco="git checkout"
+alias gb='git branch'
+alias gba='git branch -a'
+alias gadd='git add'
+alias ga='git add -p'
+alias gcoall='git checkout -- .'
+alias gr='git remote'
+alias gre='git reset'
+
+# Docker
+alias dco="docker compose"
+alias dps="docker ps"
+alias dpa="docker ps -a"
+alias dl="docker ps -l -q"
+alias dx="docker exec -it"
 
 # Yazi file manager (shortcut "y")
 function y() {
@@ -47,51 +73,11 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-#compdef jiratui
-
-_jiratui_completion() {
-    local -a completions
-    local -a completions_with_descriptions
-    local -a response
-    (( ! $+commands )) && return 1
-
-    response=("${(@f)$(env COMP_WORDS="${words[*]}" COMP_CWORD=$((CURRENT-1))
-_JIRATUI_COMPLETE=zsh_complete jiratui)}")
-
-    for type key descr in ${response}; do
-        if [[ "$type" == "plain" ]]; then
-            if [[ "$descr" == "_" ]]; then
-                completions+=("$key")
-            else
-                completions_with_descriptions+=("$key":"$descr")
-            fi
-        elif [[ "$type" == "dir" ]]; then
-            _path_files -/
-        elif [[ "$type" == "file" ]]; then
-            _path_files -f
-        fi
-    done
-
-    if [ -n "$completions_with_descriptions" ]; then
-        _describe -V unsorted completions_with_descriptions -U
-    fi
-
-    if [ -n "$completions" ]; then
-        compadd -U -V unsorted -a completions
-    fi
-}
-
-if [[ $zsh_eval_context[-1] == loadautofunc ]]; then
-    # autoload from fpath, call function directly
-    _jiratui_completion "$@"
-else
-    # eval/source/. command, register function for later
-    compdef _jiratui_completion jiratui
-fi
-
 # Zoxide (A smarter cd command for your terminal)
 eval "$(zoxide init zsh)"
 
 # Added by uv
 # curl -LsSf https://astral.sh/uv/install.sh | sh# Added by uv
 . "$HOME/.local/share/../bin/env"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
