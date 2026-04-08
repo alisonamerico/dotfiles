@@ -180,6 +180,7 @@ install_packages() {
         eza
         zoxide
         yazi
+        lazygit
         stow
         awww
         imagemagick
@@ -456,6 +457,17 @@ configure_icon_theme() {
     fi
 }
 
+install_worktrunk() {
+    info "Instalando worktrunk..."
+    if command -v wt &>/dev/null; then
+        info "worktrunk já instalado"
+    else
+        sudo pacman -S --needed --noconfirm worktrunk
+    fi
+    wt config shell install
+    success "worktrunk configurado"
+}
+
 configure_kwallet() {
 
     info "Desabilitando KDE Wallet..."
@@ -538,7 +550,10 @@ configure_icon_theme
 pause
 
 configure_kwallet
-pause
+    pause
+
+install_worktrunk
+    pause
 
 summary
 
