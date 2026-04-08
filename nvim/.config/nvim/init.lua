@@ -49,6 +49,7 @@ vim.pack.add({
 
   -- Utils
   { src = "https://github.com/ThePrimeagen/harpoon", name = "harpoon2" },
+  { src = "https://github.com/kdheepak/lazygit.nvim" },
   { src = "https://github.com/alexghergh/nvim-tmux-navigation" },
   { src = "https://github.com/obsidian-nvim/obsidian.nvim" },
   { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
@@ -539,6 +540,20 @@ end, { desc = "Merge" })
 
 vim.keymap.set("n", "<leader>gB", gitsigns.toggle_current_line_blame, { desc = "Toggle blame" })
 
+vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open LazyGit" })
+
+vim.keymap.set("n", "<leader>gP", function()
+  vim.fn.system("git add -p")
+end, { desc = "Patch stage" })
+
+vim.keymap.set("n", "<leader>gR", function()
+  require("telescope.builtin").git_branches()
+end, { desc = "Git reflog" })
+
+vim.keymap.set("n", "<leader>co", ":diffget LOCAL<CR>")
+vim.keymap.set("n", "<leader>ct", ":diffget REMOTE<CR>")
+vim.keymap.set("n", "<leader>cb", ":diffget BASE<CR>")
+
 vim.keymap.set("n", "<leader>go", ":DiffviewOpen<CR>", { desc = "Diffview" })
 vim.keymap.set("n", "<leader>gO", function()
   vim.ui.input({ prompt = "Branch to compare with: " }, function(branch)
@@ -578,7 +593,7 @@ vim.keymap.set("n", "<leader>gm", function()
   end)
 end, { desc = "Merge (with confirmation)" })
 
-vim.keymap.set("n", "<leader>gP", function()
+vim.keymap.set("n", "<leader>g!", function()
   vim.ui.input({ prompt = "Force push? (yes to confirm): " }, function(ans)
     if ans == "yes" then
       vim.fn.system({ "git", "push", "--force" })
@@ -763,6 +778,7 @@ wk.add({
   { "<leader>gd", desc = "preview hunk" },
   { "<leader>gl", desc = "log commits" },
   { "<leader>gF", desc = "fetch" },
+  { "<leader>g!", desc = "force push" },
   { "<leader>gS", desc = "stage buffer" },
   { "<leader>gU", desc = "unstage buffer" },
   { "<leader>gs", desc = "stage hunk" },
@@ -779,4 +795,10 @@ wk.add({
   { "<leader>gz", desc = "stash" },
   { "<leader>gZ", desc = "stash pop" },
   { "<leader>gL", desc = "log commits" },
+  { "<leader>gg", desc = "lazygit" },
+  { "<leader>gP", desc = "patch stage" },
+  { "<leader>gR", desc = "git reflog" },
+  { "<leader>co", desc = "diffget local" },
+  { "<leader>ct", desc = "diffget remote" },
+  { "<leader>cb", desc = "diffget base" },
 })

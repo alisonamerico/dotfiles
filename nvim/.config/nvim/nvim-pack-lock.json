@@ -48,6 +48,10 @@
       "rev": "005b56001b2cb30bfa61b7986bc50657816ba4ba",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
+    "lazygit.nvim": {
+      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
+      "src": "https://github.com/kdheepak/lazygit.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "ae609525ddf01c153c39305730b1791800ffe4fe",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
