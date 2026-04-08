@@ -32,8 +32,9 @@ vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
-  { src = "https://github.com/NeogitOrg/neogit" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/sindrets/diffview.nvim" },
+  { src = "https://github.com/nvim-tree/nvim-web-devicons" },
 
   -- LSP
   { src = "https://github.com/neovim/nvim-lspconfig" },
@@ -49,7 +50,6 @@ vim.pack.add({
   -- Utils
   { src = "https://github.com/ThePrimeagen/harpoon", name = "harpoon2" },
   { src = "https://github.com/alexghergh/nvim-tmux-navigation" },
-  { src = "https://github.com/akinsho/git-conflict.nvim" },
   { src = "https://github.com/obsidian-nvim/obsidian.nvim" },
   { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
   { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
@@ -58,6 +58,7 @@ vim.pack.add({
   { src = "https://github.com/MunifTanjim/nui.nvim" },
   { src = "https://github.com/HakonHarnes/img-clip.nvim" },
   { src = "https://github.com/3rd/image.nvim" },
+  { src = "https://github.com/folke/which-key.nvim" },
 
   -- Theme
   { src = "https://github.com/vague-theme/vague.nvim" },
@@ -208,9 +209,28 @@ require("mini.pairs").setup()
 require("mini.icons").setup()
 require("mini.statusline").setup()
 require("gitsigns").setup({ current_line_blame = true })
-require("git-conflict").setup()
 require("ibl").setup()
-require("image").setup()
+require("image").setup({
+  backend = "kitty",
+  processor = "magick_cli",
+  integrations = {
+    markdown = {
+      enabled = true,
+      clear_in_insert_mode = false,
+      download_remote_images = true,
+      only_render_image_at_cursor = false,
+      filetypes = { "markdown", "obsidian" },
+    },
+  },
+})
+
+require("diffview").setup({
+  enhanced_diff_hl = true,
+  view = {
+    default = { layout = "diff2_horizontal" },
+    merge_tool = { layout = "diff3_horizontal" },
+  },
+})
 
 -- ========================================
 -- Obsidian Setup
@@ -411,56 +431,161 @@ vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" 
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to References" })
 
--- Git
-local neogit = require("neogit")
-
--- Neogit status
-vim.keymap.set("n", "<leader>gb", function()
-  neogit.open()
-end, { desc = "Git status" })
-
--- Stage all files
-vim.keymap.set("n", "<leader>ga", function()
-  vim.cmd("!git add .")
-  vim.notify("✅ All files staged", vim.log.levels.INFO, { title = "Git" })
-end, { desc = "Stage all files" })
-
--- Commit
-vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", { desc = "Neogit commit" })
-
--- Pull / Push
-vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>", { desc = "Neogit pull" })
-vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>", { desc = "Neogit push" })
-
--- 🚀 Criar nova branch já com checkout
-vim.keymap.set("n", "<leader>gN", function()
-  vim.ui.input({ prompt = "🌱 New branch name: " }, function(input)
-    if input and #input > 0 then
-      vim.fn.system({ "git", "checkout", "-b", input })
-      vim.notify("✅ Switched to new branch: " .. input, vim.log.levels.INFO, { title = "Git" })
-    else
-      vim.notify("⚠️ Branch name is required!", vim.log.levels.WARN, { title = "Git" })
+-- ========================================
+-- Git Functions
+-- ========================================
+local function git_commit()
+  vim.ui.input({ prompt = "Commit message: " }, function(msg)
+    if msg and #msg > 0 then
+      vim.fn.system({ "git", "commit", "-m", msg })
+      vim.notify("✅ Commit created", vim.log.levels.INFO, { title = "Git" })
+      vim.cmd("checktime")
     end
   end)
-end, { desc = "Create new branch (from current)" })
+end
 
--- Toggle blame
-vim.keymap.set("n", "<leader>gB", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git blame" })
+local function git_amend()
+  vim.ui.input({ prompt = "Amend message (leave empty to keep previous): " }, function(msg)
+    local cmd = msg and #msg > 0 and { "git", "commit", "--amend", "-m", msg }
+      or { "git", "commit", "--amend", "--no-edit" }
+    vim.fn.system(cmd)
+    vim.notify("✅ Commit amended", vim.log.levels.INFO, { title = "Git" })
+    vim.cmd("checktime")
+  end)
+end
 
--- Git Conflict
-vim.keymap.set("n", "<leader>cl", ":GitConflictListQf<CR>", { desc = "Choose ours" })
-vim.keymap.set("n", "<leader>co", ":GitConflictChooseOurs<CR>", { desc = "Choose ours" })
-vim.keymap.set("n", "<leader>ct", ":GitConflictChooseTheirs<CR>", { desc = "Choose theirs" })
-vim.keymap.set("n", "<leader>cb", ":GitConflictChooseBoth<CR>", { desc = "Choose both" })
-vim.keymap.set("n", "<leader>c0", ":GitConflictChooseNone<CR>", { desc = "Choose none" })
-vim.keymap.set("n", "<leader>cn", ":GitConflictNextConflict<CR>", { desc = "Next conflict" })
-vim.keymap.set("n", "<leader>cp", ":GitConflictPrevConflict<CR>", { desc = "Prev conflict" })
+local function git_stash()
+  vim.ui.input({ prompt = "Stash message (optional): " }, function(msg)
+    local cmd = msg and #msg > 0 and { "git", "stash", "push", "-m", msg } or { "git", "stash", "push" }
+    vim.fn.system(cmd)
+    vim.notify("✅ Stashed", vim.log.levels.INFO, { title = "Git" })
+    vim.cmd("checktime")
+  end)
+end
 
--- Gitsigns
-vim.keymap.set("n", "]c", require("gitsigns").next_hunk, { desc = "Next change" })
-vim.keymap.set("n", "[c", require("gitsigns").prev_hunk, { desc = "Previous change" })
-vim.keymap.set("n", "<leader>hd", require("gitsigns").preview_hunk, { desc = "Preview change (diff)" })
-vim.keymap.set("n", "<leader>hr", require("gitsigns").reset_hunk, { desc = "Revert change" })
+local function git_status()
+  local output = vim.fn.system("git status --short")
+  if output == "" then
+    vim.notify("✅ Working tree clean", vim.log.levels.INFO, { title = "Git" })
+  else
+    print(output)
+  end
+end
+
+local function git_fetch()
+  vim.fn.system({ "git", "fetch", "--all" })
+  vim.notify("✅ Fetched all remotes", vim.log.levels.INFO, { title = "Git" })
+end
+
+-- ========================================
+-- Git Keymaps
+-- ========================================
+local gitsigns = require("gitsigns")
+
+vim.keymap.set("n", "]c", gitsigns.next_hunk, { desc = "Next hunk" })
+vim.keymap.set("n", "[c", gitsigns.prev_hunk, { desc = "Prev hunk" })
+
+vim.keymap.set("n", "<leader>gs", gitsigns.stage_hunk, { desc = "Stage hunk" })
+vim.keymap.set("n", "<leader>gu", gitsigns.undo_stage_hunk, { desc = "Unstage hunk" })
+vim.keymap.set("n", "<leader>gS", gitsigns.stage_buffer, { desc = "Stage buffer" })
+vim.keymap.set("n", "<leader>gU", function()
+  local filepath = vim.fn.expand("%:p")
+  vim.fn.system({ "git", "reset", "HEAD", filepath })
+  vim.notify("✅ Unstaged: " .. vim.fn.fnamemodify(filepath, ":."), vim.log.levels.INFO, { title = "Git" })
+  vim.cmd("checktime")
+end, { desc = "Unstage buffer" })
+vim.keymap.set("n", "<leader>gr", function()
+  local filepath = vim.fn.expand("%")
+  vim.ui.input({
+    prompt = "Discard all changes in this file? (yes to confirm): ",
+  }, function(ans)
+    if ans == "yes" then
+      vim.fn.system({ "git", "restore", filepath })
+      vim.notify("✅ Changes discarded", vim.log.levels.INFO, { title = "Git" })
+      vim.cmd("checktime")
+    end
+  end)
+end, { desc = "Discard changes" })
+vim.keymap.set("n", "<leader>gc", git_commit, { desc = "Commit" })
+vim.keymap.set("n", "<leader>gA", git_amend, { desc = "Amend" })
+
+vim.keymap.set("n", "<leader>gp", function()
+  vim.fn.system({ "git", "pull" })
+  vim.notify("✅ Pulled", vim.log.levels.INFO, { title = "Git" })
+  vim.cmd("checktime")
+end, { desc = "Pull" })
+vim.keymap.set("n", "<leader>gd", gitsigns.preview_hunk, { desc = "Preview hunk" })
+
+vim.keymap.set("n", "<leader>gF", git_fetch, { desc = "Fetch" })
+
+vim.keymap.set("n", "<leader>gn", function()
+  vim.ui.input({ prompt = "New branch name: " }, function(name)
+    if name and #name > 0 then
+      vim.fn.system({ "git", "checkout", "-b", name })
+      vim.notify("✅ Switched to: " .. name, vim.log.levels.INFO, { title = "Git" })
+    end
+  end)
+end, { desc = "New branch" })
+
+vim.keymap.set("n", "<leader>gm", function()
+  vim.ui.input({ prompt = "Branch to merge: " }, function(branch)
+    if branch and #branch > 0 then
+      vim.fn.system({ "git", "merge", branch })
+      vim.notify("Merged branch: " .. branch, vim.log.levels.INFO, { title = "Git" })
+      vim.cmd("checktime")
+    end
+  end)
+end, { desc = "Merge" })
+
+vim.keymap.set("n", "<leader>gB", gitsigns.toggle_current_line_blame, { desc = "Toggle blame" })
+
+vim.keymap.set("n", "<leader>go", ":DiffviewOpen<CR>", { desc = "Diffview" })
+vim.keymap.set("n", "<leader>gO", function()
+  vim.ui.input({ prompt = "Branch to compare with: " }, function(branch)
+    if branch and #branch > 0 then
+      vim.cmd("DiffviewOpen " .. branch .. "..HEAD")
+    end
+  end)
+end, { desc = "Diff branches" })
+vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory<CR>", { desc = "History" })
+
+vim.keymap.set("n", "<leader>gt", git_status, { desc = "Status" })
+vim.keymap.set("n", "<leader>ga", function()
+  vim.fn.system({ "git", "add", "-A" })
+  vim.notify("✅ All files staged", vim.log.levels.INFO, { title = "Git" })
+  vim.cmd("checktime")
+end, { desc = "Stage all" })
+vim.keymap.set("n", "<leader>gz", git_stash, { desc = "Stash" })
+vim.keymap.set("n", "<leader>gZ", function()
+  vim.fn.system({ "git", "stash", "pop" })
+  vim.notify("✅ Stash popped", vim.log.levels.INFO, { title = "Git" })
+  vim.cmd("checktime")
+end, { desc = "Stash pop" })
+vim.keymap.set("n", "<leader>gL", function()
+  require("telescope.builtin").git_commits()
+end, { desc = "Log commits" })
+vim.keymap.set("n", "gL", function()
+  require("telescope.builtin").git_commits()
+end, { desc = "Log commits" })
+
+vim.keymap.set("n", "<leader>gm", function()
+  vim.ui.input({ prompt = "Branch to merge: " }, function(branch)
+    if branch and #branch > 0 then
+      vim.fn.system({ "git", "merge", branch })
+      vim.notify("Merged branch: " .. branch, vim.log.levels.INFO, { title = "Git" })
+      vim.cmd("checktime")
+    end
+  end)
+end, { desc = "Merge (with confirmation)" })
+
+vim.keymap.set("n", "<leader>gP", function()
+  vim.ui.input({ prompt = "Force push? (yes to confirm): " }, function(ans)
+    if ans == "yes" then
+      vim.fn.system({ "git", "push", "--force" })
+      vim.notify("⚠️ Force pushed!", vim.log.levels.WARN, { title = "Git" })
+    end
+  end)
+end, { desc = "Force push" })
 
 -- Telescope
 
@@ -477,7 +602,7 @@ telescope.setup({
       "--line-number",
       "--column",
       "--smart-case",
-      "--fixed-strings", -- treat pattern literally
+      "--fixed-strings", -- treat pattern literalmente
     },
     -- prompt_prefix = "  ",
     -- selection_caret = " ",
@@ -492,7 +617,7 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
-vim.keymap.set("n", "<leader>gl", builtin.git_branches, { desc = "Git Branches" })
+vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Git Branches" })
 
 vim.keymap.set("n", "<leader>dl", builtin.diagnostics, { desc = "Diagnostics list" })
 vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show diagnostics" })
@@ -599,3 +724,59 @@ vim.keymap.set(
   ":RemovePlugin ",
   vim.tbl_extend("force", opts, { desc = "Remove plugin (enter name)" })
 )
+
+-- ===========================
+-- Which-Key Configuration
+-- ===========================
+local wk = require("which-key")
+
+wk.setup({
+  preset = "helix",
+  delay = 0,
+  triggers = {
+    { "<leader>", mode = { "n", "v" } },
+  },
+  plugins = {
+    marks = true,
+    registers = true,
+  },
+  win = {
+    border = "rounded",
+    padding = { 2, 4 },
+  },
+})
+
+wk.add({
+  -- Grupos principais
+  { "<leader>f", group = "find (telescope)" },
+  { "<leader>g", group = "git" },
+  { "<leader>o", group = "obsidian" },
+  { "<leader>l", group = "lsp" },
+  { "<leader>d", group = "diagnostics" },
+  { "<leader>p", group = "plugins" },
+  { "<leader>a", group = "avante / harpoon" },
+
+  -- Git (prefixo <leader>g)
+  { "<leader>gc", desc = "commit" },
+  { "<leader>gA", desc = "amend" },
+  { "<leader>gp", desc = "pull" },
+  { "<leader>gd", desc = "preview hunk" },
+  { "<leader>gl", desc = "log commits" },
+  { "<leader>gF", desc = "fetch" },
+  { "<leader>gS", desc = "stage buffer" },
+  { "<leader>gU", desc = "unstage buffer" },
+  { "<leader>gs", desc = "stage hunk" },
+  { "<leader>ga", desc = "stage all" },
+  { "<leader>gu", desc = "unstage hunk" },
+  { "<leader>gr", desc = "discard changes" },
+  { "<leader>gn", desc = "new branch" },
+  { "<leader>gm", desc = "merge" },
+  { "<leader>gB", desc = "toggle blame" },
+  { "<leader>go", desc = "diffview open" },
+  { "<leader>gO", desc = "diff branches" },
+  { "<leader>gh", desc = "file history" },
+  { "<leader>gt", desc = "git status" },
+  { "<leader>gz", desc = "stash" },
+  { "<leader>gZ", desc = "stash pop" },
+  { "<leader>gL", desc = "log commits" },
+})

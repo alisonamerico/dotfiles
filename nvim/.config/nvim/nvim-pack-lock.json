@@ -16,6 +16,10 @@
       "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "diffview.nvim": {
+      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
+      "src": "https://github.com/sindrets/diffview.nvim"
+    },
     "friendly-snippets": {
       "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
       "src": "https://github.com/rafamadriz/friendly-snippets"
@@ -84,6 +88,10 @@
       "rev": "42fc28ba918343ebfd5565147a42a26580579482",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "nvim-web-devicons": {
+      "rev": "d7462543c9e366c0d196c7f67a945eaaf5d99414",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
     "obsidian.nvim": {
       "rev": "14e0427bef6c55da0d63f9a313fd9941be3a2479",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim"
@@ -111,6 +119,10 @@
     "vague.nvim": {
       "rev": "dba28050887c2810b5ebf9e0143b4e919bd55757",
       "src": "https://github.com/vague-theme/vague.nvim"
+    },
+    "which-key.nvim": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
     },
     "windsurf.vim": {
       "rev": "a8d47ec54fe82df920b2545559f767003e8a7f8d",
