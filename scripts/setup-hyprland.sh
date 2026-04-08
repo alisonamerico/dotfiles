@@ -181,6 +181,7 @@ install_packages() {
         zoxide
         yazi
         lazygit
+        lazysql
         stow
         awww
         imagemagick
