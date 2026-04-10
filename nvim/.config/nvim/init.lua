@@ -52,7 +52,7 @@ vim.pack.add({
   { src = "https://github.com/kdheepak/lazygit.nvim" },
   { src = "https://github.com/alexghergh/nvim-tmux-navigation" },
   { src = "https://github.com/obsidian-nvim/obsidian.nvim" },
-  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+  -- { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
   { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
   { src = "https://github.com/mbbill/undotree" },
   { src = "https://github.com/yetone/avante.nvim" },
@@ -382,9 +382,9 @@ require("img-clip").setup({
 -- ========================================
 -- Render Markdown Setup
 -- ========================================
-require("render-markdown").setup({
-  file_types = { "markdown", "obsidian" },
-})
+-- require("render-markdown").setup({
+--   file_types = { "markdown", "obsidian" },
+-- })
 
 -- ========================================
 -- Keymaps

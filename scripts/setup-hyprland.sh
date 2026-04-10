@@ -226,14 +226,15 @@ install_packages() {
 
 install_aur_packages() {
 
-    if pacman -Qq neovim &>/dev/null; then
-        info "Removendo neovim estável..."
-        sudo pacman -R neovim --noconfirm 2>/dev/null || true
+    if pacman -Qq neovim-nightly-bin &>/dev/null; then
+        info "Removendo neovim-nightly..."
+        yay -R neovim-nightly-bin --noconfirm 2>/dev/null || sudo pacman -R neovim-nightly-bin --noconfirm 2>/dev/null || true
     fi
+
+    install_pkg neovim
 
     aur_packages=(
         brave-bin
-        neovim-nightly-bin
     )
 
     for pkg in "${aur_packages[@]}"; do
