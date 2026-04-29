@@ -187,6 +187,7 @@ install_packages() {
         imagemagick
         grim
         satty
+        swayimg
         zathura-pdf-mupdf
         slurp
         wl-clipboard
@@ -480,6 +481,18 @@ configure_kwallet() {
     success "KDE Wallet desabilitado"
 }
 
+configure_image_viewer() {
+
+    info "Configurando swayimg como visualizador de imagens padrão..."
+
+    if command -v swayimg &>/dev/null; then
+        xdg-mime default swayimg.desktop image/jpeg image/png image/jpg image/webp image/gif image/bmp image/tiff image/svg+xml
+        success "swayimg configurado como visualizador padrão"
+    else
+        warn "swayimg não encontrado, pulando configuração"
+    fi
+}
+
 summary() {
 
 echo ""
@@ -552,6 +565,9 @@ configure_icon_theme
 pause
 
 configure_kwallet
+    pause
+
+configure_image_viewer
     pause
 
 install_worktrunk
