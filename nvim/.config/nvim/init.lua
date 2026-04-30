@@ -411,6 +411,20 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", { desc = "Clear highlights" })
 vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Next quickfix" })
 vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>", { desc = "Previous quickfix" })
 
+-- Replace the word cursor is on globally
+vim.keymap.set(
+  "n",
+  "<leader>s",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Replace word cursor is on globally" }
+)
+
+-- restart
+vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", {
+  desc = "Restart Neovim (:restart)",
+  silent = true,
+})
+
 -- Obsidian: Follow wikilink
 vim.keymap.set("n", "gf", "<cmd>lua require('obsidian').util.gf_passthrough()<CR>", { desc = "Follow link (gf)" })
 vim.keymap.set("n", "<CR>", "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>", { desc = "Toggle checkbox" })

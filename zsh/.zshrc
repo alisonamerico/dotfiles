@@ -81,3 +81,31 @@ eval "$(zoxide init zsh)"
 . "$HOME/.local/share/../bin/env"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# NPM global bin (added by Qwen Code installer)
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# `inspect-5p` is a shell function that must be defined in your `~/.bashrc` (or `~/.zshrc`).
+# It captures all uncommitted changes and sends them to `opencode run` for a structured
+# 5-dimension review.
+inspect-5p() {
+  local diff
+  diff=$(git diff --staged; git diff)
+
+  if [ -z "$diff" ]; then
+    echo "No uncommitted changes to review."
+    return 1
+  fi
+
+  opencode run "Review these changes across 5 dimensions:
+1. Security — any vulnerabilities or sensitive data exposure?
+2. Correctness — logic errors, edge cases, wrong behavior?
+3. Design — violates project conventions or architecture?
+4. Testing — missing tests or weak assertions?
+5. Conventions — style, naming, commit message quality?
+
+List issues found per dimension. Be direct and specific.
+
+Changes to review:
+$diff"
+}
