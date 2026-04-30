@@ -605,10 +605,7 @@ vim.keymap.set("n", "<leader>gZ", function()
   vim.notify("✅ Stash popped", vim.log.levels.INFO, { title = "Git" })
   vim.cmd("checktime")
 end, { desc = "Stash pop" })
-vim.keymap.set("n", "<leader>gL", function()
-  require("telescope.builtin").git_commits()
-end, { desc = "Log commits" })
-vim.keymap.set("n", "gL", function()
+vim.keymap.set("n", "<leader>gl", function()
   require("telescope.builtin").git_commits()
 end, { desc = "Log commits" })
 
@@ -621,6 +618,15 @@ vim.keymap.set("n", "<leader>gm", function()
     end
   end)
 end, { desc = "Merge (with confirmation)" })
+vim.keymap.set("n", "<leader>gX", function()
+  vim.ui.input({ prompt = "Rebase onto branch: " }, function(branch)
+    if branch and #branch > 0 then
+      vim.fn.system({ "git", "rebase", branch })
+      vim.notify("Rebased onto: " .. branch, vim.log.levels.INFO, { title = "Git" })
+      vim.cmd("checktime")
+    end
+  end)
+end, { desc = "Rebase onto branch" })
 
 vim.keymap.set("n", "<leader>g!", function()
   vim.ui.input({ prompt = "Force push? (yes to confirm): " }, function(ans)
@@ -806,6 +812,7 @@ wk.add({
   { "<leader>gp", desc = "pull" },
   { "<leader>gd", desc = "preview hunk" },
   { "<leader>gl", desc = "log commits" },
+  { "<leader>gX", desc = "rebase" },
   { "<leader>gF", desc = "fetch" },
   { "<leader>g!", desc = "force push" },
   { "<leader>gS", desc = "stage buffer" },
@@ -823,7 +830,6 @@ wk.add({
   { "<leader>gt", desc = "git status" },
   { "<leader>gz", desc = "stash" },
   { "<leader>gZ", desc = "stash pop" },
-  { "<leader>gL", desc = "log commits" },
   { "<leader>gg", desc = "lazygit" },
   { "<leader>gP", desc = "patch stage" },
   { "<leader>gR", desc = "git reflog" },
