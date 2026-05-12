@@ -117,6 +117,7 @@ require("mason-lspconfig").setup({
     "cssls",
     "ts_ls",
     "jsonls",
+    "marksman",
   },
 })
 
@@ -157,6 +158,10 @@ vim.lsp.config.cssls = { capabilities = capabilities }
 vim.lsp.config.ts_ls = { capabilities = capabilities }
 vim.lsp.config.jsonls = { capabilities = capabilities }
 vim.lsp.config.taplo = { capabilities = capabilities }
+vim.lsp.config.marksman = {
+  capabilities = capabilities,
+  filetypes = { "markdown", "obsidian" },
+}
 
 vim.lsp.enable({
   "lua_ls",
@@ -166,6 +171,7 @@ vim.lsp.enable({
   "cssls",
   "ts_ls",
   "jsonls",
+  "marksman",
 })
 
 -- =====================================================
@@ -183,7 +189,7 @@ require("conform").setup({
     typescript = { "prettier" },
     json = { "prettier" },
     toml = { "taplo" },
-    markdown = { "mdformat" },
+    markdown = { "marksman" },
   },
   format_on_save = { timeout_ms = 5000 },
 })
@@ -321,8 +327,9 @@ require("obsidian").setup({
     },
   },
 
-  use_titles = true,
+  use_titles = false,
   new_notes_location = "Notes",
+  preferred_link_style = "wiki",
 
   note_id_func = function(title)
     local id = os.date("%Y%m%d%H%M")
@@ -360,7 +367,11 @@ require("obsidian").setup({
   },
 
   wiki_link_func = function(opts)
-    return string.format("[[%s]]", opts.label)
+    if opts.id ~= nil and opts.label ~= opts.id then
+      return string.format("[[%s|%s]]", opts.id, opts.label)
+    else
+      return string.format("[[%s]]", opts.id or opts.label)
+    end
   end,
 
   markdown_proc_func = function(ctx)
