@@ -328,7 +328,8 @@ require("obsidian").setup({
   },
 
   use_titles = false,
-  new_notes_location = "Notes",
+  notes_subdir = "Notes",
+  new_notes_location = "notes_subdir",
   preferred_link_style = "wiki",
 
   note_id_func = function(title)
