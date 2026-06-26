@@ -148,7 +148,7 @@ install_packages() {
         xdg-desktop-portal-hyprland
 
         waybar
-        dunst
+        swaync
         rofi
         sddm
         brightnessctl

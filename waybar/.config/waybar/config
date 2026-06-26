@@ -37,7 +37,18 @@
         "timezone": "America/Sao_Paulo",
         "format": "{:%a %d/%m %I:%M %p}",
         "format-alt": "{:%a %d/%m}",
-        "tooltip-format": "<span color='#dddddd'>{calendar}</span>"
+        "tooltip-format": "<span color='#dddddd'>{calendar}</span>",
+        "calendar": {
+            "format": {
+                "today": "<span color='#00ff99'><b>{}</b></span>"
+            },
+            "on-scroll": 1,
+            "on-click-right": "mode"
+        },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
 
     "pulseaudio": {

@@ -14,16 +14,30 @@ window#waybar {
 }
 
 tooltip {
-    background: #2c2c2e;
-    color: #dddddd;
-    border: 1px solid #3a3a3c;
-    border-radius: 8px;
+    background: rgba(30, 30, 32, 0.95);
+    color: #cdcdcd;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     font-weight: 600;
+    padding: 8px;
 }
 
-tooltip .highlighted {
-    color: #c48282;
+calendar {
+    background: transparent;
+    color: #cdcdcd;
+    border: none;
+    padding: 4px;
+}
+
+calendar.header {
+    color: #cdcdcd;
     font-weight: bold;
+}
+
+#clock calendar:selected {
+    color: #00ff99;
+    background: rgba(0, 255, 153, 0.15);
+    border-radius: 6px;
 }
 
 .modules-left,

@@ -46,7 +46,7 @@ cd ~/dotfiles
 ls -d */
 
 # Apply packages
-stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff dunst images scripts
+stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff swaync images scripts
 ```
 
 ### Reload configurations
@@ -95,7 +95,7 @@ dotfiles/
 ├── git/.gitconfig                # Git config
 ├── yazi/                         # Yazi config
 ├── ruff/ruff.toml                # Ruff config
-├── dunst/.config/dunst/          # Dunst notifications
+├── swaync/.config/swaync/        # SwayNotificationCenter
 ├── images/                       # Images source
 │   ├── screenshots/                # → ~/screenshots (symlink)
 │   └── wallpapers/                 # → ~/wallpapers (symlink)
@@ -114,7 +114,7 @@ dotfiles/
 
 **Desktop:**
 - hyprland, hypridle, hyprlock, xdg-desktop-portal-hyprland
-- waybar, rofi, dunst, sddm
+- waybar, rofi, swaync, sddm
 - brightnessctl, pavucontrol
 - networkmanager, network-manager-applet
 - blueman, bluez, bluez-utils
@@ -194,10 +194,10 @@ systemctl --user status pipewire
 blueman-manager
 ```
 
-### Dunst doesn't show notifications
+### SwayNC doesn't show notifications
 ```bash
-killall dunst
-dunst &
+killall swaync
+swaync &
 ```
 
 ### Wallpaper doesn't load after reboot
