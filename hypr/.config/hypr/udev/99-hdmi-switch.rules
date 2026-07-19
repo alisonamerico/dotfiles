@@ -1,0 +1,3 @@
+# Switch Hyprland monitors on HDMI hotplug
+# Detects any HDMI/A connector status change and triggers monitor switch
+ACTION=="change", SUBSYSTEM=="drm", ENV{CONNECTOR}=="*", RUN+="/home/alison/.config/hypr/scripts/monitor-daemon.sh"

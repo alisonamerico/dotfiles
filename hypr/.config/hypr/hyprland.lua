@@ -26,7 +26,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("sleep 1 && waybar")
     hl.exec_cmd("swaync")
     hl.exec_cmd("hypridle")
-    hl.exec_cmd("~/.config/hypr/scripts/monitor-daemon.sh --once")
+    hl.exec_cmd("~/.config/hypr/scripts/monitor-daemon.sh")
     hl.exec_cmd("sleep 2 && ~/dotfiles/scripts/battery-warning.sh &")
 end)
 
@@ -53,19 +53,8 @@ hl.monitor({
     scale    = 1,
 })
 
-hl.on("monitor.added", function(m)
-    if m.name == "HDMI-A-2" then
-        hl.monitor({ output = "eDP-1", disabled = true })
-        hl.monitor({ output = "HDMI-A-2", disabled = false, mode = "1920x1080@120", position = "0x0", scale = 1 })
-    end
-end)
-
-hl.on("monitor.removed", function(m)
-    if m.name == "HDMI-A-2" then
-        hl.monitor({ output = "HDMI-A-2", disabled = true })
-        hl.monitor({ output = "eDP-1", disabled = false, mode = "1920x1080@60", position = "0x0", scale = 1 })
-    end
-end)
+-- HDMI switching handled by udev rule + monitor-daemon.sh
+-- Install: ~/.config/hypr/scripts/install-hdmi-udev.sh
 
 
 ---------------------------
