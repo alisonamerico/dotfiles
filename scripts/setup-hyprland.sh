@@ -316,6 +316,7 @@ install_uv() {
     uv tool install ruff
     uv tool install taplo
     uv tool install djlint
+    uv tool install sqlit-tui
     success "Ferramentas instaladas"
 
     info "Instalando mdformat com plugin frontmatter..."
