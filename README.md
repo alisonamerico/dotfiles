@@ -97,7 +97,6 @@ dotfiles/
 ├── ruff/ruff.toml                # Ruff config
 ├── swaync/.config/swaync/        # SwayNotificationCenter
 ├── images/                       # Images source
-│   ├── screenshots/                # → ~/screenshots (symlink)
 │   └── wallpapers/                 # → ~/wallpapers (symlink)
 ├── scripts/                      # Utility scripts
 │   ├── setup-hyprland.sh         # Main installer
@@ -218,5 +217,5 @@ hyprctl keyword monitor HDMI-A-2,preferred,0x0,1
 
 1. **Dotfiles organization**: All user-specific files are symlinked via GNU Stow
 2. **Wallpapers**: Store in `~/wallpapers/`
-3. **Screenshots**: Saved to `~/screenshots/`
+3. **Screenshots**: Saved to `~/images/screenshots/`
 4. **Scripts**: Available in `~/scripts/` (symlinked to `~/.local/bin` via PATH)

@@ -337,6 +337,7 @@ configure_stow() {
     cd "$dotfiles_dir"
 
     mkdir -p "$HOME/.config"
+    mkdir -p "$HOME/images/screenshots"
 
     if [[ -d "$HOME/.config/hypr" ]] && [[ ! -L "$HOME/.config/hypr" ]]; then
         warn "Removendo configurações padrão do Hyprland..."

@@ -262,12 +262,12 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Screenshots (Print)
-hl.bind("Print",            hl.dsp.exec_cmd("grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
-hl.bind("SHIFT + Print",    hl.dsp.exec_cmd("grim -t ppm - | satty --filename - --output-filename ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+hl.bind("Print",            hl.dsp.exec_cmd("grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+hl.bind("SHIFT + Print",    hl.dsp.exec_cmd("grim -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
 
 -- Screenshots (Super + O)
-hl.bind(mainMod .. " + O",         hl.dsp.exec_cmd("grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
-hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("grim -t ppm - | satty --filename - --output-filename ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+hl.bind(mainMod .. " + O",         hl.dsp.exec_cmd("grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("grim -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
 
 -- App shortcuts
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave --password-store=basic --disable-brave-wallet --disable-ethereum"))
