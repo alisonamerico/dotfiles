@@ -21,6 +21,7 @@ while true; do
     capacity=$(cat "$BAT/capacity")
 
     if [[ "$status" == "Discharging" ]]; then
+        rm -f "$FLAG_DIR/level100"
         if [[ "$capacity" -le 3 ]]; then
             notify critical "battery-caution" "BATERIA CRÍTICA" "Desligando em 30 segundos..."
             sleep 30
@@ -38,7 +39,11 @@ while true; do
             touch "$FLAG_DIR/level20"
         fi
     else
-        rm -f "$FLAG_DIR"/level*
+        rm -f "$FLAG_DIR"/level5 "$FLAG_DIR"/level10 "$FLAG_DIR"/level20
+        if [[ "$capacity" -ge 100 ]] && [[ ! -f "$FLAG_DIR/level100" ]]; then
+            notify normal "battery_charged" "Bateria 100%" "Bateria totalmente carregada. Pode desconectar o carregador."
+            touch "$FLAG_DIR/level100"
+        fi
     fi
 
     sleep 30

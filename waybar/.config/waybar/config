@@ -77,8 +77,10 @@
     "network": {
         "format-wifi": "󰤨 {signalStrength}%",
         "format-ethernet": "󰈀",
+        "format-linked": "󰖂",
         "format-disconnected": "󰤭",
         "tooltip-format": "<tt>{ssid}</tt>",
+        "tooltip-format-linked": "<tt>VPN</tt>",
         "on-click": "kitty -e nmtui"
     },
 
