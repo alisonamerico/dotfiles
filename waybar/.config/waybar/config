@@ -7,7 +7,7 @@
     "margin-top": 10,
 
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
+    "modules-center": ["clock", "custom/caffeine"],
     "modules-right": ["custom/bluetooth", "pulseaudio", "backlight", "network", "battery"],
 
     "hyprland/workspaces": {
@@ -98,5 +98,14 @@
         "interval": 5,
         "return-type": "text",
         "on-click": "blueman-manager"
+    },
+
+    "custom/caffeine": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/caffeine.sh",
+        "signal": 1,
+        "return-type": "json",
+        "on-click": "~/.config/waybar/scripts/caffeine.sh toggle; pkill -RTMIN+1 waybar",
+        "on-click-right": "~/.config/waybar/scripts/caffeine.sh toggle; pkill -RTMIN+1 waybar"
     }
 }

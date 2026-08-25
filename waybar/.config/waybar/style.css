@@ -88,7 +88,8 @@ calendar.header {
 #network,
 #battery,
 #backlight,
-#custom-bluetooth {
+#custom-bluetooth,
+#custom-caffeine {
     color: #cdcdcd;
     padding: 0 4px;
 }
@@ -97,7 +98,8 @@ calendar.header {
     font-size: 13px;
 }
 
-#custom-bluetooth {
+#custom-bluetooth,
+#custom-caffeine {
     font-size: 13px;
 }
 
@@ -108,4 +110,12 @@ calendar.header {
 
 #battery.charging {
     color: #a6e3a1;
+}
+
+#custom-caffeine.active {
+    color: #cdcdcd;
+}
+
+#custom-caffeine.inactive {
+    color: #6e6e73;
 }

@@ -109,3 +109,7 @@ List issues found per dimension. Be direct and specific.
 Changes to review:
 $diff"
 }
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/alison/.local/bin:$PATH"

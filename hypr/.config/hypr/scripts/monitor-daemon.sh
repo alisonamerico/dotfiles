@@ -16,6 +16,8 @@ fi
 
 [ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ] && exit 0
 
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+
 if ! command -v hyprctl &>/dev/null; then
     export PATH="$PATH:/usr/local/bin:/usr/bin"
 fi
@@ -88,4 +90,14 @@ else
             hyprctl keyword monitor "$MONITOR_LAPTOP, 1920x1080@60, 0x0, 1" >/dev/null 2>&1
         fi
     fi
+fi
+
+# Waybar can lose its layer surface when outputs change (e.g. HDMI unplug),
+# leaving no bar at all. Restart it so it re-attaches to the active monitors.
+# Skipped during startup because waybar has not been launched yet.
+if pgrep -x waybar >/dev/null 2>&1; then
+    sleep 1
+    pkill -x waybar 2>/dev/null
+    sleep 0.5
+    hyprctl dispatch 'hl.dsp.exec_cmd("waybar")' >/dev/null 2>&1
 fi
