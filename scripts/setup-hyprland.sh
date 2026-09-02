@@ -180,6 +180,8 @@ install_packages() {
         eza
         zoxide
         yazi
+        udiskie
+        udisks2
         lazygit
         lazysql
         stow
@@ -261,6 +263,7 @@ configure_services() {
         NetworkManager
         bluetooth
         sddm
+        udisks2
     )
 
     for service in "${services[@]}"; do
