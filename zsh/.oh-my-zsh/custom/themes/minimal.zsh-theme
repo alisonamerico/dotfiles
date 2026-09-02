@@ -12,7 +12,7 @@ MNML_BGJOB_MODE=${MNML_BGJOB_MODE:-4}
 [ "${+MNML_RPROMPT}" -eq 0 ] && MNML_RPROMPT=('mnml_cwd 2 0' mnml_git)
 [ "${+MNML_INFOLN}" -eq 0 ] && MNML_INFOLN=(mnml_err mnml_jobs mnml_uhp mnml_files)
 
-[ "${+MNML_MAGICENTER}" -eq 0 ] && MNML_MAGICENTER=(mnml_me_dirs mnml_me_ls mnml_me_git)
+[ "${+MNML_MAGICENTER}" -eq 0 ] && MNML_MAGICENTER=()
 
 
 # Components
@@ -235,7 +235,7 @@ function _mnml_me {
             output+="$cmd_out"
         fi
     done
-    printf '%b' "${(j:\n:)output}" | less -XFR
+    printf '%b' "${(j:\n:)output}" | { command -v less >/dev/null && less -XFR || cat; }
 }
 
 # capture exit status and reset prompt
@@ -252,9 +252,13 @@ function _mnml_zle-keymap-select {
 # draw infoline if no command is given
 function _mnml_buffer-empty {
     if [ -z "$BUFFER" ]; then
-        _mnml_iline "$(_mnml_wrap MNML_INFOLN)"
-        _mnml_me
-        zle redisplay
+        if [ "${#MNML_MAGICENTER[@]}" -eq 0 ]; then
+            zle accept-line
+        else
+            _mnml_iline "$(_mnml_wrap MNML_INFOLN)"
+            _mnml_me
+            zle redisplay
+        fi
     else
         zle accept-line
     fi
