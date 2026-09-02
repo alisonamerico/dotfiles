@@ -11,7 +11,7 @@ case "$CHOSEN" in
         hyprlock
         ;;
     Logout)
-        loginctl terminate-user $USER
+        hyprctl dispatch "hl.dsp.exit()"
         ;;
     Reboot)
         systemctl reboot

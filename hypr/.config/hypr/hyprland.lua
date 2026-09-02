@@ -12,7 +12,6 @@
 --------------------
 
 local terminal    = "kitty"
-local fileManager = "dolphin"
 local menu        = "rofi -show drun -theme ~/.config/rofi/style-3.rasi"
 
 
@@ -219,8 +218,8 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 -- Close active window
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 
--- Shutdown/suspend menu
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+-- Shutdown
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("systemctl poweroff"))
 
 -- File manager
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty -e yazi"))
@@ -230,9 +229,6 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
 -- Launcher (rofi)
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
-
--- Pseudo (dwindle) - NOTE: overridden by systemctl suspend below
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 -- Toggle split (dwindle)
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
@@ -252,7 +248,7 @@ end
 
 -- Special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through workspaces
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -262,17 +258,17 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- Screenshots (Print)
-hl.bind("Print",            hl.dsp.exec_cmd("grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
-hl.bind("SHIFT + Print",    hl.dsp.exec_cmd("grim -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
-
--- Screenshots (Super + O)
-hl.bind(mainMod .. " + O",         hl.dsp.exec_cmd("grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
-hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("grim -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+-- Screenshots
+--   Region:  Print (builtin KB) / F9 = Fn+F9 (external K380s)
+--   Full:    SHIFT+Print (builtin KB) / Super+SHIFT+S = plain F9 (external K380s)
+hl.bind("Print",           hl.dsp.exec_cmd("grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+hl.bind("SHIFT + Print",   hl.dsp.exec_cmd("grim -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+hl.bind("F9",              hl.dsp.exec_cmd("grim -g \"$(slurp)\" -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -t ppm - | satty --filename - --output-filename ~/images/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
 
 -- App shortcuts
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave --password-store=basic --disable-brave-wallet --disable-ethereum"))
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("nvim"))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(terminal .. " -e nvim"))
 
 -- Reload config
 hl.bind(mainMod .. " + CTRL + R",       hl.dsp.exec_cmd("hyprctl reload && killall waybar && waybar"))
@@ -281,8 +277,8 @@ hl.bind(mainMod .. " + CTRL + SHIFT + R", hl.dsp.exec_cmd("killall waybar && way
 -- Lock and power
 hl.bind(mainMod .. " + L",       hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + X",       hl.dsp.exec_cmd("~/.config/rofi/scripts/powermenu.sh"))
-hl.bind(mainMod .. " + SHIFT + X", hl.dsp.exec_cmd("loginctl terminate-user $USER"))
-hl.bind(mainMod .. " + P",       hl.dsp.exec_cmd("systemctl suspend"))  -- overrides pseudo above
+hl.bind(mainMod .. " + SHIFT + X", hl.dsp.exit())
+hl.bind(mainMod .. " + P",       hl.dsp.exec_cmd("systemctl suspend"))
 
 -- Audio controls (keyboard)
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
