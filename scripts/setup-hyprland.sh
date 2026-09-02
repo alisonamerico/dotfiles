@@ -375,6 +375,11 @@ configure_stow() {
 
     done
 
+    if [[ -f "$HOME/.config/hypr/scripts/install-hdmi-udev.sh" ]]; then
+        info "Instalando udev rule + sleep hook + logind drop-in (HDMI/lid)..."
+        bash "$HOME/.config/hypr/scripts/install-hdmi-udev.sh"
+    fi
+
     if command -v waybar &>/dev/null; then
         info "Reiniciando waybar..."
         killall waybar 2>/dev/null || true

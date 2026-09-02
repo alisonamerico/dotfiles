@@ -23,7 +23,7 @@ local menu        = "rofi -show drun -theme ~/.config/rofi/style-3.rasi"
 hl.on("hyprland.start", function()
     hl.exec_cmd("awww-daemon &")
     hl.exec_cmd("sleep 1 && ~/.config/hypr/scripts/wallpaper.sh")
-    hl.exec_cmd("sleep 1 && waybar")
+    -- waybar is (re)launched by monitor-daemon.sh so it survives HDMI hotplug
     hl.exec_cmd("swaync")
     hl.exec_cmd("hypridle")
     hl.exec_cmd("~/.config/hypr/scripts/monitor-daemon.sh")
@@ -307,6 +307,10 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+
+-- Laptop lid switch — keeps external monitor active when lid is closed
+hl.bind("switch:on:Lid Switch",  hl.dsp.exec_cmd("~/.config/hypr/scripts/lid-switch.sh close"))
+hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("~/.config/hypr/scripts/lid-switch.sh open"))
 
 
 ---------------------------------
