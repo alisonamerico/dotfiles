@@ -50,18 +50,7 @@ calendar.header {
     font-size: 13px;
 }
 
-.modules-left {
-    padding: 4px 14px;
-    margin: 0 8px;
-}
-
 .modules-center {
-    padding: 4px 18px;
-    margin: 0 8px;
-}
-
-.modules-right {
-    padding: 4px 10px;
     margin: 0 8px;
 }
 
@@ -82,6 +71,7 @@ calendar.header {
 #clock {
     color: #cdcdcd;
     font-weight: 700;
+    padding: 0 4px;
 }
 
 #pulseaudio,
@@ -89,9 +79,14 @@ calendar.header {
 #battery,
 #backlight,
 #custom-bluetooth,
-#custom-caffeine {
+#custom-caffeine,
+#custom-vpn {
     color: #cdcdcd;
     padding: 0 4px;
+}
+
+#custom-vpn.active {
+    color: #00ff99;
 }
 
 #pulseaudio {
@@ -118,4 +113,67 @@ calendar.header {
 
 #custom-caffeine.inactive {
     color: #6e6e73;
+}
+
+/* --- TIMER / POMODORO --- */
+
+#custom-timer {
+    color: #cdcdcd;
+    padding: 0 4px;
+}
+
+#custom-timer.disabled {
+    color: #6e6e73;
+    opacity: 0.6;
+}
+
+#custom-timer.idle {
+    color: #6e6e73;
+}
+
+#custom-timer.select {
+    color: #89b4fa;
+}
+
+#custom-timer.running {
+    color: #cdcdcd;
+}
+
+#custom-timer.pomo_break {
+    color: #f9e2af;
+}
+
+#custom-timer.pomo_msg {
+    color: #cba6f7;
+}
+
+#custom-timer.paused {
+    color: #f9e2af;
+}
+
+#custom-timer.warning {
+    animation-name: timer-alert;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-timer.done {
+    color: #a6e3a1;
+}
+
+#custom-timer.reset {
+    color: #f38ba8;
+}
+
+@keyframes timer-alert {
+    0% {
+        color: #f38ba8;
+        opacity: 1;
+    }
+    100% {
+        color: #f38ba8;
+        opacity: 0.7;
+    }
 }

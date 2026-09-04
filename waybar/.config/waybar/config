@@ -7,8 +7,8 @@
     "margin-top": 10,
 
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock", "custom/caffeine"],
-    "modules-right": ["custom/bluetooth", "pulseaudio", "backlight", "network", "battery"],
+    "modules-center": ["custom/caffeine", "clock", "custom/timer"],
+    "modules-right": ["custom/bluetooth", "pulseaudio", "backlight", "custom/vpn", "network", "battery"],
 
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -75,13 +75,19 @@
     },
 
     "network": {
+        "interface": "wlan*",
         "format-wifi": "󰤨 {signalStrength}%",
         "format-ethernet": "󰈀",
-        "format-linked": "󰖂",
         "format-disconnected": "󰤭",
         "tooltip-format": "<tt>{ssid}</tt>",
-        "tooltip-format-linked": "<tt>VPN</tt>",
         "on-click": "kitty -e nmtui"
+    },
+
+    "custom/vpn": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/vpn.sh",
+        "interval": 5,
+        "return-type": "json"
     },
 
     "battery": {
@@ -98,6 +104,19 @@
         "interval": 5,
         "return-type": "text",
         "on-click": "blueman-manager"
+    },
+
+    "custom/timer": {
+        "exec": "~/.config/waybar/scripts/timer.sh",
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "~/.config/waybar/scripts/timer.sh click",
+        "on-click-right": "~/.config/waybar/scripts/timer.sh right",
+        "on-click-middle": "~/.config/waybar/scripts/timer.sh middle",
+        "on-scroll-up": "~/.config/waybar/scripts/timer.sh up",
+        "on-scroll-down": "~/.config/waybar/scripts/timer.sh down",
+        "tooltip": true,
+        "escape": true
     },
 
     "custom/caffeine": {

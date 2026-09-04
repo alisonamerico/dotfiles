@@ -281,6 +281,10 @@ hl.bind(mainMod .. " + X",       hl.dsp.exec_cmd("~/.config/rofi/scripts/powerme
 hl.bind(mainMod .. " + SHIFT + X", hl.dsp.exit())
 hl.bind(mainMod .. " + P",       hl.dsp.exec_cmd("systemctl suspend"))
 
+-- Pomodoro timer (waybar custom/timer)
+hl.bind(mainMod .. " + CTRL + P",       hl.dsp.exec_cmd("~/.config/waybar/scripts/timer.sh pomo 25m 5b 4s"))
+hl.bind(mainMod .. " + CTRL + SHIFT + P", hl.dsp.exec_cmd("~/.config/waybar/scripts/timer.sh reset"))
+
 -- Audio controls (keyboard)
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),       { repeating = true })
