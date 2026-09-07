@@ -5,6 +5,10 @@
 MONITOR_HDMI="HDMI-A-2"
 MONITOR_LAPTOP="eDP-1"
 
+# Exit cleanly on TERM/INT so systemd doesn't wait 90s at shutdown.
+# The script holds an flock on /tmp; releasing it promptly is critical.
+trap 'exit 0' TERM INT
+
 # udev and systemd run us as root with no Hyprland env, so the instance
 # signature lookup below fails (it would search /run/user/0/hypr). Re-run
 # ourselves as the desktop user so hyprctl can reach the compositor.
@@ -12,6 +16,17 @@ if [ "$(id -u)" -eq 0 ]; then
     exec /usr/bin/runuser -u alison -- env HOME=/home/alison USER=alison \
         XDG_RUNTIME_DIR=/run/user/1000 "$0" "$@"
 fi
+
+# Serialize concurrent invocations (autostart + udev fire the same script in
+# parallel on boot; without a lock each one re-launches waybar, leaving two
+# bars). Use non-blocking flock: if another instance holds the lock, exit
+# immediately instead of blocking (which keeps /tmp busy and breaks reboot).
+exec 9>/tmp/monitor-daemon.lock
+flock -n 9 || exit 0
+# Close fd 9 after acquiring the lock so it doesn't hold /tmp open.
+# The lock is released when the script exits; closing early avoids the
+# "Failed unmounting /tmp" error at shutdown.
+exec 9>&-
 
 # Ensure we can talk to Hyprland
 if [ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
@@ -61,19 +76,24 @@ for lid_path in /proc/acpi/button/lid/LID0/state /proc/acpi/button/lid/LID/state
     fi
 done
 
+# HPC is a helper that bounds every hyprctl call so the script can never hang
+# waiting on the compositor during shutdown (hyprctl would otherwise block
+# once Hyprland is gone, holding our flock open on /tmp).
+HPC() { timeout 5 hyprctl "$@"; }
+
 # Get current Hyprland monitor state
-current_hdmi=$(hyprctl monitors 2>/dev/null | grep -c "^Monitor $MONITOR_HDMI")
-current_laptop=$(hyprctl monitors 2>/dev/null | grep -c "^Monitor $MONITOR_LAPTOP")
+current_hdmi=$(HPC monitors 2>/dev/null | grep -c "^Monitor $MONITOR_HDMI")
+current_laptop=$(HPC monitors 2>/dev/null | grep -c "^Monitor $MONITOR_LAPTOP")
 
 # Hyprland 0.55+ uses Lua config, so monitor changes go through `hyprctl eval`
 # (the legacy `hyprctl keyword monitor` no longer works).
 mon_off() {
-    hyprctl eval "hl.monitor({ output = \"$1\", disabled = true })" >/dev/null 2>&1
+    HPC eval "hl.monitor({ output = \"$1\", disabled = true })" >/dev/null 2>&1
 }
 
 mon_on() {
     # $1 = monitor, $2 = mode, $3 = position
-    hyprctl eval "hl.monitor({ output = \"$1\", mode = \"$2\", position = \"$3\", scale = 1, disabled = false })" >/dev/null 2>&1
+    HPC eval "hl.monitor({ output = \"$1\", mode = \"$2\", position = \"$3\", scale = 1, disabled = false })" >/dev/null 2>&1
 }
 
 # Determine target state based on lid + HDMI combination
@@ -116,7 +136,7 @@ else
 fi
 
 # Wake all active screens (some stay in DPMS standby after resume/hotplug)
-hyprctl eval 'hl.dsp.dpms("on")' >/dev/null 2>&1
+HPC eval 'hl.dsp.dpms("on")' >/dev/null 2>&1
 
 # Waybar can lose its layer surface when outputs change (e.g. HDMI unplug),
 # leaving no bar at all. Restart it so it re-attaches to the active monitors.
@@ -127,8 +147,8 @@ hyprctl eval 'hl.dsp.dpms("on")' >/dev/null 2>&1
 # (WAYLAND_DISPLAY etc.) — a bare `waybar &` fails when udev/systemd call us.
 pkill -x waybar 2>/dev/null
 sleep 1
-hyprctl dispatch 'hl.dsp.exec_cmd("waybar")' >/dev/null 2>&1
+HPC dispatch 'hl.dsp.exec_cmd("waybar")' >/dev/null 2>&1
 
 # Re-wake screens: some GPUs blank outputs briefly while Hyprland reconfigures
 sleep 1
-hyprctl eval 'hl.dsp.dpms("on")' >/dev/null 2>&1
+HPC eval 'hl.dsp.dpms("on")' >/dev/null 2>&1
