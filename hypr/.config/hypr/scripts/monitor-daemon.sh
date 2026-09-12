@@ -20,13 +20,13 @@ fi
 # Serialize concurrent invocations (autostart + udev fire the same script in
 # parallel on boot; without a lock each one re-launches waybar, leaving two
 # bars). Use non-blocking flock: if another instance holds the lock, exit
-# immediately instead of blocking (which keeps /tmp busy and breaks reboot).
-exec 9>/tmp/monitor-daemon.lock
+# immediately instead of blocking. The fd must stay open for the whole run —
+# closing it (exec 9>&-) releases the lock immediately and lets every
+# concurrent invocation relaunch waybar. The lock lives outside /tmp (user
+# runtime dir) so an open fd never holds /tmp mounted at shutdown.
+LOCKFILE="${XDG_RUNTIME_DIR:-/tmp}/monitor-daemon.lock"
+exec 9>"$LOCKFILE"
 flock -n 9 || exit 0
-# Close fd 9 after acquiring the lock so it doesn't hold /tmp open.
-# The lock is released when the script exits; closing early avoids the
-# "Failed unmounting /tmp" error at shutdown.
-exec 9>&-
 
 # Ensure we can talk to Hyprland
 if [ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
@@ -78,7 +78,7 @@ done
 
 # HPC is a helper that bounds every hyprctl call so the script can never hang
 # waiting on the compositor during shutdown (hyprctl would otherwise block
-# once Hyprland is gone, holding our flock open on /tmp).
+# once Hyprland is gone, holding our flock open).
 HPC() { timeout 5 hyprctl "$@"; }
 
 # Get current Hyprland monitor state
@@ -87,12 +87,18 @@ current_laptop=$(HPC monitors 2>/dev/null | grep -c "^Monitor $MONITOR_LAPTOP")
 
 # Hyprland 0.55+ uses Lua config, so monitor changes go through `hyprctl eval`
 # (the legacy `hyprctl keyword monitor` no longer works).
+# topo_changed is set when the monitor layout actually changes; only then does
+# waybar need a restart to re-attach its layer surfaces. Without this, waybar
+# is restarted unconditionally on every invocation (old bug: a failed relaunch
+# left no bar at all).
+topo_changed=0
 mon_off() {
+    topo_changed=1
     HPC eval "hl.monitor({ output = \"$1\", disabled = true })" >/dev/null 2>&1
 }
 
 mon_on() {
-    # $1 = monitor, $2 = mode, $3 = position
+    topo_changed=1
     HPC eval "hl.monitor({ output = \"$1\", mode = \"$2\", position = \"$3\", scale = 1, disabled = false })" >/dev/null 2>&1
 }
 
@@ -139,15 +145,27 @@ fi
 HPC eval 'hl.dsp.dpms("on")' >/dev/null 2>&1
 
 # Waybar can lose its layer surface when outputs change (e.g. HDMI unplug),
-# leaving no bar at all. Restart it so it re-attaches to the active monitors.
-# Runs unconditionally so waybar is also brought back if it died on hotplug.
-# No condition on pgrep: in that case waybar is gone and the check would
-# wrongly skip the restart, which is exactly the bug we're fixing.
-# Relaunch via hyprctl so waybar runs in the compositor's environment
-# (WAYLAND_DISPLAY etc.) — a bare `waybar &` fails when udev/systemd call us.
-pkill -x waybar 2>/dev/null
-sleep 1
-HPC dispatch 'hl.dsp.exec_cmd("waybar")' >/dev/null 2>&1
+# leaving no bar at all. Restart it so it re-attaches to the active monitors —
+# but only when the layout actually changed. Relaunch via hyprctl so waybar
+# runs in the compositor's environment (WAYLAND_DISPLAY etc.) — a bare
+# `waybar &` fails when udev/systemd call us.
+if [ "$topo_changed" -gt 0 ]; then
+    pkill -x waybar 2>/dev/null
+    sleep 1
+    HPC dispatch 'hl.dsp.exec_cmd("waybar")' >/dev/null 2>&1
+fi
+
+# Make sure exactly one waybar is alive (a fresh boot with stable monitors has
+# no pkill above, but nothing has launched waybar yet). The flock serializes
+# concurrent invocations, so only one launcher reaches here; verify with pgrep
+# and retry so a silently failed dispatch never leaves a missing bar.
+if ! pgrep -x waybar >/dev/null 2>&1; then
+    HPC dispatch 'hl.dsp.exec_cmd("waybar")' >/dev/null 2>&1
+    sleep 1
+    if ! pgrep -x waybar >/dev/null 2>&1; then
+        HPC dispatch 'hl.dsp.exec_cmd("waybar")' >/dev/null 2>&1
+    fi
+fi
 
 # Re-wake screens: some GPUs blank outputs briefly while Hyprland reconfigures
 sleep 1
