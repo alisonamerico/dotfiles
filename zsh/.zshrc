@@ -97,7 +97,7 @@ inspect-5p() {
     return 1
   fi
 
-  opencode run "Review these changes across 5 dimensions:
+  claude run "Review these changes across 5 dimensions:
 1. Security — any vulnerabilities or sensitive data exposure?
 2. Correctness — logic errors, edge cases, wrong behavior?
 3. Design — violates project conventions or architecture?
@@ -113,3 +113,4 @@ $diff"
 
 # Added by Antigravity CLI installer
 export PATH="/home/alison/.local/bin:$PATH"
+eval "$(/home/alison/.local/bin/mise activate zsh)"
