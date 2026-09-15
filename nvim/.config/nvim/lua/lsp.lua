@@ -134,3 +134,88 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Go to References" }))
 	end,
 })
+
+-- =====================================================
+-- Comandos :Lsp* — substitutos nativos do nvim-lspconfig
+-- (:LspInfo/:LspStart/:LspStop/:LspRestart)
+-- =====================================================
+
+-- Resolve os nomes passados; sem argumentos, usa os clients ativos do buffer.
+local function lsp_names_from_args(args, bufnr)
+	if #args > 0 then
+		return args
+	end
+	local names = {}
+	for _, c in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+		names[#names + 1] = c.name
+	end
+	return names
+end
+
+vim.api.nvim_create_user_command("LspInfo", function()
+	local clients = vim.lsp.get_clients({ bufnr = 0 })
+	if #clients == 0 then
+		vim.notify(string.format("Nenhum client LSP ativo no buffer (filetype=%s)", vim.bo.filetype))
+		return
+	end
+	for _, c in ipairs(clients) do
+		local comp = c:supports_method("textDocument/completion") and "completion: ativa" or "sem completion"
+		vim.notify(string.format("%s | root=%s | %s", c.name, tostring(c.config.root_dir), comp))
+	end
+end, { desc = "Lista os clients LSP ativos no buffer atual" })
+
+vim.api.nvim_create_user_command("LspStart", function(info)
+	local ft = vim.bo.filetype
+	local names = info.fargs
+	if #names == 0 then
+		for name, cfg in pairs(servers) do
+			if cfg.filetypes and vim.tbl_contains(cfg.filetypes, ft) then
+				names[#names + 1] = name
+			end
+		end
+		if #names == 0 then
+			vim.notify(string.format("Nenhum servidor configurado para o filetype '%s'", ft))
+			return
+		end
+	end
+	for _, name in ipairs(names) do
+		if servers[name] then
+			vim.lsp.enable(name)
+		end
+	end
+end, { nargs = "*", desc = "Habilita/sobe os servidores (default: os do filetype atual)" })
+
+vim.api.nvim_create_user_command("LspStop", function(info)
+	local names = lsp_names_from_args(info.fargs, vim.api.nvim_get_current_buf())
+	for _, name in ipairs(names) do
+		if vim.lsp.config[name] ~= nil then
+			vim.lsp.enable(name, false)
+			if info.bang then
+				vim.iter(vim.lsp.get_clients({ name = name })):each(function(c)
+					c:stop(true)
+				end)
+			end
+		end
+	end
+end, { nargs = "*", bang = true, desc = "Desabilita/para os clients (com ! força)" })
+
+vim.api.nvim_create_user_command("LspRestart", function(info)
+	local names = lsp_names_from_args(info.fargs, vim.api.nvim_get_current_buf())
+	for _, name in ipairs(names) do
+		if vim.lsp.config[name] ~= nil then
+			vim.lsp.enable(name, false)
+			if info.bang then
+				vim.iter(vim.lsp.get_clients({ name = name })):each(function(c)
+					c:stop(true)
+				end)
+			end
+		end
+	end
+	vim.defer_fn(function()
+		for _, name in ipairs(names) do
+			if vim.lsp.config[name] ~= nil then
+				vim.lsp.enable(name)
+			end
+		end
+	end, 300)
+end, { nargs = "*", bang = true, desc = "Reinicia os clients (default: os do buffer atual)" })
