@@ -24,6 +24,7 @@ local servers = {
 		root_markers = {
 			"pyrightconfig.json",
 			"pyproject.toml",
+			"uv.lock",
 			"ruff.toml",
 			"setup.py",
 			"setup.cfg",
@@ -40,6 +41,8 @@ local servers = {
 				analysis = {
 					autoImportCompletions = true,
 					typeCheckingMode = "basic",
+					diagnosticMode = "workspace",
+					useLibraryCodeForTypes = true,
 				},
 			},
 			pyright = {
