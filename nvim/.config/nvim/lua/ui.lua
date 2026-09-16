@@ -15,7 +15,28 @@ require("mini.pairs").setup()
 require("mini.icons").setup()
 -- Substitui nvim-web-devicons para telescope e qualquer outro consumidor
 require("mini.icons").mock_nvim_web_devicons()
-require("mini.statusline").setup()
+require("mini.statusline").setup({
+	content = {
+		active = function()
+			local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+			local git = MiniStatusline.section_git({ trunc_width = 40 })
+			local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+			local filename = MiniStatusline.section_filename({ trunc_width = 80 })
+			local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+			local location = MiniStatusline.section_location({ trunc_width = 75 })
+
+			return MiniStatusline.combine_groups({
+				{ hl = mode_hl, strings = { mode } },
+				{ hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
+				"%<",
+				{ hl = "MiniStatuslineFilename", strings = { filename } },
+				"%=",
+				{ hl = "MiniStatuslineFiletype", strings = { fileinfo } },
+				{ hl = mode_hl, strings = { location } },
+			})
+		end,
+	},
+})
 
 -- Git signs
 require("gitsigns").setup({ current_line_blame = true })
