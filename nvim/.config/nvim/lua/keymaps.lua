@@ -36,6 +36,25 @@ vim.keymap.set("n", "<A-h>", "<<", { desc = "Unindent line" })
 vim.keymap.set("v", "<A-l>", ">gv", { desc = "Indent selection" })
 vim.keymap.set("v", "<A-h>", "<gv", { desc = "Unindent selection" })
 
+-- =====================================================
+-- Navegação entre splits do Neovim e panes do tmux
+-- Ctrl+h/j/k/l movem o foco. Se não existir split do Neovim na direção
+-- pedida, a tecla é repassada ao tmux (`select-pane`). O tmux, por sua vez,
+-- envia a tecla crua ao Neovim (ver ~/.tmux.conf), fechando o ciclo.
+-- =====================================================
+local function navigate(dir, tmux_target)
+	local win = vim.api.nvim_get_current_win()
+	vim.cmd("wincmd " .. dir)
+	if vim.api.nvim_get_current_win() == win and vim.env.TMUX then
+		vim.fn.system({ "tmux", "select-pane", tmux_target })
+	end
+end
+
+vim.keymap.set("n", "<C-h>", function() navigate("h", "-L") end, { desc = "Navegar para a esquerda (nvim/tmux)" })
+vim.keymap.set("n", "<C-j>", function() navigate("j", "-D") end, { desc = "Navegar para baixo (nvim/tmux)" })
+vim.keymap.set("n", "<C-k>", function() navigate("k", "-U") end, { desc = "Navegar para cima (nvim/tmux)" })
+vim.keymap.set("n", "<C-l>", function() navigate("l", "-R") end, { desc = "Navegar para a direita (nvim/tmux)" })
+
 -- Diagnostics (vim.diagnostic.jump substitui goto_next/goto_prev, deprecated no 0.11)
 vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show diagnostics" })
 vim.keymap.set("n", "<leader>dn", function()
