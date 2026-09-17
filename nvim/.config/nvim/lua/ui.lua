@@ -7,7 +7,16 @@ require("vague").setup({ transparent = true })
 vim.cmd.colorscheme("vague")
 
 -- File explorer
-require("oil").setup({ view_options = { show_hidden = true } })
+-- Desativa os <C-h>/<C-l> próprios do Oil (abrir em split horizontal / refresh)
+-- para os mapeamentos globais de navegação nvim<->tmux (lua/keymaps.lua)
+-- funcionarem dentro da árvore de diretórios.
+require("oil").setup({
+	view_options = { show_hidden = true },
+	keymaps = {
+		["<C-h>"] = false,
+		["<C-l>"] = false,
+	},
+})
 
 -- mini.nvim
 require("mini.surround").setup()
