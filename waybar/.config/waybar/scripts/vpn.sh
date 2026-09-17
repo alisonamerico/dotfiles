@@ -5,7 +5,7 @@ VPN_IFACES=()
 for iface in /sys/class/net/*; do
     name=$(basename "$iface")
     case "$name" in
-        tun*|wg*|tailscale*|zt*)
+        tun*|wg*|proton*|tailscale*|zt*)
             VPN_IFACES+=("$name")
             ;;
     esac
