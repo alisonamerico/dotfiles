@@ -6,6 +6,56 @@
 -- encontrado como workspace root.
 -- =====================================================
 
+-- Detecta qual type checker o projeto declara no pyproject.toml:
+-- [tool.basedpyright] -> basedpyright (a menos que o binário não esteja
+-- instalado, aí cai pro pyright); [tool.pyright] -> pyright; nenhum dos
+-- dois -> basedpyright se disponível, senão pyright.
+local function detect_python_checker(root)
+	local f = io.open(root .. "/pyproject.toml", "r")
+	if not f then
+		return "pyright"
+	end
+	local content = f:read("*a")
+	f:close()
+
+	if content:find("%[tool%.basedpyright%]") then
+		if vim.fn.executable("basedpyright-langserver") == 1 then
+			return "basedpyright"
+		end
+		return "pyright"
+	end
+	if content:find("%[tool%.pyright%]") then
+		return "pyright"
+	end
+	return vim.fn.executable("basedpyright-langserver") == 1 and "basedpyright" or "pyright"
+end
+
+local python_root_markers = {
+	"pyrightconfig.json",
+	"pyproject.toml",
+	"uv.lock",
+	"ruff.toml",
+	"setup.py",
+	"setup.cfg",
+	"requirements.txt",
+	"Pipfile",
+	".git",
+}
+
+local python_settings = {
+	python = {
+		analysis = {
+			autoImportCompletions = true,
+			typeCheckingMode = "basic",
+			diagnosticMode = "workspace",
+			useLibraryCodeForTypes = true,
+		},
+	},
+	pyright = {
+		disableOrganizeImports = true,
+	},
+}
+
 local servers = {
 	lua_ls = {
 		cmd = { "lua-language-server" },
@@ -18,41 +68,35 @@ local servers = {
 		},
 	},
 
+	-- pyright e basedpyright ficam sempre os dois habilitados, mas só um
+	-- deles de fato sobe por projeto: root_dir só chama on_dir() quando
+	-- detect_python_checker() escolhe aquele server pra essa raiz.
 	pyright = {
 		cmd = { "pyright-langserver", "--stdio" },
 		filetypes = { "python" },
-		root_markers = {
-			"pyrightconfig.json",
-			"pyproject.toml",
-			"uv.lock",
-			"ruff.toml",
-			"setup.py",
-			"setup.cfg",
-			"requirements.txt",
-			"Pipfile",
-			".git",
-		},
-		-- Se precisar de lógica custom de root, use vim.fs.root diretamente:
-		-- root_dir = function(bufnr, on_dir)
-		--   on_dir(vim.fs.root(bufnr, { "pyrightconfig.json", "pyproject.toml", ".git" }))
-		-- end,
-		settings = {
-			python = {
-				analysis = {
-					autoImportCompletions = true,
-					typeCheckingMode = "basic",
-					diagnosticMode = "workspace",
-					useLibraryCodeForTypes = true,
-				},
-			},
-			pyright = {
-				disableOrganizeImports = true,
-			},
-		},
+		root_dir = function(bufnr, on_dir)
+			local root = vim.fs.root(bufnr, python_root_markers)
+			if root and detect_python_checker(root) == "pyright" then
+				on_dir(root)
+			end
+		end,
+		settings = python_settings,
+	},
+
+	basedpyright = {
+		cmd = { "basedpyright-langserver", "--stdio" },
+		filetypes = { "python" },
+		root_dir = function(bufnr, on_dir)
+			local root = vim.fs.root(bufnr, python_root_markers)
+			if root and detect_python_checker(root) == "basedpyright" then
+				on_dir(root)
+			end
+		end,
+		settings = python_settings,
 	},
 
 	-- Nota: ruff NÃO é LSP aqui de propósito — formatação/lint rodam via
-	-- conform (ruff_fix/ruff_format) e análise de tipos via pyright.
+	-- conform (ruff_fix/ruff_format) e análise de tipos via pyright/basedpyright.
 
 	taplo = {
 		cmd = { "taplo", "lsp", "stdio" },

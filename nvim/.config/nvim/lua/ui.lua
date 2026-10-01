@@ -74,6 +74,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Diagrams (Mermaid)
+require("diagram").setup({
+	integrations = {
+		require("diagram.integrations.markdown"),
+	},
+})
+
 -- Diff
 require("diffview").setup({
 	enhanced_diff_hl = true,
