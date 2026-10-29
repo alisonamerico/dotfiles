@@ -86,28 +86,29 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 # `inspect-5p` is a shell function that must be defined in your `~/.bashrc` (or `~/.zshrc`).
-# It captures all uncommitted changes and sends them to `opencode run` for a structured
-# 5-dimension review.
+# It captures all uncommitted changes (tracked files) and sends them to `claude -p`
+# for a structured, read-only 5-dimension review.
 inspect-5p() {
   local diff
-  diff=$(git diff --staged; git diff)
+  diff=$(git diff HEAD)   # staged + unstaged dos arquivos rastreados
 
   if [ -z "$diff" ]; then
     echo "No uncommitted changes to review."
     return 1
   fi
 
-  claude run "Review these changes across 5 dimensions:
+  printf '%s\n' "$diff" | claude -p \
+    --tools "Read,Grep,Glob" \
+    "Review the git diff provided on stdin across 5 dimensions:
 1. Security — any vulnerabilities or sensitive data exposure?
 2. Correctness — logic errors, edge cases, wrong behavior?
 3. Design — violates project conventions or architecture?
 4. Testing — missing tests or weak assertions?
-5. Conventions — style, naming, commit message quality?
+5. Conventions — style, naming, import order, project-specific patterns?
 
-List issues found per dimension. Be direct and specific.
-
-Changes to review:
-$diff"
+You may read files in the repository for context, but do not run commands,
+start services or modify anything. List issues found per dimension, citing
+file:line. Be direct and specific. If a dimension has no issues, say so."
 }
 
 
