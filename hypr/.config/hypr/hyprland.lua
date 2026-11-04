@@ -149,6 +149,13 @@ hl.config({
     master = {
         new_status = "master",
     },
+
+    render = {
+        -- The T480's HDMI (Kaby Lake) can't do 10-bit at 1080p@120 and i915
+        -- exposes no HDR metadata. Disable fullscreen auto-HDR so videos don't
+        -- switch the output to HDR/wide gamut and wash out the image.
+        cm_auto_hdr = 0,
+    },
 })
 
 
