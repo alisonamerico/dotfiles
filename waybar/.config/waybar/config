@@ -79,7 +79,7 @@
         "format-wifi": "󰤨 {signalStrength}%",
         "format-ethernet": "󰈀",
         "format-disconnected": "󰤭",
-        "tooltip-format": "<tt>{ssid}</tt>",
+        "tooltip-format": "<tt>{essid}</tt>",
         "on-click": "kitty -e nmtui"
     },
 
@@ -91,6 +91,8 @@
     },
 
     "battery": {
+        "bat": "BAT1",
+        "adapter": "AC",
         "format": "{icon} {capacity}%",
         "format-charging": "󰂄 {capacity}%",
         "format-plugged": "󰂄 {capacity}%",
