@@ -1,0 +1,8 @@
+[Unit]
+Description=Limpeza automática de caches (disk-clean)
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/disk-clean --auto
+Nice=19
+IOSchedulingClass=idle

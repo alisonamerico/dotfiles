@@ -1,0 +1,551 @@
+#!/usr/bin/env bash
+# disk-clean — limpeza de disco segura para Arch Linux
+#
+#   disk-clean              interativo: mostra o que ocupa espaço e pergunta item a item
+#   disk-clean -n           dry-run: mostra o que seria feito, não apaga nada
+#   disk-clean --auto       não interativo: só limpa itens "seguros" (caches regeneráveis),
+#                           e só se o uso do disco passar de AUTO_MIN_USAGE (use --force p/ ignorar)
+#   disk-clean --check      só verifica o uso e notifica se passar de THRESHOLD
+#   disk-clean --report     maiores diretórios/arquivos do $HOME (não apaga nada)
+#   disk-clean --setup      instala timer systemd + paccache.timer + limite do journald
+#   disk-clean --only a,b   roda só as tarefas indicadas (ids em --list)
+#
+# Configuração opcional: ~/.config/disk-clean.conf (variáveis abaixo)
+
+set -uo pipefail
+export LC_NUMERIC=C
+
+# ---------- configuração padrão ----------
+THRESHOLD=85                 # % de uso que dispara alerta
+AUTO_MIN_USAGE=75            # --auto só age acima deste % de uso
+PACCACHE_KEEP=1              # versões mantidas no cache do pacman (downgrade antigo: Arch Linux Archive)
+JOURNAL_MAX=300M             # tamanho máximo do journal após vacuum
+JOURNAL_TIME=4weeks
+STALE_DAYS=60                # node_modules/.venv sem modificação há N dias
+PROJECT_DIRS=("$HOME/projects")
+DOCKER_AUTO_UNTIL=168h       # --auto: build cache não usado há mais de 7 dias
+SKIP=()                      # ids de tarefas para nunca rodar, ex: SKIP=(browser_cache)
+DF_TARGET="$HOME"
+
+CONF="${XDG_CONFIG_HOME:-$HOME/.config}/disk-clean.conf"
+# shellcheck source=/dev/null
+[[ -f $CONF ]] && source "$CONF"
+
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/disk-clean"
+LOG="$STATE_DIR/disk-clean.log"
+LOCK="${XDG_RUNTIME_DIR:-/tmp}/disk-clean.lock"
+SELF="$(realpath "$0")"
+
+MODE=interactive
+DRY=0
+FORCE=0
+ONLY=""
+
+# Só é permitido apagar arquivos dentro destes prefixos (salvaguarda contra rm -rf errado)
+ALLOWED=("$HOME/.cache" "$HOME/.cargo/registry" "$HOME/.cargo/git" "$HOME/.local/share/Trash" "${PROJECT_DIRS[@]}")
+
+# ---------- saída ----------
+if [[ -t 1 ]]; then
+  B=$'\e[1m' DIM=$'\e[2m' R=$'\e[31m' G=$'\e[32m' Y=$'\e[33m' C=$'\e[36m' RST=$'\e[0m'
+else
+  B="" DIM="" R="" G="" Y="" C="" RST=""
+fi
+mkdir -p "$STATE_DIR"
+log()  { printf '%s [%s] %s\n' "$(date '+%F %T')" "$MODE" "$*" >>"$LOG"; }
+info() { printf '%s\n' "$*"; }
+warn() { printf '%s! %s%s\n' "$Y" "$*" "$RST" >&2; log "WARN: $*"; }
+die()  { printf '%s✗ %s%s\n' "$R" "$*" "$RST" >&2; log "ERRO: $*"; exit 1; }
+hr()   { numfmt --to=iec --suffix=B --format='%.1f' "${1:-0}" 2>/dev/null || echo "${1}B"; }
+has()  { command -v "$1" >/dev/null 2>&1; }
+
+notify() {
+  log "NOTIFY: $*"
+  has notify-send && notify-send -u "${2:-normal}" -i drive-harddisk "disk-clean" "$1" 2>/dev/null || true
+}
+
+ask() { # ask "pergunta" -> 0 = sim
+  local a
+  (( DRY )) && return 0
+  [[ $MODE == interactive ]] || return 1
+  read -r -p "$1 [s/N/q] " a </dev/tty || return 1
+  case ${a,,} in
+    s|sim|y|yes) return 0 ;;
+    q) info "Saindo."; finish; exit 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+run() {
+  if (( DRY )); then printf '  %s[dry-run]%s %s\n' "$DIM" "$RST" "$*"; return 0; fi
+  printf '  %s$ %s%s\n' "$DIM" "$*" "$RST"
+  log "RUN: $*"
+  "$@"
+}
+
+# run_summary <regex> <cmd...>: roda e mostra só as linhas de resumo (ex.: docker prune)
+run_summary() {
+  local pat=$1; shift
+  (( DRY )) && { run "$@"; return; }
+  printf '  %s$ %s%s\n' "$DIM" "$*" "$RST"
+  log "RUN: $*"
+  "$@" | grep -E "$pat" | sed 's/^/  /'
+}
+
+# ---------- salvaguardas de remoção ----------
+guard_path() {
+  local p a
+  p=$(realpath -m -- "$1") || return 1
+  [[ -n $p && $p != / && $p != "$HOME" ]] || return 1
+  for a in "${ALLOWED[@]}"; do
+    a=$(realpath -m -- "$a")
+    [[ $p == "$a"/* ]] && return 0
+  done
+  return 1
+}
+
+# Arquivos de outro usuário (ex.: root, criados por containers Docker) não podem ser
+# apagados sem sudo. Retorna o dono do primeiro arquivo "estranho" encontrado.
+foreign_owner() {
+  find "$@" -xdev ! -user "$(id -un)" -printf '%u\n' -quit 2>/dev/null
+}
+
+# rm_tree <alvo...>: remove, oferecendo sudo se houver arquivos de outro usuário
+rm_tree() {
+  local owner
+  owner=$(foreign_owner "$@")
+  if [[ -z $owner ]]; then run rm -rf --one-file-system -- "$@"; return; fi
+  warn "Contém arquivos do usuário '$owner' (provavelmente criados por um container Docker): $1"
+  if (( DRY )); then
+    printf '  %s[dry-run]%s sudo rm -rf --one-file-system -- %s\n' "$DIM" "$RST" "$*"; return 0
+  fi
+  if [[ $MODE == interactive ]] && ask "  Apagar com sudo?" && need_sudo; then
+    run sudo rm -rf --one-file-system -- "$@"
+  else
+    info "  ${DIM}pulado — para apagar manualmente: sudo rm -rf $*${RST}"
+  fi
+}
+
+safe_rm() {
+  local p
+  for p; do
+    [[ -e $p ]] || continue
+    if guard_path "$p"; then rm_tree "$p"
+    else warn "BLOQUEADO (fora dos caminhos permitidos): $p"; fi
+  done
+}
+
+safe_rm_contents() {
+  local d=$1
+  [[ -d $d ]] || return 0
+  guard_path "$d/x" || { warn "BLOQUEADO: $d"; return 1; }
+  if [[ -n $(foreign_owner "$d") ]]; then
+    local items; mapfile -t items < <(find "$d" -mindepth 1 -maxdepth 1)
+    ((${#items[@]})) && rm_tree "${items[@]}"
+    return
+  fi
+  if (( DRY )); then printf '  %s[dry-run]%s rm -rf %s/*\n' "$DIM" "$RST" "$d"; return 0; fi
+  printf '  %s$ rm -rf %s/*%s\n' "$DIM" "$d" "$RST"
+  log "RUN: rm -rf $d/*"
+  find "$d" -mindepth 1 -maxdepth 1 -exec rm -rf --one-file-system -- {} +
+}
+
+SUDO_OK=""
+need_sudo() {
+  [[ -n $SUDO_OK ]] && return "$SUDO_OK"
+  if (( DRY )); then SUDO_OK=0
+  elif [[ $MODE == interactive ]]; then sudo -v && SUDO_OK=0 || SUDO_OK=1
+  else sudo -n true 2>/dev/null && SUDO_OK=0 || SUDO_OK=1
+  fi
+  return "$SUDO_OK"
+}
+
+# ---------- medições ----------
+dsize() {
+  local t=0 s p
+  for p; do
+    [[ -e $p ]] || continue
+    s=$(du -sb --one-file-system -- "$p" 2>/dev/null | awk '{print $1}')
+    t=$(( t + ${s:-0} ))
+  done
+  echo "$t"
+}
+
+disk_usage() { df --output=pcent -- "$DF_TARGET" | tail -1 | tr -dc '0-9'; }
+disk_avail() { df --output=avail -B1 -- "$DF_TARGET" | tail -1 | tr -dc '0-9'; }
+
+DOCKER_DF=""
+docker_ok() { has docker && docker info >/dev/null 2>&1; }
+docker_reclaim() { # $1 = Images | Containers | Local Volumes | Build Cache
+  [[ -z $DOCKER_DF ]] && DOCKER_DF=$(docker system df --format '{{.Type}}|{{.Reclaimable}}' 2>/dev/null)
+  local v
+  v=$(awk -F'|' -v t="$1" '$1==t{print $2}' <<<"$DOCKER_DF" | sed -E 's/ .*//; s/B$//; s/k$/K/')
+  [[ -n $v ]] && numfmt --from=si "$v" 2>/dev/null | cut -d. -f1 || echo 0
+}
+
+# ---------- registro de tarefas ----------
+# nível: safe = pode rodar em --auto | ask = só interativo (pode conter dados seus)
+TASKS=()
+declare -A T_DESC T_LEVEL T_SUDO
+register() { TASKS+=("$1"); T_DESC[$1]=$2; T_LEVEL[$1]=$3; T_SUDO[$1]=${4:-0}; }
+
+# --- pacman ---
+register pacman_cache "Cache do pacman (mantém $PACCACHE_KEEP versão; remove desinstalados e downloads quebrados)" safe 1
+avail_pacman_cache() { has paccache; }
+# estimativa do que paccache removeria (não o tamanho total do cache)
+size_pacman_cache() {
+  local b
+  b=$( { paccache -dk"$PACCACHE_KEEP"; paccache -duk0; } 2>/dev/null \
+    | grep -oP 'disk space saved: \K[0-9.]+ [KMGT]?i?B' | sed -E 's/ //; s/B$//' \
+    | LC_ALL=C numfmt --from=iec-i 2>/dev/null | awk '{s+=$1} END{printf "%d", s}')
+  b=$(( ${b:-0} + $(dsize /var/cache/pacman/pkg/download-*) ))
+  echo "$b"
+}
+preview_pacman_cache() {
+  info "  ${DIM}$(paccache -dk"$PACCACHE_KEEP" 2>/dev/null | tail -1)${RST}"
+  info "  ${DIM}$(paccache -duk0 2>/dev/null | tail -1)${RST}"
+}
+clean_pacman_cache() {
+  run sudo paccache -rk"$PACCACHE_KEEP"
+  run sudo paccache -ruk0
+  # pastas download-* sobram quando um download é interrompido (ex.: disco cheio)
+  run sudo find /var/cache/pacman/pkg -mindepth 1 -maxdepth 1 -type d -name 'download-*' -exec rm -rf {} +
+}
+
+register orphans "Pacotes órfãos (dependências não usadas)" ask 1
+avail_orphans() { [[ -n $(pacman -Qdtq 2>/dev/null) ]]; }
+size_orphans() {
+  # shellcheck disable=SC2046
+  LC_ALL=C pacman -Qi $(pacman -Qdtq) 2>/dev/null \
+    | awk -F': ' '/^Installed Size/{gsub(/ /,"",$2); sub(/B$/,"",$2); print $2}' \
+    | LC_ALL=C numfmt --from=iec-i 2>/dev/null | awk '{s+=$1} END{printf "%d\n", s}'
+}
+preview_orphans() { pacman -Qdtq | column -c "${COLUMNS:-100}" | sed 's/^/  /'; }
+clean_orphans() { mapfile -t pk < <(pacman -Qdtq); run sudo pacman -Rns "${pk[@]}"; }
+
+register yay_cache "Cache de build do yay (~/.cache/yay)" safe
+size_yay_cache() { dsize "$HOME/.cache/yay"; }
+clean_yay_cache() { safe_rm_contents "$HOME/.cache/yay"; }
+
+# --- systemd ---
+register journal "Logs do journal (reduz para $JOURNAL_MAX / $JOURNAL_TIME)" safe 1
+size_journal() { # só o que passa do limite JOURNAL_MAX
+  local cur max; cur=$(dsize /var/log/journal); max=$(numfmt --from=iec "$JOURNAL_MAX" 2>/dev/null || echo 0)
+  echo $(( cur > max ? cur - max : 0 ))
+}
+clean_journal() { run sudo journalctl --vacuum-size="$JOURNAL_MAX" --vacuum-time="$JOURNAL_TIME"; }
+
+register coredumps "Core dumps do systemd" safe 1
+size_coredumps() { dsize /var/lib/systemd/coredump; }
+clean_coredumps() { run sudo find /var/lib/systemd/coredump -mindepth 1 -type f -delete; }
+
+# --- docker ---
+register docker_build "Docker: build cache não usado" safe
+avail_docker_build() { docker_ok; }
+size_docker_build() { docker_reclaim "Build Cache"; }
+clean_docker_build() {
+  if [[ $MODE == auto ]]; then run_summary "^Total" docker builder prune -af --filter "until=$DOCKER_AUTO_UNTIL"
+  else run_summary "^Total" docker builder prune -af; fi
+}
+
+register docker_images "Docker: imagens órfãs (dangling) [+ pergunta sobre as sem container]" safe
+avail_docker_images() { docker_ok; }
+size_docker_images() { # só as dangling (o que o modo seguro remove)
+  docker images -f dangling=true --format '{{.Size}}' 2>/dev/null | sed -E 's/B$//; s/k$/K/' \
+    | numfmt --from=si 2>/dev/null | awk '{s+=$1} END{printf "%d", s}'
+}
+preview_docker_images() {
+  local all; all=$(docker_reclaim "Images")
+  info "  ${DIM}Dangling: $(docker images -qf dangling=true | wc -l) imagens. Sem container (inclui dangling): $(hr "$all") liberáveis:${RST}"
+  local used; used=$(docker ps -a --format '{{.Image}}' 2>/dev/null | sort -u)
+  docker images --filter dangling=false --format '{{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.CreatedSince}}' 2>/dev/null \
+    | grep -vFf <(printf '%s\t\n' $used; printf '%s:latest\t\n' $used) \
+    | column -t -s $'\t' | head -40 | sed 's/^/    /'
+}
+clean_docker_images() {
+  run_summary "^Total" docker image prune -f
+  if [[ $MODE == interactive ]] && ask "  Remover TAMBÉM todas as imagens sem container (terão que ser baixadas de novo)?"; then
+    run_summary "^Total" docker image prune -af
+  fi
+}
+
+register docker_containers "Docker: containers parados" ask
+avail_docker_containers() { docker_ok; }
+size_docker_containers() { docker_reclaim "Containers"; }
+preview_docker_containers() {
+  docker ps -a --filter status=exited --filter status=created --format '{{.Names}}\t{{.Image}}\t{{.Status}}' 2>/dev/null \
+    | column -t -s $'\t' | head -25 | sed 's/^/  /'
+}
+clean_docker_containers() { run_summary "^Total" docker container prune -f; }
+
+register docker_volumes "Docker: volumes não usados (⚠ PODE CONTER BANCOS DE DADOS)" ask
+avail_docker_volumes() { docker_ok; }
+size_docker_volumes() { docker_reclaim "Local Volumes"; }
+preview_docker_volumes() {
+  local v
+  docker volume ls -q -f dangling=true 2>/dev/null | while read -r v; do
+    printf '  %-66s %s\n' "$v" "$(docker volume inspect -f '{{index .Labels "com.docker.compose.project"}}' "$v" 2>/dev/null)"
+  done
+}
+clean_docker_volumes() {
+  local a
+  if (( ! DRY )); then
+    read -r -p "  ${R}Isso apaga dados permanentemente. Digite 'apagar' para confirmar:${RST} " a </dev/tty
+    [[ $a == apagar ]] || { info "  Cancelado."; return 0; }
+  fi
+  run_summary "^Total" docker volume prune -af
+}
+
+# --- linguagens / ferramentas ---
+register uv_cache "Cache do uv (Python)" safe
+avail_uv_cache() { has uv; }
+size_uv_cache() { dsize "$(uv cache dir 2>/dev/null)"; }
+clean_uv_cache() {
+  if [[ $MODE == auto ]]; then run uv cache prune
+  else run uv cache clean; fi
+}
+
+register pip_cache "Cache do pip" safe
+PIP_DIR="$(pip cache dir 2>/dev/null)"; [[ -d $PIP_DIR ]] || PIP_DIR="$HOME/.cache/pip"
+size_pip_cache() { dsize "$PIP_DIR"; }
+clean_pip_cache() { safe_rm_contents "$PIP_DIR"; }
+
+register npm_cache "Cache do npm" safe
+avail_npm_cache() { has npm; }
+size_npm_cache() { dsize "$HOME/.npm/_cacache"; }
+clean_npm_cache() { run npm cache clean --force; }
+
+register go_build "Cache de build do Go" safe
+avail_go_build() { has go; }
+size_go_build() { dsize "$(go env GOCACHE 2>/dev/null)"; }
+clean_go_build() { run go clean -cache; }
+
+register go_mod "Cache de módulos do Go (rebaixados no próximo build)" ask
+avail_go_mod() { has go; }
+size_go_mod() { dsize "$(go env GOMODCACHE 2>/dev/null)"; }
+clean_go_mod() { run go clean -modcache; }
+
+register cargo_cache "Cache do registry/git do Cargo" safe
+size_cargo_cache() { dsize "$HOME/.cargo/registry/cache" "$HOME/.cargo/registry/src" "$HOME/.cargo/git/checkouts"; }
+clean_cargo_cache() {
+  safe_rm_contents "$HOME/.cargo/registry/cache"
+  safe_rm_contents "$HOME/.cargo/registry/src"
+  safe_rm_contents "$HOME/.cargo/git/checkouts"
+}
+
+register misc_cache "Miniaturas + debuginfod" safe
+size_misc_cache() { dsize "$HOME/.cache/thumbnails" "$HOME/.cache/debuginfod_client"; }
+clean_misc_cache() { safe_rm_contents "$HOME/.cache/thumbnails"; safe_rm_contents "$HOME/.cache/debuginfod_client"; }
+
+register test_browsers "Browsers do Playwright/Puppeteer (reinstale com 'npx playwright install')" ask
+size_test_browsers() { dsize "$HOME/.cache/ms-playwright" "$HOME/.cache/puppeteer"; }
+clean_test_browsers() { safe_rm_contents "$HOME/.cache/ms-playwright"; safe_rm_contents "$HOME/.cache/puppeteer"; }
+
+# --- browsers (pula os que estiverem abertos) ---
+declare -A BROWSER_DIR=( [brave]="$HOME/.cache/BraveSoftware" [firefox]="$HOME/.cache/mozilla" [zen]="$HOME/.cache/zen" [chromium]="$HOME/.cache/chromium" [google-chrome]="$HOME/.cache/google-chrome" )
+register browser_cache "Cache dos navegadores (fechados)" ask
+size_browser_cache() { dsize "${BROWSER_DIR[@]}"; }
+clean_browser_cache() {
+  local b
+  for b in "${!BROWSER_DIR[@]}"; do
+    [[ -d ${BROWSER_DIR[$b]} ]] || continue
+    if pgrep -x -i "$b" >/dev/null || pgrep -x -i "$b-bin" >/dev/null; then
+      warn "$b está aberto — pulando (feche e rode de novo)"; continue
+    fi
+    safe_rm_contents "${BROWSER_DIR[$b]}"
+  done
+}
+
+register trash "Lixeira" ask
+size_trash() { dsize "$HOME/.local/share/Trash"; }
+preview_trash() { ls -1 "$HOME/.local/share/Trash/files" 2>/dev/null | head -15 | sed 's/^/  /'; }
+clean_trash() {
+  local d; for d in files info expunged; do safe_rm_contents "$HOME/.local/share/Trash/$d"; done
+}
+
+# --- modelos do Ollama ---
+register ollama_models "Modelos do Ollama (escolha quais remover)" ask
+ollama_dirs() { printf '%s\n' "${OLLAMA_MODELS:-}" /var/lib/ollama "$HOME/.ollama/models" /usr/share/ollama/.ollama/models; }
+avail_ollama_models() { has ollama && ollama list 2>/dev/null | awk 'NR>1' | grep -q .; }
+size_ollama_models() { local d=(); mapfile -t d < <(ollama_dirs | grep .); dsize "${d[@]}"; }
+preview_ollama_models() {
+  ollama list 2>/dev/null | sed 's/^/  /'
+  info "  ${DIM}Obs.: modelos derivados compartilham arquivos; 'ollama rm' só apaga o que nenhum outro usa.${RST}"
+}
+clean_ollama_models() {
+  local models=() sel=() m
+  mapfile -t models < <(ollama list 2>/dev/null | awk 'NR>1 {print $1}')
+  ((${#models[@]})) || return 0
+  if (( DRY )); then
+    for m in "${models[@]}"; do run ollama rm "$m"; done; return 0
+  fi
+  if ask "  Remover TODOS os ${#models[@]} modelos? (N = escolher quais)"; then
+    sel=("${models[@]}")
+  elif has fzf; then
+    info "  Selecione com TAB (ENTER confirma, ESC cancela):"
+    mapfile -t sel < <(ollama list 2>/dev/null | fzf -m --header-lines=1 --height=40% --prompt="remover> " | awk '{print $1}')
+  else
+    for m in "${models[@]}"; do ask "  Remover $m?" && sel+=("$m"); done
+  fi
+  ((${#sel[@]})) || { info "  ${DIM}nenhum modelo selecionado${RST}"; return 0; }
+  run ollama rm "${sel[@]}" 2>&1 | grep -o "deleted '.*'" | sed 's/^/  /'
+}
+
+# --- projetos antigos ---
+STALE_LIST=()
+register stale_deps "node_modules/.venv sem uso há +${STALE_DAYS}d em ${PROJECT_DIRS[*]/#$HOME/\~}" ask
+scan_stale() {
+  [[ ${#STALE_LIST[@]} -gt 0 ]] && return
+  mapfile -t STALE_LIST < <(find "${PROJECT_DIRS[@]}" -xdev -type d \( -name .git -o -name '.*cache*' \) -prune -o \
+    -type d \( -name node_modules -o -name .venv \) -prune -mtime +"$STALE_DAYS" -print 2>/dev/null)
+}
+avail_stale_deps() { scan_stale; [[ ${#STALE_LIST[@]} -gt 0 ]]; }
+size_stale_deps() { scan_stale; dsize "${STALE_LIST[@]}"; }
+preview_stale_deps() {
+  du -sh "${STALE_LIST[@]}" 2>/dev/null | sort -rh | head -20 | sed "s|$HOME|~|; s/^/  /"
+  (( ${#STALE_LIST[@]} > 20 )) && info "  ... e mais $(( ${#STALE_LIST[@]} - 20 ))"
+}
+clean_stale_deps() {
+  local sel=("${STALE_LIST[@]}")
+  if (( ! DRY )) && has fzf; then
+    info "  Selecione com TAB (ENTER confirma, ESC cancela):"
+    mapfile -t sel < <(printf '%s\n' "${STALE_LIST[@]}" | fzf -m --height=40% --prompt="apagar> " \
+      --preview 'du -sh {}; ls -ld {}/..')
+  fi
+  safe_rm "${sel[@]}"
+}
+
+# ---------- relatório ----------
+report() {
+  info "${B}Maiores diretórios em ~:${RST}"
+  du -xhd1 "$HOME" 2>/dev/null | sort -rh | sed -n '2,16p' | sed "s|$HOME|~|; s/^/  /"
+  printf '\n'; info "${B}Arquivos > 500M em ~ (fora de caches):${RST}"
+  find "$HOME" -xdev \( -path "$HOME/.cache" -o -path "$HOME/.local/share/containers" \) -prune -o \
+    -type f -size +500M -printf '%s\t%TY-%Tm-%Td\t%p\n' 2>/dev/null | sort -rn | head -20 \
+    | while IFS=$'\t' read -r s d p; do printf '  %8s  %s  %s\n' "$(hr "$s")" "$d" "${p/#$HOME/~}"; done
+}
+
+# ---------- setup ----------
+setup() {
+  local ud="${XDG_CONFIG_HOME:-$HOME/.config}/systemd/user"
+  MODE=interactive
+  if ask "1) Instalar timer diário do usuário (roda '--auto' só quando o disco passar de ${AUTO_MIN_USAGE}%)?"; then
+    # as unidades vêm do pacote stow (dotfiles/disk-clean/.config/systemd/user)
+    [[ -e $ud/disk-clean.timer ]] || { warn "Unidades não encontradas em $ud — rode: stow -d ~/dotfiles -t ~ disk-clean"; return 1; }
+    systemctl --user daemon-reload && systemctl --user enable --now disk-clean.timer && info "${G}✓ disk-clean.timer ativo${RST}"
+  fi
+  if ask "2) Ativar paccache.timer (limpa o cache do pacman toda semana, mantém 3 versões)?"; then
+    sudo systemctl enable --now paccache.timer && info "${G}✓ paccache.timer ativo${RST}"
+  fi
+  if ask "3) Limitar o journal a $JOURNAL_MAX permanentemente?"; then
+    sudo mkdir -p /etc/systemd/journald.conf.d
+    printf '[Journal]\nSystemMaxUse=%s\n' "$JOURNAL_MAX" | sudo tee /etc/systemd/journald.conf.d/00-disk-clean.conf >/dev/null
+    sudo systemctl restart systemd-journald && info "${G}✓ journald limitado a $JOURNAL_MAX${RST}"
+  fi
+}
+
+# ---------- fluxo principal ----------
+usage() { sed -n '2,15p' "$SELF" | sed 's/^# \{0,1\}//'; exit 0; }
+
+AVAIL_BEFORE=0
+finish() {
+  local after freed pct
+  after=$(disk_avail); freed=$(( after - AVAIL_BEFORE )); pct=$(disk_usage)
+  (( freed < 0 )) && freed=0
+  printf '\n'; info "${B}Liberado: ${G}$(hr "$freed")${RST}${B} · Uso atual: ${pct}% · Livre: $(hr "$after")${RST}"
+  log "FIM: liberado=$(hr "$freed") uso=${pct}%"
+  if [[ $MODE == auto ]]; then
+    (( freed > 0 )) && notify "Limpeza automática liberou $(hr "$freed"). Uso: ${pct}%"
+    (( pct >= THRESHOLD )) && notify "Disco ainda em ${pct}%. Rode 'disk-clean' no terminal para mais opções." critical
+  elif (( pct >= THRESHOLD )); then
+    info "${Y}Ainda acima de ${THRESHOLD}%. Veja 'disk-clean --report' para achar arquivos grandes.${RST}"
+  fi
+}
+
+while (($#)); do
+  case $1 in
+    -n|--dry-run) DRY=1 ;;
+    -a|--auto)    MODE=auto ;;
+    -c|--check)   MODE=check ;;
+    -f|--force)   FORCE=1 ;;
+    -r|--report)  MODE=report ;;
+    --setup)      MODE=setup ;;
+    --list)       MODE=list ;;
+    --only)       ONLY=${2:-}; shift ;;
+    -h|--help)    usage ;;
+    *) die "opção desconhecida: $1 (veja --help)" ;;
+  esac
+  shift
+done
+
+(( EUID == 0 )) && die "Não rode como root. O script chama sudo só quando precisa."
+
+exec 9>"$LOCK"
+flock -n 9 || die "Outra instância já está rodando."
+
+case $MODE in
+  list)   for id in "${TASKS[@]}"; do printf '%-18s %-5s %s\n' "$id" "${T_LEVEL[$id]}" "${T_DESC[$id]}"; done; exit 0 ;;
+  report) report; exit 0 ;;
+  setup)  setup; exit 0 ;;
+  check)
+    pct=$(disk_usage)
+    if (( pct >= THRESHOLD )); then notify "Disco em ${pct}% (livre: $(hr "$(disk_avail)")). Rode 'disk-clean'." critical; exit 1; fi
+    info "Uso: ${pct}% (limite ${THRESHOLD}%)"; exit 0 ;;
+esac
+
+pct=$(disk_usage)
+AVAIL_BEFORE=$(disk_avail)
+log "INÍCIO: uso=${pct}% dry=$DRY"
+
+if [[ $MODE == auto ]] && (( pct < AUTO_MIN_USAGE && ! FORCE )); then
+  log "Uso ${pct}% < ${AUTO_MIN_USAGE}%, nada a fazer"
+  exit 0
+fi
+
+info "${B}Disco: ${pct}% usado · $(hr "$AVAIL_BEFORE") livre${RST}  ${DIM}(log: ${LOG/#$HOME/~})${RST}"
+(( DRY )) && info "${C}Modo dry-run: nada será apagado.${RST}"
+info "${DIM}Analisando...${RST}"
+
+# filtros
+declare -A WANT=()
+if [[ -n $ONLY ]]; then IFS=, read -ra o <<<"$ONLY"; for x in "${o[@]}"; do WANT[$x]=1; done; fi
+declare -A SKIPPED=(); for x in "${SKIP[@]}"; do SKIPPED[$x]=1; done
+
+declare -A SIZE=()
+SEL=(); total=0
+for id in "${TASKS[@]}"; do
+  [[ -n $ONLY && -z ${WANT[$id]:-} ]] && continue
+  [[ -n ${SKIPPED[$id]:-} ]] && continue
+  [[ $MODE == auto && ${T_LEVEL[$id]} != safe ]] && continue
+  if declare -F "avail_$id" >/dev/null; then "avail_$id" || continue; fi
+  s=$("size_$id" 2>/dev/null); s=${s:-0}
+  (( s < 1048576 )) && [[ $id != orphans ]] && continue   # ignora < 1 MiB
+  SIZE[$id]=$s; SEL+=("$id"); total=$(( total + s ))
+done
+
+if ((${#SEL[@]} == 0)); then info "Nada relevante para limpar."; finish; exit 0; fi
+
+printf '\n%s%-4s %-10s %-6s %s%s\n' "$B" "#" "Tamanho" "Tipo" "Descrição" "$RST"
+i=0
+for id in "${SEL[@]}"; do
+  i=$((i+1))
+  lvl=${T_LEVEL[$id]}; [[ $lvl == safe ]] && tag="${G}seguro ${RST}" || tag="${Y}revisar${RST}"
+  (( T_SUDO[$id] )) && su=" ${DIM}(sudo)${RST}" || su=""
+  printf '%-4s %-10s %s %s%s\n' "$i" "$(hr "${SIZE[$id]}")" "$tag" "${T_DESC[$id]}" "$su"
+done
+printf '%s     %-10s (estimativa; docker/journal mostram o liberável, demais o total)%s\n\n' "$DIM" "$(hr "$total")" "$RST"
+
+for id in "${SEL[@]}"; do
+  if [[ $MODE == interactive ]]; then
+    info "${C}▸ ${T_DESC[$id]} — $(hr "${SIZE[$id]}")${RST}"
+    declare -F "preview_$id" >/dev/null && "preview_$id"
+    ask "  Limpar?" || { (( DRY )) || info "  ${DIM}pulado${RST}"; continue; }
+  else
+    info "${C}▸ ${T_DESC[$id]}${RST}"
+  fi
+  if (( T_SUDO[$id] )) && ! need_sudo; then
+    warn "sem sudo disponível, pulando $id"; continue
+  fi
+  "clean_$id" || warn "falha em $id (veja acima)"
+done
+
+finish

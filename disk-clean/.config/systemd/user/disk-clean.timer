@@ -1,0 +1,10 @@
+[Unit]
+Description=Roda disk-clean diariamente
+
+[Timer]
+OnCalendar=daily
+RandomizedDelaySec=30min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
