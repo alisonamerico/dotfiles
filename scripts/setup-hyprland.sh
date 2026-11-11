@@ -200,6 +200,8 @@ install_packages() {
         npm
         docker
         docker-compose
+        pacman-contrib
+        libnotify
     )
 
     case $VIDEO_DRIVER in

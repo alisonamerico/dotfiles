@@ -46,7 +46,10 @@ cd ~/dotfiles
 ls -d */
 
 # Apply packages
-stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff swaync images scripts
+stow -t $HOME hypr waybar rofi zsh kitty nvim tmux git yazi ruff swaync images scripts disk-clean
+
+# Enable the disk-clean timer, paccache.timer and the journald size limit
+disk-clean --setup
 ```
 
 ### Reload configurations
@@ -96,6 +99,9 @@ dotfiles/
 ├── yazi/                         # Yazi config
 ├── ruff/ruff.toml                # Ruff config
 ├── swaync/.config/swaync/        # SwayNotificationCenter
+├── disk-clean/                   # Disk cleanup script
+│   ├── .local/bin/disk-clean       # → ~/.local/bin/disk-clean
+│   └── .config/systemd/user/       # Daily timer (disk-clean.timer)
 ├── images/                       # Images source
 │   └── wallpapers/                 # → ~/wallpapers (symlink)
 ├── scripts/                      # Utility scripts
@@ -126,6 +132,7 @@ dotfiles/
 - noto-fonts-emoji, papirus-icon-theme
 - tree, wget, unzip, fd, fzf, glow
 - nodejs, npm, docker, docker-compose
+- pacman-contrib (paccache), libnotify (notify-send) — used by disk-clean
 
 **Video drivers:**
 - nvidia/nvidia-open/amd/intel + mesa
@@ -168,6 +175,29 @@ Install Nerd Fonts:
 ```bash
 ./scripts/install-nerdfonts.sh
 ```
+
+### `disk-clean`
+Frees disk space safely. Each target is tagged **safe** (regenerable caches:
+pacman/yay, journal, coredumps, Docker build cache and dangling images,
+uv/pip/npm/go/cargo) or **review** (may hold your data: orphan packages,
+Docker containers/volumes, browser caches, trash, stale `node_modules`/`.venv`,
+Ollama models). Review targets only run interactively, after showing what will
+be removed.
+
+```bash
+disk-clean -n          # dry-run: show what would be removed
+disk-clean             # interactive: asks item by item [s/N/q]
+disk-clean --auto      # safe targets only (used by the timer)
+disk-clean --report    # largest dirs/files in ~ (read-only)
+disk-clean --only docker_build,yay_cache   # ids from `disk-clean --list`
+disk-clean --setup     # enable daily timer, paccache.timer, journald limit
+```
+
+The daily timer runs `--auto` only when disk usage is above 75%, and sends a
+desktop notification if usage stays above 85%. Deletions are restricted to an
+allowlist of paths and logged to `~/.local/state/disk-clean/disk-clean.log`.
+Optional settings go in `~/.config/disk-clean.conf` (e.g. `THRESHOLD=90`,
+`STALE_DAYS=90`, `SKIP=(browser_cache)`).
 
 ## Troubleshooting
 
